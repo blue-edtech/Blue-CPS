@@ -1,6 +1,6 @@
 # Aula #1 - Deep Learning - Parte 1
 
-Por <a href="https://www.youtube.com/paulosalvatore">Paulo Salvatore</a> - Head de Produtos <a href="https://blueedtech.com.br/quem-somos/">@Blue Edtech</a>
+Por <a href="https://www.youtube.com/paulosalvatore" target="_blank">Paulo Salvatore</a> - Head de Produtos <a href="https://blueedtech.com.br/quem-somos/" target="_blank">@Blue Edtech</a>
 
 Olá :wave:, seja bem-vindo(a) ao nosso primeiro vídeo desta série. Nosso objetivo é introduzir o conceito de rede neural, neurônios, aprendizagem profunda, funções de ativação, algoritmo de Backpropagation e aplicação prática com TensorFlow Playground.
 
@@ -10,7 +10,7 @@ Antes de mergulharmos no **Deep Learning** (D.L. - aprendizagem profunda) é nec
 
 ![Aula01_Figura01](Aula01_Figura01.png)
 
-A I.A. começou sua evolução pela década de 50 e faz parte do campo de estudos da Ciência da Computação que se combina a conjuntos de dados robustos para permitir a resolução de problemas. Alan Turing, muitas vezes chamado de "pai da ciência da computação", frequentemente questionava se as máquinas seriam capazes de pensar. A partir daí definiu que a I.A. seria categorizada como <a href="https://www.ibm.com/br-pt/cloud/learn/what-is-artificial-intelligence">"sistemas que agem como humanos"</a>.
+A I.A. começou sua evolução pela década de 50 e faz parte do campo de estudos da Ciência da Computação que se combina a conjuntos de dados robustos para permitir a resolução de problemas. Alan Turing, muitas vezes chamado de "pai da ciência da computação", frequentemente questionava se as máquinas seriam capazes de pensar. A partir daí definiu que a I.A. seria categorizada como <a href="https://www.ibm.com/br-pt/cloud/learn/what-is-artificial-intelligence" target="_blank">"sistemas que agem como humanos"</a>.
 
 O **Machine Learning** (M.L. - aprendizagem de máquina) veio um pouquinho depois, se tornando uma técnica de aprendizagem de máquina para que ela reconheça padrões e aprenda em cima de um grande conjunto de dados e a partir deste aprendizado tomamos decisões, fazemos previsões, entre outros.
 
@@ -32,13 +32,13 @@ No processo de D.L., os dados entram pela camada de **Input**, e os processos de
 
 Para que estes conceitos fiquem mais claros, assista aos vídeos a seguir:
 
-- Este carro autônomo usa o D.L. para saber se objetos que passam no campo de visão são carros ou não: <a href="https://www.youtube.com/watch?v=mUV5ZwIC9_g&feature=youtu.be">Carro Autônomo</a>.
+- Este carro autônomo usa o D.L. para saber se objetos que passam no campo de visão são carros ou não: <a href="https://www.youtube.com/watch?v=mUV5ZwIC9_g&feature=youtu.be" target="_blank">Carro Autônomo</a>.
 
-- No reconhecimento de voz as palavras são identificadas através do Input de vários arquivos de voz: <a href="https://www.youtube.com/watch?v=NaqZkV_fBIM&feature=youtu.be">Reconhecimento de Voz</a>.
+- No reconhecimento de voz as palavras são identificadas através do Input de vários arquivos de voz: <a href="https://www.youtube.com/watch?v=NaqZkV_fBIM&feature=youtu.be" target="_blank">Reconhecimento de Voz</a>.
 
-- Projeto GauGAN da Nvidia que transforma desenhos em paisagens usando Redes Neurais: <a href="https://www.youtube.com/watch?v=p5U4NgVGAwg">GauGAN</a>.
+- Projeto GauGAN da Nvidia que transforma desenhos em paisagens usando Redes Neurais: <a href="https://www.youtube.com/watch?v=p5U4NgVGAwg" target="_blank">GauGAN</a>.
 
-- Poder de análise de dados entre CPU vs. GPU: <a href="https://www.youtube.com/watch?v=-P28LKWTzrI">CPU vs. GPU</a>.
+- Poder de análise de dados entre CPU vs. GPU: <a href="https://www.youtube.com/watch?v=-P28LKWTzrI" target="_blank">CPU vs. GPU</a>.
 
 ### Formas de Análise de Input de Dados
 
@@ -71,8 +71,8 @@ Este mesmo processo de `Input -> Análise dos dados -> Output` é feito pelo nos
 
 ## ❗️ Links & Referências usadas nesta aula
 
-Esta aula no [Miro](https://miro.com/app/board/o9J_ljr0G-g=/)
+Esta aula no <a href="https://miro.com/app/board/o9J_ljr0G-g=/" target="_blank">Miro</a>
 
-Site [Tensorflow Playground](https://playground.tensorflow.org/)
+Site <a href="https://playground.tensorflow.org/" target="_blank">Tensorflow Playground</a>
 
-Site [3Blue1Brown](https://www.3blue1brown.com/topics/neural-networks)
+Site <a href="https://www.3blue1brown.com/topics/neural-networks" target="_blank">3Blue1Brown</a>
