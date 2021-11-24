@@ -8,5 +8,5 @@ Copiar o que foi divulgado nas redes sociais?
 
 | Conteúdo da aula                                             | Vídeo                                                        | Descrição          |
 | :----------------------------------------------------------- | ------------------------------------------------------------ | ------------------ |
-| [README.md (GitHub)]([01] Deep Learning - Parte 1/README.md) | [Deep Learning - Parte 1 (YouTube)](https://www.youtube.com/watch?v=zrOveuk06XE) | Introdução ao Tema |
+| <a href="/[01] Deep Learning - Parte 1/README.md">README.md (GitHub)</a> | [Deep Learning - Parte 1 (YouTube)](https://www.youtube.com/watch?v=zrOveuk06XE) | Introdução ao Tema |
 
