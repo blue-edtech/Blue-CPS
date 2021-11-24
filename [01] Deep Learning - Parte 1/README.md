@@ -8,7 +8,7 @@ Olá :wave:, seja bem-vindo(a) ao nosso primeiro vídeo desta série. Nosso obje
 
 Antes de mergulharmos no **Deep Learning** (D.L. - aprendizagem profunda) é necessário sabermos que ele está dentro de uma estrutura de conhecimentos da **Inteligência Artificial** (I.A.).
 
-![Aula01_Figura01](Aula01_Figura01.png)
+![Aula01_Figura01](imagens/Aula01_Figura01.png)
 
 A I.A. começou sua evolução pela década de 50 e faz parte do campo de estudos da Ciência da Computação que se combina a conjuntos de dados robustos para permitir a resolução de problemas. Alan Turing, muitas vezes chamado de "pai da ciência da computação", frequentemente questionava se as máquinas seriam capazes de pensar. A partir daí definiu que a I.A. seria categorizada como <a href="https://www.ibm.com/br-pt/cloud/learn/what-is-artificial-intelligence" target="_blank">"sistemas que agem como humanos"</a>.
 
@@ -16,7 +16,7 @@ O **Machine Learning** (M.L. - aprendizagem de máquina) veio um pouquinho depoi
 
 O Deep Learning fez sua primeira aparição entre as décadas de 70 e 80 e começou a se popularizar a partir de 2010. É um método que incorpora redes neurais em camadas para que a aprendizagem a partir dos dados seja feita de forma iterativa.
 
-![Aula01_Figura02](Aula01_Figura02.png)
+![Aula01_Figura02](imagens/Aula01_Figura02.png)
 
 Tanto M.L. quanto o D.L recebem informações na camada de **Input** (entrada) e, baseados nestas informações, tomam decisões ou fazem alguma previsão na camada de **Output** (saída), comparando aos dados que já eram conhecidos.
 
@@ -44,7 +44,7 @@ Para que estes conceitos fiquem mais claros, assista aos vídeos a seguir:
 
 Neste exemplo, somos um algoritmo de I.A. com o objetivo de entender informações:
 
-![Aula01_Figura03](Aula01_Figura03.png)
+![Aula01_Figura03](imagens/Aula01_Figura03.png)
 
 A letra `A` pode ser entendida de diversas formas:
 
@@ -59,7 +59,7 @@ Para que, ao final do processo, tenhamos a informação que aquela letra represe
 
 O mesmo processo é feito para dígitos numéricos:
 
-![Aula01_Figura04](Aula01_Figura04.png)
+![Aula01_Figura04](imagens/Aula01_Figura04.png)
 
 O dígito pode ter sido escrito à mão, digitado em um computador ou extraído de uma imagem. Como algoritmos, precisamos ler estes **Inputs** para saber que o dígito é um `5` e não uma representação dele.
 
