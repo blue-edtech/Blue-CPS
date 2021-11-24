@@ -6,7 +6,7 @@ Copiar o que foi divulgado nas redes sociais?
 
 ## 💻 Série de Vídeos
 
-|                                                              |                    |
-| :----------------------------------------------------------- | ------------------ |
-| <a href="https://www.youtube.com/watch?v=zrOveuk06XE&t=74s" target="__blank">Deep Learning - Parte 1</a> | Introdução ao Tema |
+| Conteúdo da aula                                             | Vídeo                                                        | Descrição          |
+| :----------------------------------------------------------- | ------------------------------------------------------------ | ------------------ |
+| [README.md (GitHub)]([01] Deep Learning - Parte 1/README.md) | [Deep Learning - Parte 1 (YouTube)](https://www.youtube.com/watch?v=zrOveuk06XE) | Introdução ao Tema |
 
