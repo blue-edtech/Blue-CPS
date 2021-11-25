@@ -22,9 +22,9 @@ Tanto M.L. quanto o D.L recebem informações na camada de **Input** (entrada) e
 
 No processo de M.L., os dados entram pela camada de **Input**, e a extração deles é feita completamente por um Ser Humano. Estruturados e organizados, estes dados são classificados por uma máquina, gerando um resultado na camada de **Output**.
 
-> **_NOTA:_** O processo de extração se caracteriza por observar, analisar e estruturar o conjunto de dados recebidos na camada **Input**.
+> ***_NOTA :clipboard: :pencil2: :_***  O processo de extração se caracteriza por observar, analisar e estruturar o conjunto de dados recebidos na camada **Input**.
 
-> **_NOTA:_** O processo de classificação é feito inteiramente por uma máquina, através de uma ou um conjunto de fórmulas matemáticas classificando todas as features extraídas.
+> ***_NOTA :clipboard: :pencil2: :_***  O processo de classificação é feito inteiramente por uma máquina, através de uma ou um conjunto de fórmulas matemáticas classificando todas as features extraídas.
 
 No processo de D.L., os dados entram pela camada de **Input**, e os processos de extração e classificação das features, são feitos inteiramente pela máquina gerando o **Output**. A grande vantagem é que ele pode nos trazer informações interessantes e/ou relevantes, que poderiam passar despercebidas pelo Ser Humano.
 
@@ -71,7 +71,7 @@ Este mesmo processo de `Input -> Análise dos dados -> Output` é feito pelo nos
 
 Para que o cérebro seja capaz de fazer todas as coisas que hoje sabemos que faz, podemos imaginar que um único neurônio possui uma estrutura e forma de funcionar bastante complexa. 
 
-Por hora não vamos nos servir desta complexidade toda mas sim de sua simplicidade funcional: receber e transmitir impulsos elétricos - receber e transmitir informação. ![Aula01_Figura06](C:\Users\Chanely\Documents\GitHub\Blue-CPS\[01] Deep Learning - Parte 1\imagens\Aula01_Figura06.png)
+Por hora não vamos nos servir desta complexidade toda mas sim de sua simplicidade funcional: receber e transmitir impulsos elétricos - receber e transmitir informação. ![Aula01_Figura06](imagens/Aula01_Figura06.png)
 
 A estrutura básica de um neurônio consiste em:
 
@@ -94,15 +94,15 @@ Este mesmo processo é feito para todas as informações que captamos do ambient
 
 > Por hora, queremos que você guarde a seguinte informação: podemos  fazer uma analogia de tudo que vemos acima a um único neurônio de máquina. Vamos imaginar que esse neurônio tem a responsabilidade de armazenar um número aleatório entre 0 e 1.
 
-![Aula01_Figura05](C:\Users\Chanely\Documents\GitHub\Blue-CPS\[01] Deep Learning - Parte 1\imagens\Aula01_Figura05.png)
+![Aula01_Figura05](imagens/Aula01_Figura05.png)
 
-## Representação Matemática em Deep Learning
+## Representação Matemática
 
 <16:59>
 
 Vamos observar e estudar com calma a figura abaixo:
 
-![Aula01_Figura07](C:\Users\Chanely\Documents\GitHub\Blue-CPS\[01] Deep Learning - Parte 1\imagens\Aula01_Figura07.png)
+![Aula01_Figura07](imagens/Aula01_Figura07.png)
 
 Paralelamente à estrutura de um neurônio, esta representação matemática possui uma região que recebe <b>Inputs</b> (dendrito), outra que <b>analisa, processa e envia as informações</b> (corpo celular e axônio) e por fim, a que faz o <b>Output</b> (axônio terminal).
 
@@ -116,9 +116,9 @@ Dentre todos os conceitos de uma rede neural, certamente o entendimento sobre <b
 
 Quando a informação é transmitida da camada de Input para a de processamento os pesos são aplicados à esta informação, somados, e carreados adiante para uma função de ativação juntamente com os valores propagados.
 
-> **_NOTA:_** Os pesos são coeficientes da equação que estamos tentando resolver naquele momento.
+> ***_NOTA :clipboard: :pencil2: :_***  Os pesos são coeficientes da equação que estamos tentando resolver naquele momento.
 
-> **_NOTA:_** Os valores propagados consistem em vetores adicionados ao produto dos Inputs e dos pesos que compensam os resultados colocando-os mais ou menos para o positivo ou negativo.
+> ***_NOTA :clipboard: :pencil2: :_***  Os valores propagados consistem em vetores adicionados ao produto dos Inputs e dos pesos que compensam os resultados colocando-os mais ou menos para o positivo ou negativo.
 
 Cada informação que entra pela camada de Input é <b>multiplicada</b> por um <b>peso</b> que recebe um valor aleatório. 
 
@@ -134,7 +134,7 @@ Com o resultado total em mãos ele será passado por uma função de ativação 
 
 Munidos destes detalhes a estrutura básica do nosso neurônio toma uma forma diferente mas, sem alteração no seu funcionamento, como podemos ver abaixo:
 
-![Aula01_Figura08](C:\Users\Chanely\Documents\GitHub\Blue-CPS\[01] Deep Learning - Parte 1\imagens\Aula01_Figura08.png)
+![Aula01_Figura08](imagens/Aula01_Figura08.png)
 
 <21:55>
 
@@ -142,7 +142,7 @@ Munidos destes detalhes a estrutura básica do nosso neurônio toma uma forma di
 
 Para aprofundarmos nosso estudo vamos falar sobre um banco de dados bastante específico chamado <b>MINIST</b> que contém imagens binárias de dígitos escritos à mão por diversas pessoas.
 
-![Aula01_Figura09](C:\Users\Chanely\Documents\GitHub\Blue-CPS\[01] Deep Learning - Parte 1\imagens\Aula01_Figura09.png)
+![Aula01_Figura09](imagens/Aula01_Figura09.png)
 
 > ***Importante***: Identificar o dígito de qualquer uma destas imagens pelo nosso Deep Learning é análoga a um 'Hello World!'. Atente-se à maldição. :jack_o_lantern:
 
@@ -152,19 +152,55 @@ O MIINST tem um primo evoluído chamado <b>Fashion-MINIST</b>, um banco de dados
 
 No vídeo abaixo temos um exemplo de como um algoritmo observa um conjunto de dados com artigos de moda em geral e os posiciona por similaridade.
 
-![Aula1_Gif01](C:\Users\Chanely\Documents\GitHub\Blue-CPS\[01] Deep Learning - Parte 1\imagens\Aula01_Gif01.gif ****** VOU ARRUMAR ESTE LINK PORQUE SE DEIXAR ELE LIGADO MEU PC TRAVA kkkkkkrying
+![Aula1_Gif01](imagens/Aula01_Gif01.gif) 
 
 <23:57>
 
 Das 70.000 imagens que podemos encontrar no MINIST, vamos pegar uma delas para o nosso exercício, com 28px de largura por 28px de altura totalizando 784px organizados em linhas e colunas.
 
-![Aula01_Figura11](C:\Users\Chanely\Documents\GitHub\Blue-CPS\[01] Deep Learning - Parte 1\imagens\Aula01_Figura11.png)
+![Aula01_Figura11](imagens/Aula01_Figura11.png)
 
 Cada ponto na imagem é análogo a um neurônio tendo números no intervalo de 0 a 1.
 
-![Aula01_Figura12](C:\Users\Chanely\Documents\GitHub\Blue-CPS\[01] Deep Learning - Parte 1\imagens\Aula01_Figura12.png)
+![Aula01_Figura12](imagens/Aula01_Figura12.png)
 
+Quanto mais próximo do número `1` o neurônio se encontra, mais forte está sendo ativado. Veja na imagem que o branco se evidencia com o número `1.0` dentro dele.
 
+Quanto mais próximo do número `0` o neurônio se encontra, menos ativado está sendo. Veja na imagem que o preto se evidencia com o número `0.0` dentro dele.
+
+Entre `0` e `1` temos o neurônio parcialmente ativado. Veja na imagem que o branco começa a se evidenciar com o número `0.7 ou 0.8` dentro dele.
+
+> ***_NOTA :clipboard: :pencil2: :_***  No dataset do MINIST todas as imagens acompanham o significado do que ela representa. No nosso exemplo a imagem recebe o significado `3`.
+
+Para uma análise em que o Input receba um arquivo de áudio, a análise será realizada da mesma forma observando a frequência e sua intensidade.
+
+![Aula01_Figura13](imagens/Aula01_Figura13.png)
+
+Cada frequência carrega consigo uma intensidade, gerando um Output que pode ser uma letra qualquer ou uma frase, por exemplo.
+
+## Modelo de Rede Neural
+
+<27:47>
+
+Semelhante à representação do neurônio, o modelo de rede neural carrega a mesma estrutura.
+
+![Aula01_Figura14](imagens/Aula01_Figura14.png)
+
+- Camada de entrada (Input) - recebe os valores de entrada e os passa para a próxima cada sem aplicar pesos ou bias. No nosso exemplo temos `1`, `0.5`e `0.2` entrando no modelo.
+
+- Camada Oculta (Hidden) - nesta camada temos uma representação de uma coleção de neurônios empilhados verticalmente e totalmente conectados, que realizam a transformação dos dados que chegam da camada de Input. 
+
+  > ***_NOTA :clipboard: :pencil2: :_***  é nesta camada que todo o processamento e entendimento da rede é feito. 
+
+  No nosso exemplo temos 4 camadas ocultas, sendo que a primeira recebeu o valor dos Inputs, alterando-os para o resultado `0.42` e o entregará para a camada de Output.
+
+- Camada de saída (Output) - Aqui obtemos o número de valores desejados. No nosso exemplo temos 2 neurônios nesta camada.
+
+- Rede Neural - Consiste num modelo que não necessariamente está dentro do D.L., mas sim no M.L. 
+
+  <<<<REFATORAR ESSA PARTE MODIQUÊ TÁ TUDO MUITO CONFUSO!>>>>
+
+### Olha só que interessante! :boom:
 
 
 
