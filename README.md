@@ -1,9 +1,5 @@
 # Parceria Blue EdTech e Centro Paula Souza
 
-Copiar o que foi divulgado nas redes sociais?
-
-
-
 ## 💻 Série de Vídeos
 
 | Conteúdo da aula                                             | Vídeo                                                        | Descrição          |

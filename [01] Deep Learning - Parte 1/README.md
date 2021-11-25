@@ -71,7 +71,13 @@ Este mesmo processo de `Input -> Análise dos dados -> Output` é feito pelo nos
 
 Para que o cérebro seja capaz de fazer todas as coisas que hoje sabemos que faz, podemos imaginar que um único neurônio possui uma estrutura e forma de funcionar bastante complexa. 
 
+<<<<<<< HEAD
 Por hora não vamos nos servir desta complexidade toda mas sim de sua simplicidade funcional: receber e transmitir impulsos elétricos - receber e transmitir informação. ![Aula01_Figura06](imagens/Aula01_Figura06.png)
+=======
+Por hora não vamos nos servir desta complexidade toda mas sim de sua simplicidade funcional: receber e transmitir impulsos elétricos - receber e transmitir informação.
+
+![Aula01_Figura06](imagens/Aula01_Figura06.png)
+>>>>>>> bf5f6254257b8e66660c2a72110a44cedfa59e2a
 
 A estrutura básica de um neurônio consiste em:
 
@@ -148,11 +154,15 @@ Para aprofundarmos nosso estudo vamos falar sobre um banco de dados bastante esp
 
 O MIINST tem um primo evoluído chamado <b>Fashion-MINIST</b>, um banco de dados de imagens de artigos da [Zalando](https://github.com/zalandoresearch/fashion-mnist). Possui um conjunto de 60.000 exemplos de treinamento para aprendizagem de máquina e um conjunto de teste de 10.000 exemplos. Cada exemplo é uma imagem em tons de cinza de 28x28, associada a um rótulo de 10 classes.
 
-![Aula01_Figura10](C:\Users\Chanely\Documents\GitHub\Blue-CPS\[01] Deep Learning - Parte 1\imagens\Aula01_Figura10.png)
+![Aula01_Figura10](imagens/Aula01_Figura10.png)
 
 No vídeo abaixo temos um exemplo de como um algoritmo observa um conjunto de dados com artigos de moda em geral e os posiciona por similaridade.
 
+<<<<<<< HEAD
 ![Aula1_Gif01](imagens/Aula01_Gif01.gif) 
+=======
+![Aula1_Gif01](imagens\Aula01_Gif01.gif ****** VOU ARRUMAR ESTE LINK PORQUE SE DEIXAR ELE LIGADO MEU PC TRAVA kkkkkkrying
+>>>>>>> bf5f6254257b8e66660c2a72110a44cedfa59e2a
 
 <23:57>
 
@@ -163,6 +173,10 @@ Das 70.000 imagens que podemos encontrar no MINIST, vamos pegar uma delas para o
 Cada ponto na imagem é análogo a um neurônio tendo números no intervalo de 0 a 1.
 
 ![Aula01_Figura12](imagens/Aula01_Figura12.png)
+<<<<<<< HEAD
+=======
+
+>>>>>>> bf5f6254257b8e66660c2a72110a44cedfa59e2a
 
 Quanto mais próximo do número `1` o neurônio se encontra, mais forte está sendo ativado. Veja na imagem que o branco se evidencia com o número `1.0` dentro dele.
 
