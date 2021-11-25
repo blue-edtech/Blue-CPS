@@ -190,31 +190,37 @@ Semelhante à representação do neurônio, o modelo de rede neural carrega a me
 
 ![Aula01_Figura14](imagens/Aula01_Figura14.png)
 
-- Camada de entrada (Input) - recebe os valores de entrada e os passa para a próxima cada sem aplicar pesos ou bias. No nosso exemplo temos `1`, `0.5`e `0.2` entrando no modelo.
+- Camada de entrada (Input) - é a primeira camada da rede neural que recebe os valores de entrada e os passa para a próxima cada sem aplicar pesos ou bias. 
 
-- Camada Oculta (Hidden) - nesta camada temos uma representação de uma coleção de neurônios empilhados verticalmente e totalmente conectados, que realizam a transformação dos dados que chegam da camada de Input. 
+  No nosso exemplo temos os valores `1`, `0.5`e `0.2` entrando no modelo.
+
+- Camada Oculta (Hidden) - nesta camada encontramos os neurônios organizados em nós, interconectados com as camadas de Input e Output, que aplicam os pesos e bias aos valores recebidos. De forma didática para nosso entendimento podemos ver que estes nós neuronais estão verticalmente empilhados no número de `4` bolinhas azuis.
 
   > ***_NOTA :clipboard: :pencil2: :_***  é nesta camada que todo o processamento e entendimento da rede é feito. 
 
-  No nosso exemplo temos 4 camadas ocultas, sendo que a primeira recebeu o valor dos Inputs, alterando-os para o resultado `0.42` e o entregará para a camada de Output.
+  O primeiro nó neuronal recebeu o valor dos Inputs, alterando-os para o resultado `0.42` e o entregará para a camada de Output.
 
-- Camada de saída (Output) - Aqui obtemos o número de valores desejados. No nosso exemplo temos 2 neurônios nesta camada.
+- Camada de saída (Output) - sendo a última camada na rede, recebe o total da camada oculta.
 
-- Rede Neural - Consiste num modelo que não necessariamente está dentro do D.L., mas sim no M.L. 
-
-  <<<<REFATORAR ESSA PARTE MODIQUÊ TÁ TUDO MUITO CONFUSO!>>>>
+  No nosso exemplo, o valor de Output modificado é de `0.74`.
 
 ### Olha só que interessante! :boom:
 
+Um modelo de rede neural que não necessariamente está dentro do D.L., mas sim no M.L. 
 
+Quando vemos um modelo de rede neural com apenas <b>uma única camada oculta</b> estamos olhando para um modelo tradicional de M.L. que sempre foi usado em diversos exemplos.
 
+A mágica fica maior, complexa e interessante quando adicionamos <b>mais camadas ocultas</b> a este modelo que gera uma <b>Rede Neural Profunda</b>
 
+![Aula01_Figura15](imagens/Aula01_Figura15.png)
 
+Logo, a quantidade de camadas ocultas é o que define se meu modelo se trata de uma rede neural profunda ou apenas uma rede neural normal.
 
+![Aula01_Figura16](imagens/Aula01_Figura16.png)
 
+## Conectando tudo
 
-
-
+<30:31>
 
 
 
