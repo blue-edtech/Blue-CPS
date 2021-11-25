@@ -69,32 +69,32 @@ Este mesmo processo de `Input -> Análise dos dados -> Output` é feito pelo nos
 
 <13:08> - Paulo, me empolguei um pouco aqui porque sou perdidamente louca por neurociências :B <3
 
-Para que o cérebro seja capaz de fazer todas as coisas que hoje sabemos que faz, podemos imaginar que um único neurônio possui uma estrutura e forma de funcionar bastante complexa. 
+Para que o cérebro consiga de fazer todas as coisas que hoje sabemos que é capaz de fazer, podemos imaginar que um único neurônio têm sua estrutura e forma de funcionar bastante complexa. 
 
-Por hora não vamos nos servir desta complexidade toda mas sim de sua simplicidade funcional: receber e transmitir impulsos elétricos - receber e transmitir informação.
+Por hora não vamos nos servir desta complexidade, mas sim de sua simplicidade funcional: receber e transmitir impulsos elétricos, ou seja, receber e transmitir informações.
 
 ![Aula01_Figura06](imagens/Aula01_Figura06.png)
 
 A estrutura básica de um neurônio consiste em:
 
 - <b>Dendritos</b>: é por aqui que as informações entram - `Inputs`,
-- <b>Corpo celular</b>: recebidas as informações, serão analisadas, processadas e decididas quanto ao destino,
-- <b>Axônio envolto de ilhas de bainha de mielina</b>: fio condutor responsável por transmitir a informação do corpo celular para o axônio terminal, e;
-- <b>Axônio terminal</b>:  é por aqui que as informações saem - `Outputs`
+- <b>Corpo celular</b>: recebidas as informações, as mesmas serão analisadas, processadas e decididas quanto ao destino,
+- <b>Axônio envolto de ilhas de bainha de mielina</b>: fio condutor responsável por transmitir as informações do corpo celular para o axônio terminal, e;
+- <b>Axônio terminal</b>:  é por aqui que as informações saem - `Outputs`.
 
-Para que as informações saiam do axônio terminal `A` para o dendrito do axônio `B`uma estrutura chamada <b>sinapse</b> - que pode ser química ou elétrica - é ativada através do estímulo que sai do axônio terminal para o dendrito.
+Para que as informações saiam do axônio terminal `A` para o dendrito do axônio `B`uma estrutura chamada <b>sinapse</b> - que pode ser química ou elétrica - é ativada através do estímulo que sai do axônio terminal de `A` para o dendrito de `B`.
 
 Graças à essas sinapses nosso cérebro é capaz de processar 11 bilhões de bits por segundo através de conexões paralelas entre todos os neurônios.
 
-> ***_Curiosidade_***: Uma sinapse se forma de um neurônio do cérebro com outro neurônio do cérebro. Quando um neurônio do cérebro precisa falar com uma célula muscular para ativar qualquer músculo no corpo, a estrutura se chama <b>junção neuromuscular</b>.
+> ***_Curiosidade_***: Uma sinapse se forma entre um neurônio do cérebro com outro neurônio do cérebro. Quando um neurônio do cérebro precisa falar com uma célula muscular para ativar qualquer músculo no corpo, a estrutura se chama <b>junção neuromuscular</b>.
 
-Este conceito de processar informações paralelamente é bastante conhecido por nós: <b>processamento paralelo</b>, que explora e usa simultaneamente várias unidades de processamento (CPU's).
+Este conceito de processar informações paralelamente é bastante conhecido por nós, o <b>processamento paralelo</b>, que explora e usa simultaneamente várias unidades de processamento (CPU's).
 
-Por exemplo, ao ouvirmos a letra `A`, a informação do som (Hz) é transmitida pelos condutos auditivos, captada pelos neurônios especializados que estimulam uma cascata de estímulos elétricos ativando o processamento paralelo nas áreas cerebrais especializadas em audição, para que finalmente o reconhecimento da informação `A` seja feito e devolvido para nós em forma de "Hmm, isso que eu ouvi é a letra `A`, eu a conheço!".
+Por exemplo, ao ouvirmos a letra `A`, a informação do som em Hz é transmitida pelos condutos auditivos e captada pelos neurônios especializados. Estes captadores formam uma cascata de estímulos elétricos ativando o processamento paralelo nas áreas cerebrais especializadas em audição, para que finalmente o reconhecimento da informação `A` seja feito e devolvido para nós em forma de "Hmm, isso que eu ouvi é a letra `A`, eu a conheço!".
 
 Este mesmo processo é feito para todas as informações que captamos do ambiente através dos 5 sentidos.
 
-> Por hora, queremos que você guarde a seguinte informação: podemos  fazer uma analogia de tudo que vemos acima a um único neurônio de máquina. Vamos imaginar que esse neurônio tem a responsabilidade de armazenar um número aleatório entre 0 e 1.
+> Por hora, queremos que você guarde o seguinte: podemos  fazer uma analogia de tudo que vimos acima a um único neurônio de máquina. Na máquina este neurônio realiza uma função muito simples que é a de armazenar um número aleatório entre 0 e 1.
 
 ![Aula01_Figura05](imagens/Aula01_Figura05.png)
 
@@ -106,63 +106,65 @@ Vamos observar e estudar com calma a figura abaixo:
 
 ![Aula01_Figura07](imagens/Aula01_Figura07.png)
 
-Paralelamente à estrutura de um neurônio, esta representação matemática possui uma região que recebe <b>Inputs</b> (dendrito), outra que <b>analisa, processa e envia as informações</b> (corpo celular e axônio) e por fim, a que faz o <b>Output</b> (axônio terminal).
+Paralelamente à estrutura funcional de um neurônio, esta representação matemática possui uma região que recebe <b>Inputs</b> (dendrito), outra que <b>analisa, processa e envia as informações</b> (corpo celular e axônio) e por fim, a que faz o <b>Output</b> (axônio terminal).
 
-Vamos trabalhar novamente o exemplo da letra `A`. Ela entrará na camada Roxa de Input, será processada na camada Laranja trazendo algum resultado e sairá pela camada Verde de Output nos trazendo o resultado se a letra `A` foi ou não identificada.
+Vamos trabalhar novamente o exemplo da letra `A`: a informação entrará na camada Roxa de Input, será processada na camada Laranja, e sairá pela camada Verde de Output nos trazendo o resultado se a letra `A` foi ou não identificada.
 
-> ***Importante.:*** Neste momento precisamos ter muito claro que a camada de Input é por onde entram as informações e a camada de Output é por onde elas saem.
+> ***Importante :bangbang: :*** Neste momento precisamos ter muito claro que a camada de Input é por onde entram as informações e a camada de Output é por onde elas saem.
 
 ### Processamento das informações
 
-Dentre todos os conceitos de uma rede neural, certamente o entendimento sobre <b>pesos (wheight)</b> e <b>valores propagados (bias)</b> são os de fundamental importância.
+Dentre todos os conceitos de uma rede neural, certamente o entendimento sobre <b>pesos (Wheights)</b> e <b>valores propagados (Bias)</b> são os de fundamental importância.
 
-Quando a informação é transmitida da camada de Input para a de processamento os pesos são aplicados à esta informação, somados, e carreados adiante para uma função de ativação juntamente com os valores propagados.
+Quando a informação é transmitida da camada de Input para a de processamento, os pesos são aplicados à esta informação, somados e carreados adiante para uma função de ativação juntamente com os valores de Bias.
 
 > ***_NOTA :clipboard: :pencil2: :_***  Os pesos são coeficientes da equação que estamos tentando resolver naquele momento.
 
-> ***_NOTA :clipboard: :pencil2: :_***  Os valores propagados consistem em vetores adicionados ao produto dos Inputs e dos pesos que compensam os resultados colocando-os mais ou menos para o positivo ou negativo.
+> ***_NOTA :clipboard: :pencil2: :_***  Os valores de Bias consistem em vetores adicionados ao produto dos Inputs e dos pesos que compensam os resultados colocando-os mais ou menos para o positivo ou negativo.
 
-Cada informação que entra pela camada de Input é <b>multiplicada</b> por um <b>peso</b> que recebe um valor aleatório. 
+Cada informação que entra pela camada de Input é <b>multiplicada</b> por um <b>peso</b> que recebe um valor aleatório.  
 
-Como exemplo, vamos imaginar que recebemos as letras `A` com o valor de `2` e `B` com o valor de `5` pela camada de Input. O `peso A` recebe o valor de `3` e `peso B` recebe o valor de `6`.
+![Aula01_Figura08](imagens/Aula01_Figura08.png)
+
+Por exemplo, vamos imaginar que recebemos as letras `A` com o valor de `2` e `B` com o valor de `5` pela camada de Input. 
+
+O `peso A` recebe o valor de `3` e `peso B` recebe o valor de `6`.
 
 :key: :bulb: O <b>somatório</b> será o total de: <b>(`A` * Peso A) + (`B` * Peso B) = 36 </b>.
 
-Agora podemos adicionar um valor de bias que pode ser um número positivo ou negativo, por exemplo, `-2`
+Agora podemos adicionar um valor de bias que pode ser um número positivo ou negativo, no caso `-2`
 
 :key: :bulb: O <b>total</b> do processamento será: <b>(somatório + bias) = 34</b>.
 
 Com o resultado total em mãos ele será passado por uma função de ativação e a partir dela teremos um novo número que será passado para a camada de Output.
 
-Munidos destes detalhes a estrutura básica do nosso neurônio toma uma forma diferente mas, sem alteração no seu funcionamento, como podemos ver abaixo:
-
-![Aula01_Figura08](imagens/Aula01_Figura08.png)
+Vamos entrar mais a fundo em cada uma dessas partes?
 
 <21:55>
 
 ## Camada de Entrada (Input)
 
-Para aprofundarmos nosso estudo vamos falar sobre um banco de dados bastante específico chamado <b>MINIST</b> que contém imagens binárias de dígitos escritos à mão por diversas pessoas.
+Para aprofundarmos nosso estudo e deixá-lo mais tangível, vamos falar sobre um banco de dados bastante específico chamado <b>MINIST</b> que contém imagens binárias de dígitos escritos à mão por diversas pessoas.
 
 ![Aula01_Figura09](imagens/Aula01_Figura09.png)
 
-> ***Importante***: Identificar o dígito de qualquer uma destas imagens pelo nosso Deep Learning é análoga a um 'Hello World!'. Atente-se à maldição. :jack_o_lantern:
+> ***Importante*** :bangbang: : Identificar o dígito de qualquer uma destas imagens pelo nosso Deep Learning é uma tarefa análoga a um 'Hello World!'. Atente-se à maldição. :jack_o_lantern:
 
-O MIINST tem um primo evoluído chamado <b>Fashion-MINIST</b>, um banco de dados de imagens de artigos da [Zalando](https://github.com/zalandoresearch/fashion-mnist). Possui um conjunto de 60.000 exemplos de treinamento para aprendizagem de máquina e um conjunto de teste de 10.000 exemplos. Cada exemplo é uma imagem em tons de cinza de 28x28, associada a um rótulo de 10 classes.
+O MIINST tem um primo evoluído chamado <b>Fashion-MINIST</b>, um banco de dados de imagens de artigos da [Zalando](https://github.com/zalandoresearch/fashion-mnist). Possui um conjunto de 60.000 exemplos de treinamento para aprendizagem de máquina e um conjunto de teste de 10.000 exemplos. Cada exemplo é uma imagem em tons de cinza de 28px por 28px, associada a um rótulo de 10 classes.
 
 ![Aula01_Figura10](imagens/Aula01_Figura10.png)
 
-No vídeo abaixo temos um exemplo de como um algoritmo observa um conjunto de dados com artigos de moda em geral e os posiciona por similaridade.
+No vídeo-exemplo abaixo podemos analisar como um algoritmo observa um conjunto de dados com artigos de moda em geral e os posiciona por similaridade.
 
 ![Aula1_Gif01](imagens/Aula01_Gif01.gif)
 
 <23:57>
 
-Das 70.000 imagens que podemos encontrar no MINIST, vamos pegar uma delas para o nosso exercício, com 28px de largura por 28px de altura totalizando 784px organizados em linhas e colunas.
+Das 70.000 imagens que podemos encontrar no MINIST, vamos pegar uma delas para o nosso exercício que contém 28px de largura por 28px de altura totalizando 784px organizados em linhas e colunas.
 
 ![Aula01_Figura11](imagens/Aula01_Figura11.png)
 
-Cada ponto na imagem é análogo a um neurônio tendo números no intervalo de 0 a 1.
+Cada ponto na imagem é análogo a um neurônio contendo números que vão do intervalo de 0 a 1.
 
 ![Aula01_Figura12](imagens/Aula01_Figura12.png)
 
