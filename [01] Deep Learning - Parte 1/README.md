@@ -156,15 +156,13 @@ No vídeo abaixo temos um exemplo de como um algoritmo observa um conjunto de da
 
 <23:57>
 
+Das 70.000 imagens que podemos encontrar no MINIST, vamos pegar uma delas para o nosso exercício, com 28px de largura por 28px de altura totalizando 784px organizados em linhas e colunas.
 
+![Aula01_Figura11](C:\Users\Chanely\Documents\GitHub\Blue-CPS\[01] Deep Learning - Parte 1\imagens\Aula01_Figura11.png)
 
+Cada ponto na imagem é análogo a um neurônio tendo números no intervalo de 0 a 1.
 
-
-
-
-
-
-
+![Aula01_Figura12](C:\Users\Chanely\Documents\GitHub\Blue-CPS\[01] Deep Learning - Parte 1\imagens\Aula01_Figura12.png)
 
 
 
