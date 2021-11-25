@@ -222,6 +222,92 @@ Logo, a quantidade de camadas ocultas é o que define se meu modelo se trata de 
 
 <30:31>
 
+Você se lembra que falamos sobre o MINIST alguns passos atrás? 
+
+![Aula01_Figura09](imagens/Aula01_Figura09.png)
+
+O banco de dados do MINIST possui um conjunto de treinamento de 60.000 imagens e um conjunto de testes com 10.000, ou seja, um sub-conjunto de um conjunto maior de treinamento disponível. 
+
+Nós utilizamos o sub-conjunto de 10.000 imagens-teste para comparar o resultado que vamos obtendo durante o treinamento e refinando o algoritmo.
+
+Primeiro apresentamos a imagem ao modelo, o treino, ensino e comparo ao que ele não conhece para validar o resultado.
+
+Podemos fazer uma analogia ao treino de caligrafia (pessoa idosa aqui :older_woman:) que fazíamos na escola. Até alcançarmos algo parecido com a letra da professora (é a meta que a gente almeja, né?! kkkrying) treinamos diversas vezes e ao longo do processo observamos em nosso caderno centenas de formas diferentes de fazer a mesma letra (todas um horror até a perfeição, a gente sabe! :sweat:).
+
+Na atividade treina-compara-testa nossa rede é capaz de generalizar e abstrair e observar novas imagens nunca vistas os resultados se tornam cada vez mais positivos.
+
+Na prática, a imagem que a rede recebe do MINIST está em em preto e branco, normalizada por tamanho e centralizada para caber em uma caixa delimitadora de pixels de 28x28, totalizando 784px, e suavização de borda criando os tons de cinza que vimos anteriormente.
+
+Dentro do dataset estas imagens ficam dentro da categoria <b>Images</b> e ao lado encontramos as etiquetas <b>(Labels)</b> destas imagens que traz a respectiva representação para realizar a comparação.
+
+![Aula01_Figura17](imagens/Aula01_Figura17.png)
+
+Após escolhermos a imagem de treino para o nosso modelo precisamos realizar um procedimento antes de a colocarmos na camada de Input, este processo se chama <b>achatamento</b>.
+
+Este processo consiste em transformar todo o vetor de 28x28px em um vetor linear unidimensional, ou seja, de uma única linha para conectá-lo com a próxima camada.
+
+![Aula01_Figura18](imagens/Aula01_Figura18.png)
+
+As linhas achatadas são feitas de forma sequencial respeitando a ordem das linhas na matriz, ou seja, a primeira linha com 28 colunas é achatada e colocada na primeira posição, a segunda tem suas 28 colunas achatas e colocadas na segunda posição, e assim por diante, gerando uma única linha com 784 pixels.
+
+Cada um destes pixels é o que de fato a rede vai usar para definir a representação da imagem.
+
+Cada pixel da imagem contendo um valor que vai `0` a `1` equivale a um neurônio na camada de Input.
+
+![Aula01_Figura19](imagens/Aula01_Figura19.png)
+
+Podemos ver que o primeiro pixel vai para o primeiro neurônio da camada e o último para seu neurônio respectivo. Desta forma temos todos os pixels da matriz representados dentro do modelo.
+
+No nosso modelo temos 2 camadas ocultas com 16 neurônios cada.
+
+> ***_NOTA_***: A quantidade de camadas ocultas e seus pontos são definidos por nós
+
+![Aula01_Figura20](imagens/Aula01_Figura20.png)
+
+## Camada de Saída (Output)
+
+Tudo que foi processado e se tornou relevante pelo nosso modelo deve ser apresentado nesta camada.
+
+![Aula01_Figura21](imagens/Aula01_Figura21.png)
+
+Em um outro exemplo, a nossa imagem de entrada é a representação do número `7`. Ela foi achatada e processada pelo modelo enchendo o neurônio do número `7` na camada de Output.
+
+Se observarmos a figura acima atentamente perceberemos que temos um neurônio para cada número escrito à mão contido dentro do Dataset.
+
+> Importante: Cada possibilidade na camada de saída deve ser igualmente proporcional à quantidade de itens que serão inseridos através de representações em nosso modelo.
+
+Quando juntamos todas as camadas de nosso modelo percebemos que Input e Output estão sempre conectadas e relacionadas pelo conjunto de dados.
+
+
+
+![Aula01_Figura22](imagens/Aula01_Figura22.png)
+
+Para sabermos se nossa rede acertou o número que inserimos, precisamos identificar o número que ela assumiu para cada uma das informações e a partir disso vemos se acertou mais ou menos.
+
+Os dados na camada de saída são fundamentais para sabermos se a rede está acertando ou errando durante o treinamento. Lembrando que quanto mais próximo de `1` o valor dentro do neurônio chega, mais acertado é o resultado.
+
+![Aula01_Figura23](imagens/Aula01_Figura23.png)
+
+## Parâmetros
+
+<39:24>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
