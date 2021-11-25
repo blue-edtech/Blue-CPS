@@ -71,7 +71,9 @@ Este mesmo processo de `Input -> Análise dos dados -> Output` é feito pelo nos
 
 Para que o cérebro seja capaz de fazer todas as coisas que hoje sabemos que faz, podemos imaginar que um único neurônio possui uma estrutura e forma de funcionar bastante complexa. 
 
-Por hora não vamos nos servir desta complexidade toda mas sim de sua simplicidade funcional: receber e transmitir impulsos elétricos - receber e transmitir informação. ![Aula01_Figura06](imagens\Aula01_Figura06.png)
+Por hora não vamos nos servir desta complexidade toda mas sim de sua simplicidade funcional: receber e transmitir impulsos elétricos - receber e transmitir informação.
+
+![Aula01_Figura06](imagens/Aula01_Figura06.png)
 
 A estrutura básica de um neurônio consiste em:
 
@@ -94,7 +96,7 @@ Este mesmo processo é feito para todas as informações que captamos do ambient
 
 > Por hora, queremos que você guarde a seguinte informação: podemos  fazer uma analogia de tudo que vemos acima a um único neurônio de máquina. Vamos imaginar que esse neurônio tem a responsabilidade de armazenar um número aleatório entre 0 e 1.
 
-![Aula01_Figura05](imagens\Aula01_Figura05.png)
+![Aula01_Figura05](imagens/Aula01_Figura05.png)
 
 ## Representação Matemática em Deep Learning
 
@@ -102,7 +104,7 @@ Este mesmo processo é feito para todas as informações que captamos do ambient
 
 Vamos observar e estudar com calma a figura abaixo:
 
-![Aula01_Figura07](imagens\Aula01_Figura07.png)
+![Aula01_Figura07](imagens/Aula01_Figura07.png)
 
 Paralelamente à estrutura de um neurônio, esta representação matemática possui uma região que recebe <b>Inputs</b> (dendrito), outra que <b>analisa, processa e envia as informações</b> (corpo celular e axônio) e por fim, a que faz o <b>Output</b> (axônio terminal).
 
@@ -134,7 +136,7 @@ Com o resultado total em mãos ele será passado por uma função de ativação 
 
 Munidos destes detalhes a estrutura básica do nosso neurônio toma uma forma diferente mas, sem alteração no seu funcionamento, como podemos ver abaixo:
 
-![Aula01_Figura08](imagens\Aula01_Figura08.png)
+![Aula01_Figura08](imagens/Aula01_Figura08.png)
 
 <21:55>
 
@@ -142,13 +144,13 @@ Munidos destes detalhes a estrutura básica do nosso neurônio toma uma forma di
 
 Para aprofundarmos nosso estudo vamos falar sobre um banco de dados bastante específico chamado <b>MINIST</b> que contém imagens binárias de dígitos escritos à mão por diversas pessoas.
 
-![Aula01_Figura09](imagens\Aula01_Figura09.png)
+![Aula01_Figura09](imagens/Aula01_Figura09.png)
 
 > ***Importante***: Identificar o dígito de qualquer uma destas imagens pelo nosso Deep Learning é análoga a um 'Hello World!'. Atente-se à maldição. :jack_o_lantern:
 
 O MIINST tem um primo evoluído chamado <b>Fashion-MINIST</b>, um banco de dados de imagens de artigos da [Zalando](https://github.com/zalandoresearch/fashion-mnist). Possui um conjunto de 60.000 exemplos de treinamento para aprendizagem de máquina e um conjunto de teste de 10.000 exemplos. Cada exemplo é uma imagem em tons de cinza de 28x28, associada a um rótulo de 10 classes.
 
-![Aula01_Figura10](imagens\Aula01_Figura10.png)
+![Aula01_Figura10](imagens/Aula01_Figura10.png)
 
 No vídeo abaixo temos um exemplo de como um algoritmo observa um conjunto de dados com artigos de moda em geral e os posiciona por similaridade.
 
@@ -158,11 +160,12 @@ No vídeo abaixo temos um exemplo de como um algoritmo observa um conjunto de da
 
 Das 70.000 imagens que podemos encontrar no MINIST, vamos pegar uma delas para o nosso exercício, com 28px de largura por 28px de altura totalizando 784px organizados em linhas e colunas.
 
-![Aula01_Figura11](imagens\Aula01_Figura11.png)
+![Aula01_Figura11](imagens/Aula01_Figura11.png)
 
 Cada ponto na imagem é análogo a um neurônio tendo números no intervalo de 0 a 1.
 
-![Aula01_Figura12](imagens\Aula01_Figura12.png)
+![Aula01_Figura12](imagens/Aula01_Figura12.png)
+
 
 
 
