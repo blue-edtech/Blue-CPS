@@ -20,13 +20,13 @@ O Deep Learning fez sua primeira aparição entre as décadas de 70 e 80 e come�
 
 Tanto M.L. quanto o D.L recebem informações na camada de **Input** (entrada) e, baseados nestas informações, tomam decisões ou fazem alguma previsão na camada de **Output** (saída), comparando aos dados que já eram conhecidos.
 
-No processo de M.L., os dados entram pela camada de **Input**, e a extração deles é feita completamente por um Ser Humano. Estruturados e organizados, estes dados são classificados por uma máquina, gerando um resultado na camada de **Output**.
+No processo de M.L., os dados entram pela camada de **entrada**, e a extração deles é feita completamente por um Ser Humano. Estruturados e organizados, estes dados são classificados por uma máquina, gerando um resultado na camada de **saída**.
 
-> ***_NOTA :clipboard: :pencil2: :_***  O processo de extração se caracteriza por observar, analisar e estruturar o conjunto de dados recebidos na camada **Input**.
+> ***_NOTA :clipboard: :pencil2: :_***  O processo de extração se caracteriza por observar, analisar e estruturar o conjunto de dados recebidos na camada **de entrada**.
 
 > ***_NOTA :clipboard: :pencil2: :_***  O processo de classificação é feito inteiramente por uma máquina, através de uma ou um conjunto de fórmulas matemáticas classificando todas as features extraídas.
 
-No processo de D.L., os dados entram pela camada de **Input**, e os processos de extração e classificação das features, são feitos inteiramente pela máquina gerando o **Output**. A grande vantagem é que ele pode nos trazer informações interessantes e/ou relevantes, que poderiam passar despercebidas pelo Ser Humano.
+No processo de D.L., os dados entram pela camada de **entrada**, e os processos de extração e classificação das features, são feitos inteiramente pela máquina gerando a **saída**. A grande vantagem é que ele pode nos trazer informações interessantes e/ou relevantes, que poderiam passar despercebidas pelo Ser Humano.
 
 > **_Obs.:_** Para ambos os processos, os dados precisam ser preparados por um Ser Humano para entrar no processo de aprendizagem.
 
@@ -34,13 +34,13 @@ Para que estes conceitos fiquem mais claros, assista aos vídeos a seguir:
 
 - Este carro autônomo usa o D.L. para saber se objetos que passam no campo de visão são carros ou não: <a href="https://www.youtube.com/watch?v=mUV5ZwIC9_g&feature=youtu.be" target="_blank">Carro Autônomo</a>.
 
-- No reconhecimento de voz as palavras são identificadas através do Input de vários arquivos de voz: <a href="https://www.youtube.com/watch?v=NaqZkV_fBIM&feature=youtu.be" target="_blank">Reconhecimento de Voz</a>.
+- No reconhecimento de voz as palavras são identificadas através da inserção de vários arquivos de voz: <a href="https://www.youtube.com/watch?v=NaqZkV_fBIM&feature=youtu.be" target="_blank">Reconhecimento de Voz</a>.
 
 - Projeto GauGAN da Nvidia que transforma desenhos em paisagens usando Redes Neurais: <a href="https://www.youtube.com/watch?v=p5U4NgVGAwg" target="_blank">GauGAN</a>.
 
 - Poder de análise de dados entre CPU vs. GPU: <a href="https://www.youtube.com/watch?v=-P28LKWTzrI" target="_blank">CPU vs. GPU</a>.
 
-### Formas de Análise de Input de Dados
+### Formas de Análise de Inserção de Dados
 
 Neste exemplo, somos um algoritmo de I.A. com o objetivo de entender informações:
 
@@ -61,9 +61,9 @@ O mesmo processo é feito para dígitos numéricos:
 
 ![Aula01_Figura04](imagens/Aula01_Figura04.png)
 
-O dígito pode ter sido escrito à mão, digitado em um computador ou extraído de uma imagem. Como algoritmos, precisamos ler estes **Inputs** para saber que o dígito é um `5` e não uma representação dele.
+O dígito pode ter sido escrito à mão, digitado em um computador ou extraído de uma imagem. Como algoritmos, precisamos ler estes **dados inseridos** para saber que o dígito é um `5` e não uma representação dele.
 
-Este mesmo processo de `Input -> Análise dos dados -> Output` é feito pelo nosso cérebro o tempo todo. Através da rede neural, espalhada por todo o corpo é captamos as informações do ambiente, as transformamos em estímulos sensoriais que são entendidos e traduzidos pelos neurônios no cérebro que  nos devolve a informação em forma de sensação de tato, audição, visão ou paladar e a partir disso tomamos alguma decisão.
+Este mesmo processo de `Inserção de Dados -> Análise dos dados -> Saída` é feito pelo nosso cérebro o tempo todo. Através da rede neural, espalhada por todo o corpo é captamos as informações do ambiente, as transformamos em estímulos sensoriais que são entendidos e traduzidos pelos neurônios no cérebro que  nos devolve a informação em forma de sensação de tato, audição, visão ou paladar e a partir disso tomamos alguma decisão.
 
 ## Preparação da Rede Neural
 
@@ -108,25 +108,25 @@ Vamos observar e estudar com calma a figura abaixo:
 
 Paralelamente à estrutura funcional de um neurônio, esta representação matemática possui uma região que recebe <b>Inputs</b> (dendrito), outra que <b>analisa, processa e envia as informações</b> (corpo celular e axônio) e por fim, a que faz o <b>Output</b> (axônio terminal).
 
-Vamos trabalhar novamente o exemplo da letra `A`: a informação entrará na camada Roxa de Input, será processada na camada Laranja, e sairá pela camada Verde de Output nos trazendo o resultado se a letra `A` foi ou não identificada.
+Vamos trabalhar novamente o exemplo da letra `A`: a informação entrará na camada Roxa de entrada, será processada na camada Laranja, e sairá pela camada Verde de saída nos trazendo o resultado se a letra `A` foi ou não identificada.
 
-> ***Importante :bangbang: :*** Neste momento precisamos ter muito claro que a camada de Input é por onde entram as informações e a camada de Output é por onde elas saem.
+> ***Importante :bangbang: :*** Neste momento precisamos ter muito claro que a camada de entrada é por onde entram as informações e a camada de saída é por onde elas saem.
 
 ### Processamento das informações
 
 Dentre todos os conceitos de uma rede neural, certamente o entendimento sobre <b>pesos (Wheights)</b> e <b>valores propagados (Bias)</b> são os de fundamental importância.
 
-Quando a informação é transmitida da camada de Input para a de processamento, os pesos são aplicados à esta informação, somados e carreados adiante para uma função de ativação juntamente com os valores de Bias.
+Quando a informação é transmitida da camada de entrada para a de processamento, os pesos são aplicados à esta informação, somados e carreados adiante para uma função de ativação juntamente com os valores de Bias.
 
 > ***_NOTA :clipboard: :pencil2: :_***  Os pesos são coeficientes da equação que estamos tentando resolver naquele momento.
 
-> ***_NOTA :clipboard: :pencil2: :_***  Os valores de Bias consistem em vetores adicionados ao produto dos Inputs e dos pesos que compensam os resultados colocando-os mais ou menos para o positivo ou negativo.
+> ***_NOTA :clipboard: :pencil2: :_***  Os valores de Bias consistem em vetores adicionados ao produtos adicionados na camada de imput e dos pesos que compensam os resultados colocando-os mais ou menos para o positivo ou negativo.
 
-Cada informação que entra pela camada de Input é <b>multiplicada</b> por um <b>peso</b> que recebe um valor aleatório.  
+Cada informação que entra pela camada de entrada é <b>multiplicada</b> por um <b>peso</b> que recebe um valor aleatório.  
 
 ![Aula01_Figura08](imagens/Aula01_Figura08.png)
 
-Por exemplo, vamos imaginar que recebemos as letras `A` com o valor de `2` e `B` com o valor de `5` pela camada de Input. 
+Por exemplo, vamos imaginar que recebemos as letras `A` com o valor de `2` e `B` com o valor de `5` pela camada de entrada. 
 
 O `peso A` recebe o valor de `3` e `peso B` recebe o valor de `6`.
 
@@ -136,7 +136,7 @@ Agora podemos adicionar um valor de bias que pode ser um número positivo ou neg
 
 :key: :bulb: O <b>total</b> do processamento será: <b>(somatório + bias) = 34</b>.
 
-Com o resultado total em mãos ele será passado por uma função de ativação e a partir dela teremos um novo número que será passado para a camada de Output.
+Com o resultado total em mãos ele será passado por uma função de ativação e a partir dela teremos um novo número que será passado para a camada de saída.
 
 Vamos entrar mais a fundo em cada uma dessas partes?
 
@@ -176,11 +176,11 @@ Entre `0` e `1` temos o neurônio parcialmente ativado. Veja na imagem que o bra
 
 > ***_NOTA :clipboard: :pencil2: :_***  No dataset do MINIST todas as imagens acompanham o significado do que ela representa. No nosso exemplo a imagem recebe o significado `3`.
 
-Para uma análise em que o Input receba um arquivo de áudio, a análise será realizada da mesma forma observando a frequência e sua intensidade.
+Para uma análise em que a camada de entrada receba um arquivo de áudio, a análise será realizada da mesma forma observando a frequência e sua intensidade.
 
 ![Aula01_Figura13](imagens/Aula01_Figura13.png)
 
-Cada frequência carrega consigo uma intensidade, gerando um Output que pode ser uma letra qualquer ou uma frase, por exemplo.
+Cada frequência carrega consigo uma intensidade, gerando uma saída que pode ser uma letra qualquer ou uma frase, por exemplo.
 
 ## Modelo de Rede Neural
 
@@ -194,15 +194,15 @@ Semelhante à representação do neurônio, o modelo de rede neural carrega a me
 
   No nosso exemplo temos os valores `1`, `0.5`e `0.2` entrando no modelo.
 
-- Camada Oculta (Hidden) - nesta camada encontramos os neurônios organizados em nós, interconectados com as camadas de Input e Output, que aplicam os pesos e bias aos valores recebidos. De forma didática para nosso entendimento podemos ver que estes nós neuronais estão verticalmente empilhados no número de `4` bolinhas azuis.
+- Camada Oculta (Hidden) - nesta camada encontramos os neurônios organizados em nós, interconectados com as camadas de entrada e saída, que aplicam os pesos e bias aos valores recebidos. De forma didática para nosso entendimento podemos ver que estes nós neuronais estão verticalmente empilhados no número de `4` bolinhas azuis.
 
   > ***_NOTA :clipboard: :pencil2: :_***  é nesta camada que todo o processamento e entendimento da rede é feito. 
 
-  O primeiro nó neuronal recebeu o valor dos Inputs, alterando-os para o resultado `0.42` e o entregará para a camada de Output.
+  O primeiro nó neuronal recebeu os valores da camada de entrada, alterando-os para o resultado `0.42` e o entregará para a camada de saída.
 
 - Camada de saída (Output) - sendo a última camada na rede, recebe o total da camada oculta.
 
-  No nosso exemplo, o valor de Output modificado é de `0.74`.
+  No nosso exemplo, o valor de saída modificado é de `0.74`.
 
 ### Olha só que interessante! :boom:
 
@@ -242,7 +242,7 @@ Dentro do dataset estas imagens ficam dentro da categoria <b>Images</b> e ao lad
 
 ![Aula01_Figura17](imagens/Aula01_Figura17.png)
 
-Após escolhermos a imagem de treino para o nosso modelo precisamos realizar um procedimento antes de a colocarmos na camada de Input, este processo se chama <b>achatamento</b>.
+Após escolhermos a imagem de treino para o nosso modelo precisamos realizar um procedimento antes de a colocarmos na camada de entrada, este processo se chama <b>achatamento</b>.
 
 Este processo consiste em transformar todo o vetor de 28x28px em um vetor linear unidimensional, ou seja, de uma única linha para conectá-lo com a próxima camada.
 
@@ -252,7 +252,7 @@ As linhas achatadas são feitas de forma sequencial respeitando a ordem das linh
 
 Cada um destes pixels é o que de fato a rede vai usar para definir a representação da imagem.
 
-Cada pixel da imagem contendo um valor que vai `0` a `1` equivale a um neurônio na camada de Input.
+Cada pixel da imagem contendo um valor que vai `0` a `1` equivale a um neurônio na camada de entrada.
 
 ![Aula01_Figura19](imagens/Aula01_Figura19.png)
 
@@ -260,7 +260,7 @@ Podemos ver que o primeiro pixel vai para o primeiro neurônio da camada e o úl
 
 No nosso modelo temos 2 camadas ocultas com 16 neurônios cada.
 
-> ***_NOTA_***: A quantidade de camadas ocultas e seus pontos são definidos por nós
+> ***_NOTA :clipboard: :pencil2: :_***  A quantidade de camadas ocultas e seus pontos são definidos por nós
 
 ![Aula01_Figura20](imagens/Aula01_Figura20.png)
 
@@ -270,13 +270,13 @@ Tudo que foi processado e se tornou relevante pelo nosso modelo deve ser apresen
 
 ![Aula01_Figura21](imagens/Aula01_Figura21.png)
 
-Em um outro exemplo, a nossa imagem de entrada é a representação do número `7`. Ela foi achatada e processada pelo modelo enchendo o neurônio do número `7` na camada de Output.
+Em um outro exemplo, a nossa imagem de entrada é a representação do número `7`. Ela foi achatada e processada pelo modelo enchendo o neurônio do número `7` na camada de saída.
 
 Se observarmos a figura acima atentamente perceberemos que temos um neurônio para cada número escrito à mão contido dentro do Dataset.
 
-> Importante: Cada possibilidade na camada de saída deve ser igualmente proporcional à quantidade de itens que serão inseridos através de representações em nosso modelo.
+> ***Importante*** :bangbang: : Identificar o dígito de qualquer uma destas imagens pelo nosso Deep Learning é uma tarefa análoga a um 'Hello World!'. Atente-se à maldição. Cada possibilidade na camada de saída deve ser igualmente proporcional à quantidade de itens que serão inseridos através de representações em nosso modelo.
 
-Quando juntamos todas as camadas de nosso modelo percebemos que Input e Output estão sempre conectadas e relacionadas pelo conjunto de dados.
+Quando juntamos todas as camadas de nosso modelo percebemos que a entrada e saída estão sempre conectadas e relacionadas pelo conjunto de dados.
 
 
 
@@ -288,29 +288,93 @@ Os dados na camada de saída são fundamentais para sabermos se a rede está ace
 
 ![Aula01_Figura23](imagens/Aula01_Figura23.png)
 
-## Parâmetros
+## Parâmetros Utilizados - Pesos e Bias
 
 <39:24>
 
+Cada um dos 16 neurônios da camada escondida está conectado a um pixel recebido da camada de entrada, ou seja, cada neurônio recebe os 784 pixels.
 
+![Aula01_Figura24](imagens/Aula01_Figura24.png)
 
+Cada peso multiplicado ao valor de entrada + bias representa a força da conexão entre os neurônios. Se o peso do neurônio `1` ao `3` for maior que o peso do neurônio `4` ao `7`, terá maior influência sobre estes.
 
+Por lógica, percebemos que os parâmetros podem diminuir a <b>importância</b> dos pixels recebidos na camada de entrada e que serão entregues na camada de saída, dependendo de sua configuração na camada oculta.
 
+![Aula01_Figura25](imagens/Aula01_Figura25.png)
 
+Vamos agora a um exemplo prático e simples - e que vai quebrar a tradição do 'Hello World', certamente seremos perdoados pelos fins didáticos!
 
+Neste exemplo temos um único pixel com <b>duas</b> possibilidade de cores.
 
+A <b>primeira</b> possibilidade representa o pixel de cor <b>preta</b>.
 
+A <b>segunda</b> possibilidade representa o pixel de cor <b>branca</b>.
 
+Note que a camada de entrada tem um único ponto e a de saída dois pontos correspondentes ao preto e branco.
 
+![Aula01_Figura26](imagens/Aula01_Figura26.png)
 
+Quanto mais próximo de `1`, mais o neurônio de cor preta foi ativado na camada de saída.
 
+Quanto mais próximo de `1`, mais o neurônio de cor branca foi ativado na camada de saída.
 
+Sim! Existe a possibilidade dos neurônios serem ativados juntos. :O
 
+Recebemos então, uma imagem com um pixel preto que foi inserida em nosso modelo e os parâmetros foram adicionados.
 
+Cada um destes parâmetros de entrada estão conectados aos neurônios na camada oculta e a esta conexão damos o nome de <b>peso</b>.
 
+> Para lembrar: Para cada um dos neurônios nós multiplicamos o peso ao parâmetro. 
 
+> Para lembrar: Os pesos podem ser positivos ou negativos, dando mais ou menos força ao neurônio.
 
+A camada oculta vai tentar entender a informação recebida em diversos níveis, a depender do que configuramos. 
 
+Para o nosso exemplo, um pouco de branco e um pouco de preto, um neurônio para identificar a cor  branca `0` e outro neurônio para a cor preta `1`. Juntos, estes neurônios ativam simultaneamente os neurônios da camada de saída nos trazendo o resultado.
+
+Cada um dos neurônios da camada oculta também se conectam aos da camada de saída através dos pesos.
+
+## Combinação de Imagens para Formar um Dígito
+
+<46:10>
+
+Voltando ao exemplo do MINIST vamos analisar as imagens abaixo:
+
+![Aula01_Figura27](imagens/Aula01_Figura27.png)
+
+Perceba que a imagem do número `9` pode ser dividida em dois fragmentos, no primeiro temos um círculo, e mo segundo um traço na vertical.
+
+Um neurônio é responsável por identificar o `primeiro fragmento` e outro neurônio o `segundo fragmento`.
+
+Juntos, ativam o neurônio do `número 9` na camada de saída. 
+
+![Aula01_Figura28](imagens/Aula01_Figura28.png)
+
+Para a imagem do número `8` temos novamente dois fragmentos, um círculo maior na porção superior e um outro círculo menor na porção inferior.
+
+> ***_NOTA :clipboard: :pencil2: :_***  As informações são quebradas desta forma por uma questão de utilidade
+
+![Aula01_Figura29](imagens/Aula01_Figura29.png)
+
+Na imagem do número `4`, o `primeiro fragmento` é representado por uma linha vertical que ocupa quase que totalmente a linha média do quadrado - o mesmo visto no número `9`, o `segundo fragmento` é também uma linha vertical ocupando parte do quadrante superior direito e o `terceiro fragmento` representado por uma linha na horizontal ocupando o centro do quadrado.
+
+O treinamento de reconhecimento destas imagens são feitos ao mesmo tempo nas camadas ocultas de mais alto nível.
+
+![Aula01_Figura30](imagens/Aula01_Figura30.png)
+
+Assim, obteremos o seguinte resultado:
+
+![Aula01_Figura31](imagens/Aula01_Figura31.png)
+
+Cada um dos neurônios guarda a informação da representação de cada um dos desenhos que vimos.
+
+A ativação dos neurônios em verde nos mostra que há grandes chances do número `4` ser ativado e os em roxo, o número `8`.
+
+> :key: :bulb: Até aqui entendemos que a rede neural coleta as informações que está observando, as combina e toma alguma decisão a partir disso.
+
+## Como cada pedaço de fragmento é identificado?
+
+<49:40>
 
 ## ❗️ Links & Referências usadas nesta aula
 
@@ -319,3 +383,57 @@ Esta aula no <a href="https://miro.com/app/board/o9J_ljr0G-g=/" target="_blank">
 Site <a href="https://playground.tensorflow.org/" target="_blank">Tensorflow Playground</a>
 
 Site <a href="https://www.3blue1brown.com/topics/neural-networks" target="_blank">3Blue1Brown</a>
+
+
+
+## Pendências
+
+<<CHANELY - CRIAR UM DICIONÁRIO-RÁPIDO PARA OS TERMOS: (SALVATORE VALIDAR)
+
+NEURONIO
+
+CONEXÕES
+
+BIAS
+
+FUNÇÃO DE ATIVAÇÃO
+
+CAMADA DE ENTRADA
+
+CAMADA OCULTA
+
+CAMADA DE SAÍDA
+
+FORMATO DE ENTRADA
+
+PESOS
+
+PROPAGAÇÃO
+
+BACKPROPAGATION
+
+TAXA DE APRENDIZAGEM
+
+PRECISÃO
+
+ACURÁCIA
+
+SENSIBILIDADE
+
+CONVERGENCIA
+
+REGULARIZAÇÃO
+
+NORMALIZAÇÃO
+
+CAMADAS COMPLETAMENTE CONECTADAS
+
+PERDA DE FUNÇÃO
+
+OTIMIZAÇÃO DE MODELOS
+
+METRICAS DE PERFORMANCE
+
+BATCH SIZE
+
+TRAINING EPOCHS>>
