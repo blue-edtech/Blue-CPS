@@ -61,13 +61,13 @@ O mesmo processo é feito para dígitos numéricos:
 
 ![Aula01_Figura04](imagens/Aula01_Figura04.png)
 
-O dígito pode ter sido escrito à mão, digitado em um computador ou extraído de uma imagem. Como algoritmos, precisamos ler estes **dados inseridos** para saber que o dígito é um `5` e não uma representação dele.
+O dígito pode ter sido escrito à mão, digitado em um computador ou extraído de uma imagem. Como algoritmos, precisamos ler estes **dados** para saber que o dígito é um `5` e não uma representação dele.
 
-Este mesmo processo de `Inserção de Dados -> Análise dos dados -> Saída` é feito pelo nosso cérebro o tempo todo. Através da rede neural, espalhada por todo o corpo é captamos as informações do ambiente, as transformamos em estímulos sensoriais que são entendidos e traduzidos pelos neurônios no cérebro que  nos devolve a informação em forma de sensação de tato, audição, visão ou paladar e a partir disso tomamos alguma decisão.
+Este mesmo processo de `Entrada de dados -> Análise -> Saída` é feito pelo nosso cérebro o tempo todo. Através da rede neural, espalhada por todo o corpo é captamos as informações do ambiente, as transformamos em estímulos sensoriais que são entendidos e traduzidos pelos neurônios no cérebro que  nos devolve a informação em forma de sensação de tato, audição, visão ou paladar e a partir disso tomamos alguma decisão.
 
 ## Preparação da Rede Neural
 
-<13:08> - Paulo, me empolguei um pouco aqui porque sou perdidamente louca por neurociências :B <3
+<!-- 13:08 -->
 
 Para que o cérebro consiga de fazer todas as coisas que hoje sabemos que é capaz de fazer, podemos imaginar que um único neurônio têm sua estrutura e forma de funcionar bastante complexa. 
 
@@ -77,104 +77,129 @@ Por hora não vamos nos servir desta complexidade, mas sim de sua simplicidade f
 
 A estrutura básica de um neurônio consiste em:
 
-- <b>Dendritos</b>: é por aqui que as informações entram - `Inputs`,
-- <b>Corpo celular</b>: recebidas as informações, as mesmas serão analisadas, processadas e decididas quanto ao destino,
-- <b>Axônio envolto de ilhas de bainha de mielina</b>: fio condutor responsável por transmitir as informações do corpo celular para o axônio terminal, e;
-- <b>Axônio terminal</b>:  é por aqui que as informações saem - `Outputs`.
+- **Dendritos**: é por aqui que as informações entram - `Input`,
+- **Corpo celular**: recebidas as informações, as mesmas serão analisadas, processadas e decididas quanto ao destino,
+- **Axônio envolto de ilhas de bainha de mielina**: fio condutor responsável por transmitir as informações do corpo celular para o axônio terminal, e;
+- **Axônio terminal**:  é por aqui que as informações saem - `Output`.
 
-Para que as informações saiam do axônio terminal `A` para o dendrito do axônio `B`uma estrutura chamada <b>sinapse</b> - que pode ser química ou elétrica - é ativada através do estímulo que sai do axônio terminal de `A` para o dendrito de `B`.
+Para que as informações saiam do axônio terminal `A` para o dendrito do axônio `B`, uma estrutura chamada **sinapse** — que pode ser química ou elétrica — é ativada através do estímulo que sai do axônio terminal de `A` para o dendrito de `B`.
 
-Graças à essas sinapses nosso cérebro é capaz de processar 11 bilhões de bits por segundo através de conexões paralelas entre todos os neurônios.
+Graças à essas sinapses, nosso cérebro é capaz de processar 11 bilhões de bits por segundo através de conexões paralelas entre todos os neurônios.
 
-> ***_Curiosidade_***: Uma sinapse se forma entre um neurônio do cérebro com outro neurônio do cérebro. Quando um neurônio do cérebro precisa falar com uma célula muscular para ativar qualquer músculo no corpo, a estrutura se chama <b>junção neuromuscular</b>.
+> ***_Curiosidade_*** 🧠: Uma sinapse se forma entre um neurônio do cérebro com outro neurônio do cérebro. Quando um neurônio do cérebro precisa falar com uma célula muscular para ativar qualquer músculo no corpo, a estrutura se chama **junção neuromuscular**.
 
-Este conceito de processar informações paralelamente é bastante conhecido por nós, o <b>processamento paralelo</b>, que explora e usa simultaneamente várias unidades de processamento (CPU's).
+Este conceito de processar informações paralelamente é bastante aplicado à computação. Chamado de **processamento paralelo**, ele explora e usa simultaneamente várias unidades de processamento (CPU's) para aumentar a velocidade.
 
-Por exemplo, ao ouvirmos a letra `A`, a informação do som em Hz é transmitida pelos condutos auditivos e captada pelos neurônios especializados. Estes captadores formam uma cascata de estímulos elétricos ativando o processamento paralelo nas áreas cerebrais especializadas em audição, para que finalmente o reconhecimento da informação `A` seja feito e devolvido para nós em forma de "Hmm, isso que eu ouvi é a letra `A`, eu a conheço!".
+Por exemplo, ao ouvirmos a letra `A`, a informação do som (em Hz) é transmitida pelos condutos auditivos e captada pelos neurônios especializados. Estes captadores formam uma cascata de estímulos elétricos ativando o processamento paralelo nas áreas cerebrais especializadas em audição, para que finalmente o reconhecimento da informação `A` seja feito e devolvido para nós em forma de "Hmm, isso que eu ouvi é a letra `A`, eu a conheço!".
 
 Este mesmo processo é feito para todas as informações que captamos do ambiente através dos 5 sentidos.
 
-> Por hora, queremos que você guarde o seguinte: podemos  fazer uma analogia de tudo que vimos acima a um único neurônio de máquina. Na máquina este neurônio realiza uma função muito simples que é a de armazenar um número aleatório entre 0 e 1.
+> Por hora, queremos que você guarde o seguinte: podemos fazer uma analogia de tudo que vimos acima a um único neurônio de máquina. Na máquina. este neurônio realiza uma função muito simples que é a de armazenar um número que, a princípio, será entre 0 e 1.
 
 ![Aula01_Figura05](imagens/Aula01_Figura05.png)
 
 ## Representação Matemática
 
-<16:59>
+<!-- 16:59 -->
 
 Vamos observar e estudar com calma a figura abaixo:
 
 ![Aula01_Figura07](imagens/Aula01_Figura07.png)
 
-Paralelamente à estrutura funcional de um neurônio, esta representação matemática possui uma região que recebe <b>Inputs</b> (dendrito), outra que <b>analisa, processa e envia as informações</b> (corpo celular e axônio) e por fim, a que faz o <b>Output</b> (axônio terminal).
+Paralelamente à estrutura funcional de um neurônio, esta representação matemática possui uma região que recebe **valores de entrada** (equivalente aos dendritos), outra que **analisa, processa e envia as informações** (equivalente ao corpo celular e axônio) e, por fim, a que faz a **saída** (equivalente ao axônio terminal).
 
-Vamos trabalhar novamente o exemplo da letra `A`: a informação entrará na camada Roxa de entrada, será processada na camada Laranja, e sairá pela camada Verde de saída nos trazendo o resultado se a letra `A` foi ou não identificada.
+Vamos trabalhar novamente o exemplo da letra `A`:
+
+- a informação entrará na camada Roxa de entrada;
+- será processada na camada Laranja; e
+- sairá pela camada Verde de saída nos trazendo o resultado se a letra `A` foi ou não identificada.
 
 > ***Importante :bangbang: :*** Neste momento precisamos ter muito claro que a camada de entrada é por onde entram as informações e a camada de saída é por onde elas saem.
 
 ### Processamento das informações
 
-Dentre todos os conceitos de uma rede neural, certamente o entendimento sobre <b>pesos (Wheights)</b> e <b>valores propagados (Bias)</b> são os de fundamental importância.
+Dentre todos os conceitos de uma rede neural, certamente o entendimento sobre **pesos (weights)** e **valores propagados (bias)** são fundamentais (talvez a parte mais importante da uma rede neural 🙂).
 
-Quando a informação é transmitida da camada de entrada para a de processamento, os pesos são aplicados à esta informação, somados e carreados adiante para uma função de ativação juntamente com os valores de Bias.
+Quando a informação é transmitida da camada de entrada para a de processamento, os pesos são aplicados à esta informação, somados e passados adiante para uma função de ativação, juntamente com os valores de Bias.
 
-> ***_NOTA :clipboard: :pencil2: :_***  Os pesos são coeficientes da equação que estamos tentando resolver naquele momento.
-
-> ***_NOTA :clipboard: :pencil2: :_***  Os valores de Bias consistem em vetores adicionados ao produtos adicionados na camada de imput e dos pesos que compensam os resultados colocando-os mais ou menos para o positivo ou negativo.
-
-Cada informação que entra pela camada de entrada é <b>multiplicada</b> por um <b>peso</b> que recebe um valor aleatório.  
+Cada **informação que entra** pela camada de entrada é **multiplicada** por um **peso** (que inicialmente corresponde um valor aleatório) antes de avançar pela rede neural.
 
 ![Aula01_Figura08](imagens/Aula01_Figura08.png)
 
-Por exemplo, vamos imaginar que recebemos as letras `A` com o valor de `2` e `B` com o valor de `5` pela camada de entrada. 
+Após essa múltiplicação da **informação que entra** vezes o **peso**, aplicamos em um **somatório**, que representa a soma de todos os valores.
 
-O `peso A` recebe o valor de `3` e `peso B` recebe o valor de `6`.
+Por exemplo, vamos imaginar que recebemos na camada de entrada as letras `A` e `B`, cada uma com o seguinte valor:
 
-:key: :bulb: O <b>somatório</b> será o total de: <b>(`A` * Peso A) + (`B` * Peso B) = 36 </b>.
+- `Letra A` = `2`
+- `Letra B` = `5`
 
-Agora podemos adicionar um valor de bias que pode ser um número positivo ou negativo, no caso `-2`
+Para cada letra, recebemos também um **peso**, com os seguintes valores:
 
-:key: :bulb: O <b>total</b> do processamento será: <b>(somatório + bias) = 34</b>.
+- `Peso A` = `3`
+- `Peso B` = `6`
 
-Com o resultado total em mãos ele será passado por uma função de ativação e a partir dela teremos um novo número que será passado para a camada de saída.
+Com isso, temos os seguinte cálculo para saber o valor do **somatório**:
+
+- `(Letra A * Peso A) + (Letra B * Peso B)`
+
+Substituindo pelos valores:
+
+- `(2 * 3) + (5 * 6)` que é igual a `36`
+
+:key: :bulb: Portanto, o valor do **somatório** é `36`.
+
+ Agora, podemos somar um valor de **bias** — que pode ser um número positivo ou negativo — e nesse caso será `-2`.
+
+- `Somatório + Bias`
+- `36 + -2` é igual a `34`
+
+:key: :bulb: Portanto, o resultado corresponde a `34`.
+
+Com o resultado total em mãos, ele será passado por uma função de ativação e, a partir dela, teremos um novo número que será passado para a camada de saída.
 
 Vamos entrar mais a fundo em cada uma dessas partes?
 
-<21:55>
+<!-- 21:55 -->
 
-## Camada de Entrada (Input)
+## Dataset MNIST
 
-Para aprofundarmos nosso estudo e deixá-lo mais tangível, vamos falar sobre um banco de dados bastante específico chamado <b>MINIST</b> que contém imagens binárias de dígitos escritos à mão por diversas pessoas.
+Para aprofundarmos nosso estudo e deixá-lo mais tangível, vamos falar sobre um banco de dados bastante específico chamado **MNIST** que contém imagens binárias de dígitos escritos à mão por diversas pessoas.
 
 ![Aula01_Figura09](imagens/Aula01_Figura09.png)
 
-> ***Importante*** :bangbang: : Identificar o dígito de qualquer uma destas imagens pelo nosso Deep Learning é uma tarefa análoga a um 'Hello World!'. Atente-se à maldição. :jack_o_lantern:
+> ***Importante*** :bangbang:: Desenvolver uma rede neural capaz de compreender os dígitos destas imagens é considerado o primeiro exemplo a ser aprendido por quem quer entender o universo, equivalente ao `Hello World!` no universo da programação. (PS: atente-se à maldição :jack_o_lantern:)
 
-O MIINST tem um primo evoluído chamado <b>Fashion-MINIST</b>, um banco de dados de imagens de artigos da [Zalando](https://github.com/zalandoresearch/fashion-mnist). Possui um conjunto de 60.000 exemplos de treinamento para aprendizagem de máquina e um conjunto de teste de 10.000 exemplos. Cada exemplo é uma imagem em tons de cinza de 28px por 28px, associada a um rótulo de 10 classes.
+O MNIST se tornou uma estrutura bem difundida entre a comunidade Deep Learning. Diversos outros projetos seguem a mesma base de imagens em escala de cinza, de tamanho 28x28 pixels, com 60.000 arquivos para treino e 10.000 arquivos para teste, organizadas em 10 classes distintas.
+
+No caso do MNIST, cada classe distinta representa um dos números de 0 a 9.
+
+### Fashion MNIST
+
+O **[Fashion MNIST](https://github.com/zalandoresearch/fashion-mnist)**, um banco de dados de imagens que segue a estrutura do MNIST, possui imagens de peças de roupa, também organizadas em 10 classes distintas.
 
 ![Aula01_Figura10](imagens/Aula01_Figura10.png)
 
-No vídeo-exemplo abaixo podemos analisar como um algoritmo observa um conjunto de dados com artigos de moda em geral e os posiciona por similaridade.
+No vídeo-exemplo abaixo, podemos analisar como um algoritmo observa um conjunto de dados com artigos de moda em geral e os posiciona por similaridade.
 
 ![Aula1_Gif01](imagens/Aula01_Gif01.gif)
 
-<23:57>
+## E como interpretamos as imagens?
 
-Das 70.000 imagens que podemos encontrar no MINIST, vamos pegar uma delas para o nosso exercício que contém 28px de largura por 28px de altura totalizando 784px organizados em linhas e colunas.
+<!-- 23:57 -->
+
+Das 70.000 imagens que podemos encontrar no MNIST, vamos pegar uma delas para o nosso exercício. Essa imagem possui um tamanho de `28px` de largura por 28px de altura, totalizando `784px`, organizados em linhas e colunas, da seguinte forma:
 
 ![Aula01_Figura11](imagens/Aula01_Figura11.png)
 
-Cada ponto na imagem é análogo a um neurônio contendo números que vão do intervalo de 0 a 1.
+Cada pixel na imagem é análogo a um neurônio, contendo números que vão do intervalo de 0 a 1.
 
 ![Aula01_Figura12](imagens/Aula01_Figura12.png)
 
-Quanto mais próximo do número `1` o neurônio se encontra, mais forte está sendo ativado. Veja na imagem que o branco se evidencia com o número `1.0` dentro dele.
+Quanto mais próximo o neurônio estiver do número `1`, significa que ele está sendo mais ativado. Observe na imagem que a cor fica mais branca o número `1.0` dentro dele, enquanto os outros pontos estão mais claros (entre `0.01` e `0.99`) ou até mesmo completamente pretos (`0.0`).
 
-Quanto mais próximo do número `0` o neurônio se encontra, menos ativado está sendo. Veja na imagem que o preto se evidencia com o número `0.0` dentro dele.
+> ***_NOTA :clipboard: :pencil2: :_***  No dataset do MNIST, todas as imagens acompanham o significado do que ela representa. No nosso exemplo, a imagem recebe o significado `3`.
 
-Entre `0` e `1` temos o neurônio parcialmente ativado. Veja na imagem que o branco começa a se evidenciar com o número `0.7 ou 0.8` dentro dele.
-
-> ***_NOTA :clipboard: :pencil2: :_***  No dataset do MINIST todas as imagens acompanham o significado do que ela representa. No nosso exemplo a imagem recebe o significado `3`.
+## E quando não temos imagens?
 
 Para uma análise em que a camada de entrada receba um arquivo de áudio, a análise será realizada da mesma forma observando a frequência e sua intensidade.
 
@@ -184,33 +209,33 @@ Cada frequência carrega consigo uma intensidade, gerando uma saída que pode se
 
 ## Modelo de Rede Neural
 
-<27:47>
+<!-- 27:47 -->
 
 Semelhante à representação do neurônio, o modelo de rede neural carrega a mesma estrutura.
 
 ![Aula01_Figura14](imagens/Aula01_Figura14.png)
 
-- Camada de entrada (Input) - é a primeira camada da rede neural que recebe os valores de entrada e os passa para a próxima cada sem aplicar pesos ou bias. 
+- **Camada de entrada (Input):** é a primeira camada da rede neural que recebe os valores de entrada.
 
   No nosso exemplo temos os valores `1`, `0.5`e `0.2` entrando no modelo.
 
-- Camada Oculta (Hidden) - nesta camada encontramos os neurônios organizados em nós, interconectados com as camadas de entrada e saída, que aplicam os pesos e bias aos valores recebidos. De forma didática para nosso entendimento podemos ver que estes nós neuronais estão verticalmente empilhados no número de `4` bolinhas azuis.
+- **Camada Oculta (Hidden):** nesta camada encontramos os neurônios organizados em nós, interconectados com as camadas de entrada e saída, que aplicam os pesos e bias aos valores recebidos. De forma didática e para nosso entendimento, podemos ver que estes nós estão verticalmente empilhados e correspondem a `4` bolinhas azuis.
 
-  > ***_NOTA :clipboard: :pencil2: :_***  é nesta camada que todo o processamento e entendimento da rede é feito. 
+  > ***_NOTA :clipboard: :pencil2: :_***  é nesta camada em que a rede realmente identifica o que está sendo recebido.
 
-  O primeiro nó neuronal recebeu os valores da camada de entrada, alterando-os para o resultado `0.42` e o entregará para a camada de saída.
+  O primeiro neurônio da camada oculta recebeu os valores da camada de entrada, aplicou os pesos e o bias, alterando-os para o resultado `0.42`, entregando esse valor para a camada de saída.
 
-- Camada de saída (Output) - sendo a última camada na rede, recebe o total da camada oculta.
+- **Camada de saída (Output):** sendo a última camada na rede, recebe o total da camada oculta.
 
   No nosso exemplo, o valor de saída modificado é de `0.74`.
 
 ### Olha só que interessante! :boom:
 
-Um modelo de rede neural que não necessariamente está dentro do D.L., mas sim no M.L. 
+Um modelo de rede neural que não necessariamente está dentro do D.L., mas sim no M.L.
 
-Quando vemos um modelo de rede neural com apenas <b>uma única camada oculta</b> estamos olhando para um modelo tradicional de M.L. que sempre foi usado em diversos exemplos.
+Quando vemos um modelo de rede neural com apenas **uma única camada oculta** estamos olhando para um modelo tradicional de M.L., que usamos em diversos exemplos.
 
-A mágica fica maior, complexa e interessante quando adicionamos <b>mais camadas ocultas</b> a este modelo que gera uma <b>Rede Neural Profunda</b>
+A mágica fica maior, complexa e interessante quando adicionamos **mais camadas ocultas** a este modelo, caracterizando uma **Rede Neural Profunda**.
 
 ![Aula01_Figura15](imagens/Aula01_Figura15.png)
 
@@ -220,35 +245,37 @@ Logo, a quantidade de camadas ocultas é o que define se meu modelo se trata de 
 
 ## Conectando tudo
 
-<30:31>
+<!-- 30:31 -->
 
-Você se lembra que falamos sobre o MINIST alguns passos atrás? 
+Você se lembra que falamos sobre o MNIST alguns passos atrás? 
 
 ![Aula01_Figura09](imagens/Aula01_Figura09.png)
 
-O banco de dados do MINIST possui um conjunto de treinamento de 60.000 imagens e um conjunto de testes com 10.000, ou seja, um sub-conjunto de um conjunto maior de treinamento disponível. 
+O banco de dados do MNIST possui um conjunto de treinamento de 60.000 imagens e um conjunto de testes com 10.000, ou seja, um sub-conjunto de um conjunto maior de treinamento disponível. 
 
 Nós utilizamos o sub-conjunto de 10.000 imagens-teste para comparar o resultado que vamos obtendo durante o treinamento e refinando o algoritmo.
 
-Primeiro apresentamos a imagem ao modelo, o treino, ensino e comparo ao que ele não conhece para validar o resultado.
+Primeiro, apresentamos as imagens de **treino** ao modelo para que ela aprenda a reconhecer os padrões. Com isso, medimos os resultados.
 
-Podemos fazer uma analogia ao treino de caligrafia (pessoa idosa aqui :older_woman:) que fazíamos na escola. Até alcançarmos algo parecido com a letra da professora (é a meta que a gente almeja, né?! kkkrying) treinamos diversas vezes e ao longo do processo observamos em nosso caderno centenas de formas diferentes de fazer a mesma letra (todas um horror até a perfeição, a gente sabe! :sweat:).
+Para garantir que os resultados são coerentes, apresentamos as imagens de **teste** e verificamos se os resultados são tão satisfatórios quanto.
 
-Na atividade treina-compara-testa nossa rede é capaz de generalizar e abstrair e observar novas imagens nunca vistas os resultados se tornam cada vez mais positivos.
+> Podemos fazer uma analogia ao treino de caligrafia (pessoa idosa aqui :older_woman:) que fazíamos na escola. Até alcançarmos algo parecido com a letra da professora (é a meta que a gente almeja, né?! kkkrying) treinamos diversas vezes e, ao longo do processo, observamos em nosso caderno centenas de formas diferentes de fazer a mesma letra (todas um horror até a perfeição, a gente sabe! :sweat:).
 
-Na prática, a imagem que a rede recebe do MINIST está em em preto e branco, normalizada por tamanho e centralizada para caber em uma caixa delimitadora de pixels de 28x28, totalizando 784px, e suavização de borda criando os tons de cinza que vimos anteriormente.
+Na atividade **treina-compara-testa**, nossa rede é capaz de generalizar, abstrair e observar novas imagens, garantindo que os resultados se tornam cada vez mais positivos (algo que pode ser medido na curva de aprendizado de uma rede neural).
 
-Dentro do dataset estas imagens ficam dentro da categoria <b>Images</b> e ao lado encontramos as etiquetas <b>(Labels)</b> destas imagens que traz a respectiva representação para realizar a comparação.
+Na prática, a imagem que a rede recebe do MNIST está em em preto e branco, normalizada por tamanho e centralizada para caber em uma caixa delimitadora de pixels de `28x28`, totalizando `784px`, e suavização de borda criando os tons de cinza que vimos anteriormente.
+
+Dentro do dataset, organizamos os arquivos das imagens (`Images`) em um local e a representação das imagens (`Labels`) em outro.
 
 ![Aula01_Figura17](imagens/Aula01_Figura17.png)
 
-Após escolhermos a imagem de treino para o nosso modelo precisamos realizar um procedimento antes de a colocarmos na camada de entrada, este processo se chama <b>achatamento</b>.
+Após escolhermos a imagem de treino para o nosso modelo, precisamos realizar um procedimento antes de a colocarmos na camada de entrada, este processo se chama **achatamento**.
 
-Este processo consiste em transformar todo o vetor de 28x28px em um vetor linear unidimensional, ou seja, de uma única linha para conectá-lo com a próxima camada.
+Este processo consiste em transformar todo a matriz de `28x28px` em um vetor linear unidimensional, ou seja, em uma única linha, para conectá-lo com a próxima camada.
 
 ![Aula01_Figura18](imagens/Aula01_Figura18.png)
 
-As linhas achatadas são feitas de forma sequencial respeitando a ordem das linhas na matriz, ou seja, a primeira linha com 28 colunas é achatada e colocada na primeira posição, a segunda tem suas 28 colunas achatas e colocadas na segunda posição, e assim por diante, gerando uma única linha com 784 pixels.
+As linhas achatadas são feitas de forma sequencial, respeitando a ordem das linhas na matriz, ou seja, a primeira linha com 28 colunas é achatada e colocada na primeira posição, a segunda tem suas 28 colunas achatas e colocadas na segunda posição, e assim por diante, gerando uma única linha com 784 pixels.
 
 Cada um destes pixels é o que de fato a rede vai usar para definir a representação da imagem.
 
@@ -256,11 +283,11 @@ Cada pixel da imagem contendo um valor que vai `0` a `1` equivale a um neurônio
 
 ![Aula01_Figura19](imagens/Aula01_Figura19.png)
 
-Podemos ver que o primeiro pixel vai para o primeiro neurônio da camada e o último para seu neurônio respectivo. Desta forma temos todos os pixels da matriz representados dentro do modelo.
+Podemos ver que o primeiro pixel vai para o primeiro neurônio da camada e o último para seu neurônio respectivo. Desta forma, temos todos os pixels da matriz representados dentro do modelo.
 
-No nosso modelo temos 2 camadas ocultas com 16 neurônios cada.
+No nosso modelo de exemplo temos 2 camadas ocultas com 16 neurônios cada.
 
-> ***_NOTA :clipboard: :pencil2: :_***  A quantidade de camadas ocultas e seus pontos são definidos por nós
+> ***_NOTA :clipboard: :pencil2: :_***  A quantidade de camadas ocultas e de neurônios são definidas por nós e existem várias técnicas para saber quando adicionar/remover camadas e neurônios.
 
 ![Aula01_Figura20](imagens/Aula01_Figura20.png)
 
@@ -274,7 +301,7 @@ Em um outro exemplo, a nossa imagem de entrada é a representação do número `
 
 Se observarmos a figura acima atentamente perceberemos que temos um neurônio para cada número escrito à mão contido dentro do Dataset.
 
-> ***Importante*** :bangbang: : Identificar o dígito de qualquer uma destas imagens pelo nosso Deep Learning é uma tarefa análoga a um 'Hello World!'. Atente-se à maldição. Cada possibilidade na camada de saída deve ser igualmente proporcional à quantidade de itens que serão inseridos através de representações em nosso modelo.
+> ***Importante*** :bangbang:: Identificar o dígito de qualquer uma destas imagens pelo nosso Deep Learning é uma tarefa análoga a um 'Hello World!'. Atente-se à maldição. Cada possibilidade na camada de saída deve ser igualmente proporcional à quantidade de itens que serão inseridos através de representações em nosso modelo.
 
 Quando juntamos todas as camadas de nosso modelo percebemos que a entrada e saída estão sempre conectadas e relacionadas pelo conjunto de dados.
 
@@ -282,35 +309,35 @@ Quando juntamos todas as camadas de nosso modelo percebemos que a entrada e saí
 
 ![Aula01_Figura22](imagens/Aula01_Figura22.png)
 
-Para sabermos se nossa rede acertou o número que inserimos, precisamos identificar o número que ela assumiu para cada uma das informações e a partir disso vemos se acertou mais ou menos.
+Para sabermos se nossa rede acertou o número que inserimos, precisamos identificar o número que ela assumiu para cada uma das informações e, a partir disso, vemos se acertou mais ou menos.
 
-Os dados na camada de saída são fundamentais para sabermos se a rede está acertando ou errando durante o treinamento. Lembrando que quanto mais próximo de `1` o valor dentro do neurônio chega, mais acertado é o resultado.
+Os dados na camada de saída são fundamentais para sabermos se a rede está acertando ou errando durante o treinamento. Lembrando que, quanto mais o valor do neurônio estiver próximo de `1`, mais certo está o resultado.
 
 ![Aula01_Figura23](imagens/Aula01_Figura23.png)
 
 ## Parâmetros Utilizados - Pesos e Bias
 
-<39:24>
+<!-- 39:24 -->
 
 Cada um dos 16 neurônios da camada escondida está conectado a um pixel recebido da camada de entrada, ou seja, cada neurônio recebe os 784 pixels.
 
 ![Aula01_Figura24](imagens/Aula01_Figura24.png)
 
-Cada peso multiplicado ao valor de entrada + bias representa a força da conexão entre os neurônios. Se o peso do neurônio `1` ao `3` for maior que o peso do neurônio `4` ao `7`, terá maior influência sobre estes.
+Cada **peso** multiplicado ao **valor de entrada + bias** representa a força da conexão entre os neurônios. Se o peso do neurônio `1` ao `3` for maior que o peso do neurônio `4` ao `7`, terá maior influência sobre estes.
 
-Por lógica, percebemos que os parâmetros podem diminuir a <b>importância</b> dos pixels recebidos na camada de entrada e que serão entregues na camada de saída, dependendo de sua configuração na camada oculta.
+Por lógica, percebemos que os parâmetros podem diminuir a **importância** dos pixels recebidos na camada de entrada e que serão entregues na camada de saída, dependendo de sua configuração na camada oculta.
 
 ![Aula01_Figura25](imagens/Aula01_Figura25.png)
 
-Vamos agora a um exemplo prático e simples - e que vai quebrar a tradição do 'Hello World', certamente seremos perdoados pelos fins didáticos!
+Vamos agora a um exemplo prático e simples — e que vai quebrar a tradição do 'Hello World' (certamente seremos perdoados pelos fins didáticos!).
 
-Neste exemplo temos um único pixel com <b>duas</b> possibilidade de cores.
+Neste exemplo temos um único pixel com **duas** possibilidade de cores.
 
-A <b>primeira</b> possibilidade representa o pixel de cor <b>preta</b>.
+A **primeira** possibilidade representa o pixel de cor **preta**.
 
-A <b>segunda</b> possibilidade representa o pixel de cor <b>branca</b>.
+A **segunda** possibilidade representa o pixel de cor **branca**.
 
-Note que a camada de entrada tem um único ponto e a de saída dois pontos correspondentes ao preto e branco.
+Note que a **camada de entrada** tem um único ponto e a de **saída** dois pontos, correspondentes ao preto e ao branco.
 
 ![Aula01_Figura26](imagens/Aula01_Figura26.png)
 
@@ -318,31 +345,29 @@ Quanto mais próximo de `1`, mais o neurônio de cor preta foi ativado na camada
 
 Quanto mais próximo de `1`, mais o neurônio de cor branca foi ativado na camada de saída.
 
-Sim! Existe a possibilidade dos neurônios serem ativados juntos. :O
+Sim! Existe a possibilidade dos neurônios serem ativados juntos 😮!
 
-Recebemos então, uma imagem com um pixel preto que foi inserida em nosso modelo e os parâmetros foram adicionados.
+Recebemos então, uma imagem com um pixel preto. Chamaremos esse único pixel de **um parâmetro**.
 
-Cada um destes parâmetros de entrada estão conectados aos neurônios na camada oculta e a esta conexão damos o nome de <b>peso</b>.
+Esse **parâmetro de entrada** está conectado aos neurônios na camada oculta. A esta conexão, damos o nome de **peso**.
 
-> Para lembrar: Para cada um dos neurônios nós multiplicamos o peso ao parâmetro. 
+> Para lembrar: Para cada um dos neurônios, multiplicamos parâmetro e peso.
 
-> Para lembrar: Os pesos podem ser positivos ou negativos, dando mais ou menos força ao neurônio.
+> Para lembrar: Os pesos podem ser positivos ou negativos, dando mais ou menos força àquela conexão.
 
-A camada oculta vai tentar entender a informação recebida em diversos níveis, a depender do que configuramos. 
+A camada oculta vai tentar entender a informação recebida em diversos níveis, dependendo do que foi configurado.
 
-Para o nosso exemplo, um pouco de branco e um pouco de preto, um neurônio para identificar a cor  branca `0` e outro neurônio para a cor preta `1`. Juntos, estes neurônios ativam simultaneamente os neurônios da camada de saída nos trazendo o resultado.
-
-Cada um dos neurônios da camada oculta também se conectam aos da camada de saída através dos pesos.
+Cada um dos neurônios da camada oculta também se conectam aos da camada de saída. Em cada conexão, tambem temos um novo valor de pesos, que definirá as ativações finais. Essas ativações finais representam o que de fato a rede identificou.
 
 ## Combinação de Imagens para Formar um Dígito
 
-<46:10>
+<!-- 46:10 -->
 
-Voltando ao exemplo do MINIST vamos analisar as imagens abaixo:
+Voltando ao exemplo do MNIST, vamos analisar as imagens abaixo:
 
 ![Aula01_Figura27](imagens/Aula01_Figura27.png)
 
-Perceba que a imagem do número `9` pode ser dividida em dois fragmentos, no primeiro temos um círculo, e mo segundo um traço na vertical.
+Perceba que a imagem do número `9` pode ser dividida em dois fragmentos, no primeiro temos um círculo, e no segundo um traço na vertical.
 
 Um neurônio é responsável por identificar o `primeiro fragmento` e outro neurônio o `segundo fragmento`.
 
@@ -350,15 +375,17 @@ Juntos, ativam o neurônio do `número 9` na camada de saída.
 
 ![Aula01_Figura28](imagens/Aula01_Figura28.png)
 
-Para a imagem do número `8` temos novamente dois fragmentos, um círculo maior na porção superior e um outro círculo menor na porção inferior.
+Para a imagem do número `8` temos novamente dois fragmentos — o mesmo círculo do `9` — na porção superior, e um outro círculo menor na porção inferior.
 
-> ***_NOTA :clipboard: :pencil2: :_***  As informações são quebradas desta forma por uma questão de utilidade
+> ***_NOTA :clipboard: :pencil2: :_***  As informações são quebradas desta forma por uma questão de utilidade.
 
 ![Aula01_Figura29](imagens/Aula01_Figura29.png)
 
-Na imagem do número `4`, o `primeiro fragmento` é representado por uma linha vertical que ocupa quase que totalmente a linha média do quadrado - o mesmo visto no número `9`, o `segundo fragmento` é também uma linha vertical ocupando parte do quadrante superior direito e o `terceiro fragmento` representado por uma linha na horizontal ocupando o centro do quadrado.
+Na imagem do número `4`, o `primeiro fragmento` é representado por uma linha vertical — a mesmo vista no número `9` —, o `segundo fragmento` é também uma linha vertical e o `terceiro fragmento` representado por uma linha na horizontal.
 
 O treinamento de reconhecimento destas imagens são feitos ao mesmo tempo nas camadas ocultas de mais alto nível.
+
+> **NOTA:** As camadas ocultas de mais alto nível são aquelas que estão mais próximas da camada de saída.
 
 ![Aula01_Figura30](imagens/Aula01_Figura30.png)
 
@@ -368,13 +395,13 @@ Assim, obteremos o seguinte resultado:
 
 Cada um dos neurônios guarda a informação da representação de cada um dos desenhos que vimos.
 
-A ativação dos neurônios em verde nos mostra que há grandes chances do número `4` ser ativado e os em roxo, o número `8`.
+A ativação dos neurônios em verde nos mostra que há grandes chances do número `4` ser ativado. Já ativação dos neurônios em roxo, maiores chances de ser o número `8`.
 
-> :key: :bulb: Até aqui entendemos que a rede neural coleta as informações que está observando, as combina e toma alguma decisão a partir disso.
+> :key: :bulb: Até aqui entendemos que a rede neural coleta as informações que está observando, as combina, e toma alguma decisão a partir disso.
 
 ## Como cada pedaço de fragmento é identificado?
 
-<49:40>
+<!-- 49:40 -->
 
 ## ❗️ Links & Referências usadas nesta aula
 
@@ -388,52 +415,52 @@ Site <a href="https://www.3blue1brown.com/topics/neural-networks" target="_blank
 
 ## Pendências
 
-<<CHANELY - CRIAR UM DICIONÁRIO-RÁPIDO PARA OS TERMOS: (SALVATORE VALIDAR)
+<!-- CHANELY - CRIAR UM DICIONÁRIO-RÁPIDO PARA OS TERMOS: (SALVATORE VALIDAR) -->
 
-NEURONIO
+<!-- NEURONIO -->
 
-CONEXÕES
+<!-- CONEXÕES -->
 
-BIAS
+<!-- BIAS -->
 
-FUNÇÃO DE ATIVAÇÃO
+<!-- FUNÇÃO DE ATIVAÇÃO -->
 
-CAMADA DE ENTRADA
+<!-- CAMADA DE ENTRADA -->
 
-CAMADA OCULTA
+<!-- CAMADA OCULTA -->
 
-CAMADA DE SAÍDA
+<!-- CAMADA DE SAÍDA -->
 
-FORMATO DE ENTRADA
+<!-- FORMATO DE ENTRADA -->
 
-PESOS
+<!-- PESOS -->
 
-PROPAGAÇÃO
+<!-- PROPAGAÇÃO -->
 
-BACKPROPAGATION
+<!-- BACKPROPAGATION -->
 
-TAXA DE APRENDIZAGEM
+<!-- TAXA DE APRENDIZAGEM -->
 
-PRECISÃO
+<!-- PRECISÃO -->
 
-ACURÁCIA
+<!-- ACURÁCIA -->
 
-SENSIBILIDADE
+<!-- SENSIBILIDADE -->
 
-CONVERGENCIA
+<!-- CONVERGENCIA -->
 
-REGULARIZAÇÃO
+<!-- REGULARIZAÇÃO -->
 
-NORMALIZAÇÃO
+<!-- NORMALIZAÇÃO -->
 
-CAMADAS COMPLETAMENTE CONECTADAS
+<!-- CAMADAS COMPLETAMENTE CONECTADAS -->
 
-PERDA DE FUNÇÃO
+<!-- PERDA DE FUNÇÃO -->
 
-OTIMIZAÇÃO DE MODELOS
+<!-- OTIMIZAÇÃO DE MODELOS -->
 
-METRICAS DE PERFORMANCE
+<!-- METRICAS DE PERFORMANCE -->
 
-BATCH SIZE
+<!-- BATCH SIZE -->
 
-TRAINING EPOCHS>>
+<!-- TRAINING EPOCHS -->
