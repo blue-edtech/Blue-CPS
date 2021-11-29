@@ -405,11 +405,11 @@ A ativação dos neurônios em verde nos mostra que há grandes chances do núme
 
 Em média, um Ser Humano é capaz de desenhar um círculo somente aos 3 anos de idade. Neste perído, estamos aprendendo a coordenar o campo visual juntamente com a musculatura fina da mão-de-escrita para que o formato redondo saia no papel. É uma tarefa complexa e desafiadora e o mesmo acontece no aprendizado da Rede Neural.
 
-> **_Curiosidade: _** O círculo é um símbolo universal com significado amplo, nos remete às noções de totalidade, plenitude, perfeição original, o Eu, o infinito, a eternidade. Interessante notar que uma das formas mais espalhadas na natureza exija tanto de nós aprendermos seu formato. 
+> **_Curiosidade_: ** O círculo é um símbolo universal com significado amplo, nos remete às noções de totalidade, plenitude, perfeição original, o Eu, o infinito, a eternidade. Interessante notar que uma das formas mais espalhadas na natureza exija tanto de nós aprendermos seu formato. 
 
 ![Aula01_Figura32](imagens/Aula01_Figura32.png)
 
-Note no exemplo abaixo que o entendimento do que é um círculo pela Rede Neural seja necessária a junção de 5 pedacinhos menores:
+Note no exemplo abaixo, que o entendimento do que é um círculo pela Rede Neural é a junção de `5 fragmentos`.
 
 ![Aula01_Figura33](imagens/Aula01_Figura33.png)
 
@@ -434,7 +434,7 @@ Para fins didáticos podemos dividir o processo de aprendizado do dígito `9` em
 
 ## Evoluindo a função do neurônio
 
-Até aqui tratamos o neurônio como **algo que guarda um número**. Passando por todo o aprendizado vimos que seu trabalho vai além disso: **é uma função matemática**.
+Até aqui tratamos o neurônio como **algo que guarda um número**. Após tudo que estudamos, vimos que seu trabalho vai além disso: **o neurônio é uma função matemática**.
 
 ![Aula01_Figura37](imagens/Aula01_Figura37.png)
 
@@ -442,11 +442,11 @@ Por ser uma função, o neurônio agora vai **receber** números e **transformá
 
 Vamos assimilar todas essas informações desta forma:
 
-Recebemos o nosso neurônio inicial com seus parâmetros configurados. 
+- Recebemos o nosso neurônio inicial com seus parâmetros configurados. 
 
 ![Aula01_Figura38](imagens/Aula01_Figura38.png)
 
-Para a nossa **primeira** camada oculta os parâmetros são a camada de entrada. 
+- Para a nossa **primeira** camada oculta os parâmetros são a camada de entrada. 
 
 O **primeiro** pixel será multiplicado pelo peso aleatório `1`.
 
@@ -458,12 +458,12 @@ O **segundo** pixel será multiplicado pelo peso aleatório `2`.
 
 ![Aula01_Figura40](imagens/Aula01_Figura40.png)
 
-Vamos exemplificar com este cálculo:
+Por exemplo:
 
-- Parâmetro 1 x Peso 1: `1 x 0 = 0`
-- Parâmetro 2 x Peso 2: `1 x 5 = 5`
+Parâmetro 1 x Peso 1: `1 x 0 = 0`
+Parâmetro 2 x Peso 2: `1 x 5 = 5`
 
-Tendo em mãos o resultado de cada parâmetro, o resultado final será como segue:
+Tendo em mãos o resultado de cada parâmetro, o resultado final será:
 
 - `Total = 5`
 
@@ -471,19 +471,19 @@ Tendo em mãos o resultado de cada parâmetro, o resultado final será como segu
 
 > :key: :bulb: Para cada pixel entrando nós repetimos sua multiplicação pelo peso e o somamos aos que entraram na camada anteriormente
 
-Não podemos esquecer de agregar o valor de bias que pode ser um valor negativo ou positivo, e que neste momento também será aleatório. 
+- Não podemos esquecer de agregar o **valor de bias** que pode ser um valor negativo ou positivo, e que neste momento também será aleatório. 
 
-- Parâmetros + bias: `5 + 30 = 35`
+Parâmetros + bias: `5 + 30 = 35`
 
 ![Aula01_Figura42](imagens/Aula01_Figura42.png)
 
 > :key: :bulb: Os valores aleatórios são ajustados conforme a Rede Neural vai crescendo em aprendizado.Os valores aleatórios são ajustados conforme a Rede Neural vai crescendo em aprendizado.
 
-Com o valor total da soma de parâmetros + bias em mãos, precisamos passá-lo por uma **função de ativação** que o transformará em outro resultado. 
+- Com o valor total da soma de parâmetros + bias em mãos, precisamos passá-lo por uma **função de ativação** que o transformará em outro resultado. 
 
 Neste momento esta função dobra o valor recebido.
 
-- Total anterior -> função de ativação: `35 x 2 = 70`
+Total anterior -> função de ativação: `35 x 2 = 70`
 
 ![Aula01_Figura43](imagens/Aula01_Figura43.png)
 
@@ -491,11 +491,11 @@ Neste momento esta função dobra o valor recebido.
 
 O processo de **aprendizado da Rede Neural** pode ser entendido da através de todas essas etapas que passamos. 
 
--> O neurônio é uma estrutura com uma função de ativação.
--> Os pesos e bias inicialmente são valores aleatórios.
--> O valor de cada peso e bias é ajustado conforme o aprendizado vai aumentando.
+O neurônio é uma estrutura com uma função de ativação.
+Os pesos e bias inicialmente são valores aleatórios.
+O valor de cada peso e bias é ajustado conforme o aprendizado vai aumentando.
 
-Em síntese, aprendizado é ajustar os pesos e bias de forma correta e adequada. :key: :bulb:
+:key: :bulb: Em síntese, aprendizado é ajustar os pesos e bias de forma correta e adequada. :bulb: :key:
 
 ![Aula01_Figura44](imagens/Aula01_Figura44.png)
 
