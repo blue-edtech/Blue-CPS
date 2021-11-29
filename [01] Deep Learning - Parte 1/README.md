@@ -403,6 +403,108 @@ A ativação dos neurônios em verde nos mostra que há grandes chances do núme
 
 <!-- 49:40 -->
 
+Em média, um Ser Humano é capaz de desenhar um círculo somente aos 3 anos de idade. Neste perído, estamos aprendendo a coordenar o campo visual juntamente com a musculatura fina da mão-de-escrita para que o formato redondo saia no papel. É uma tarefa complexa e desafiadora e o mesmo acontece no aprendizado da Rede Neural.
+
+> **_Curiosidade: _** O círculo é um símbolo universal com significado amplo, nos remete às noções de totalidade, plenitude, perfeição original, o Eu, o infinito, a eternidade. Interessante notar que uma das formas mais espalhadas na natureza exija tanto de nós aprendermos seu formato. 
+
+![Aula01_Figura32](imagens/Aula01_Figura32.png)
+
+Note no exemplo abaixo que o entendimento do que é um círculo pela Rede Neural seja necessária a junção de 5 pedacinhos menores:
+
+![Aula01_Figura33](imagens/Aula01_Figura33.png)
+
+Lembra que anteriormente mencionamos que o aprendizado de algumas imagens é feito em uma camada de alto nível?
+
+![Aula01_Figura34](imagens/Aula01_Figura34.png)
+
+Na primeira camada de neurônios no exemplo acima, a informação que já foi aprendida é fragmentada em pequenos pedaços e juntada com as informações da segunda camada para formar algo novo, como o formato do círculo que vimos no dígito `9`. O mesmo acontece com a sua perninha, o seu reconhecimento também é fragmentado pela Rede Neural:
+
+![Aula01_Figura35](imagens/Aula01_Figura35.png)
+
+Para fins didáticos podemos dividir o processo de aprendizado do dígito `9` em quatro etapas:
+
+- Camada de Input: recebimento do dígito `9` achatado;
+- Primeira camada oculta: fragmentos do dígito `9` são reconhecidos e ativados;
+- Segunda camada oculta: o dígito `9` é construído com apenas dois fragmentos ativando apenas dois neurônios, e;
+- Camada de saída: preenchimento do neurônio correspondente ao dígito `9`.
+	
+![Aula01_Figura36](imagens/Aula01_Figura36.png)
+
+> :key: :bulb: Lembre-se que cada neurônio é um parâmetro multiplicado por peso e bias.
+
+## Evoluindo a função do neurônio
+
+Até aqui tratamos o neurônio como **algo que guarda um número**. Passando por todo o aprendizado vimos que seu trabalho vai além disso: **é uma função matemática**.
+
+![Aula01_Figura37](imagens/Aula01_Figura37.png)
+
+Por ser uma função, o neurônio agora vai **receber** números e **transformá-los** tornando todo o processo de aprendizagem mais flexível.
+
+Vamos assimilar todas essas informações desta forma:
+
+Recebemos o nosso neurônio inicial com seus parâmetros configurados. 
+
+![Aula01_Figura38](imagens/Aula01_Figura38.png)
+
+Para a nossa **primeira** camada oculta os parâmetros são a camada de entrada. 
+
+O **primeiro** pixel será multiplicado pelo peso aleatório `1`.
+
+![Aula01_Figura39](imagens/Aula01_Figura39.png)
+
+> :key: :bulb: Neste momento vamos assumir que o valor do peso é definido de forma **aleatória**.
+
+O **segundo** pixel será multiplicado pelo peso aleatório `2`.
+
+![Aula01_Figura40](imagens/Aula01_Figura40.png)
+
+Vamos exemplificar com este cálculo:
+
+- Parâmetro 1 x Peso 1: `1 x 0 = 0`
+- Parâmetro 2 x Peso 2: `1 x 5 = 5`
+
+Tendo em mãos o resultado de cada parâmetro, o resultado final será como segue:
+
+- `Total = 5`
+
+![Aula01_Figura41](imagens/Aula01_Figura41.png)
+
+> :key: :bulb: Para cada pixel entrando nós repetimos sua multiplicação pelo peso e o somamos aos que entraram na camada anteriormente
+
+Não podemos esquecer de agregar o valor de bias que pode ser um valor negativo ou positivo, e que neste momento também será aleatório. 
+
+- Parâmetros + bias: `5 + 30 = 35`
+
+![Aula01_Figura42](imagens/Aula01_Figura42.png)
+
+> :key: :bulb: Os valores aleatórios são ajustados conforme a Rede Neural vai crescendo em aprendizado.Os valores aleatórios são ajustados conforme a Rede Neural vai crescendo em aprendizado.
+
+Com o valor total da soma de parâmetros + bias em mãos, precisamos passá-lo por uma **função de ativação** que o transformará em outro resultado. 
+
+Neste momento esta função dobra o valor recebido.
+
+- Total anterior -> função de ativação: `35 x 2 = 70`
+
+![Aula01_Figura43](imagens/Aula01_Figura43.png)
+
+> :key: :bulb: A forma de funcionamento da função de ativação é determinada por nós. Por exemplo: por ela só seriam transformados números pares.
+
+O processo de **aprendizado da Rede Neural** pode ser entendido da através de todas essas etapas que passamos. 
+
+-> O neurônio é uma estrutura com uma função de ativação.
+-> Os pesos e bias inicialmente são valores aleatórios.
+-> O valor de cada peso e bias é ajustado conforme o aprendizado vai aumentando.
+
+Em síntese, aprendizado é ajustar os pesos e bias de forma correta e adequada. :key: :bulb:
+
+![Aula01_Figura44](imagens/Aula01_Figura44.png)
+
+## Determinando a quantidade de pesos em uma Rede Neural Profunda
+
+<!-- 56:35 -->
+
+
+
 ## ❗️ Links & Referências usadas nesta aula
 
 Esta aula no <a href="https://miro.com/app/board/o9J_ljr0G-g=/" target="_blank">Miro</a>
