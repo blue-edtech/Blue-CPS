@@ -28,7 +28,7 @@ No processo de M.L., os dados entram pela camada de **entrada**, e a extração 
 
 No processo de D.L., os dados entram pela camada de **entrada**, e os processos de extração e classificação das features, são feitos inteiramente pela máquina gerando a **saída**. A grande vantagem é que ele pode nos trazer informações interessantes e/ou relevantes, que poderiam passar despercebidas pelo Ser Humano.
 
-> **_Obs.:_** Para ambos os processos, os dados precisam ser preparados por um Ser Humano para entrar no processo de aprendizagem.
+> ***_Importante :mega: :_*** Para ambos os processos, os dados precisam ser preparados por um Ser Humano para entrar no processo de aprendizagem.
 
 Para que estes conceitos fiquem mais claros, assista aos vídeos a seguir:
 
@@ -86,7 +86,7 @@ Para que as informações saiam do axônio terminal `A` para o dendrito do axôn
 
 Graças à essas sinapses, nosso cérebro é capaz de processar 11 bilhões de bits por segundo através de conexões paralelas entre todos os neurônios.
 
-> ***_Curiosidade_*** 🧠: Uma sinapse se forma entre um neurônio do cérebro com outro neurônio do cérebro. Quando um neurônio do cérebro precisa falar com uma célula muscular para ativar qualquer músculo no corpo, a estrutura se chama **junção neuromuscular**.
+> ***_Curiosidade :brain: :_***  Uma sinapse se forma entre um neurônio do cérebro com outro neurônio do cérebro. Quando um neurônio do cérebro precisa falar com uma célula muscular para ativar qualquer músculo no corpo, a estrutura se chama **junção neuromuscular**.
 
 Este conceito de processar informações paralelamente é bastante aplicado à computação. Chamado de **processamento paralelo**, ele explora e usa simultaneamente várias unidades de processamento (CPU's) para aumentar a velocidade.
 
@@ -114,7 +114,7 @@ Vamos trabalhar novamente o exemplo da letra `A`:
 - será processada na camada Laranja; e
 - sairá pela camada Verde de saída nos trazendo o resultado se a letra `A` foi ou não identificada.
 
-> ***Importante :bangbang: :*** Neste momento precisamos ter muito claro que a camada de entrada é por onde entram as informações e a camada de saída é por onde elas saem.
+> ***_Importante :mega: :_*** Neste momento precisamos ter muito claro que a camada de entrada é por onde entram as informações e a camada de saída é por onde elas saem.
 
 ### Processamento das informações
 
@@ -167,7 +167,7 @@ Para aprofundarmos nosso estudo e deixá-lo mais tangível, vamos falar sobre um
 
 ![Aula01_Figura09](imagens/Aula01_Figura09.png)
 
-> ***Importante*** :bangbang:: Desenvolver uma rede neural capaz de compreender os dígitos destas imagens é considerado o primeiro exemplo a ser aprendido por quem quer entender o universo, equivalente ao `Hello World!` no universo da programação. (PS: atente-se à maldição :jack_o_lantern:)
+> ***_Importante :mega: :_*** Desenvolver uma rede neural capaz de compreender os dígitos destas imagens é considerado o primeiro exemplo a ser aprendido por quem quer entender o universo, equivalente ao `Hello World!` no universo da programação. (PS: atente-se à maldição :jack_o_lantern:)
 
 O MNIST se tornou uma estrutura bem difundida entre a comunidade Deep Learning. Diversos outros projetos seguem a mesma base de imagens em escala de cinza, de tamanho 28x28 pixels, com 60.000 arquivos para treino e 10.000 arquivos para teste, organizadas em 10 classes distintas.
 
@@ -301,7 +301,7 @@ Em um outro exemplo, a nossa imagem de entrada é a representação do número `
 
 Se observarmos a figura acima atentamente perceberemos que temos um neurônio para cada número escrito à mão contido dentro do Dataset.
 
-> ***Importante*** :bangbang:: Identificar o dígito de qualquer uma destas imagens pelo nosso Deep Learning é uma tarefa análoga a um 'Hello World!'. Atente-se à maldição. Cada possibilidade na camada de saída deve ser igualmente proporcional à quantidade de itens que serão inseridos através de representações em nosso modelo.
+> ***_Importante :mega: :_*** Identificar o dígito de qualquer uma destas imagens pelo nosso Deep Learning é uma tarefa análoga a um 'Hello World!'. Atente-se à maldição. Cada possibilidade na camada de saída deve ser igualmente proporcional à quantidade de itens que serão inseridos através de representações em nosso modelo.
 
 Quando juntamos todas as camadas de nosso modelo percebemos que a entrada e saída estão sempre conectadas e relacionadas pelo conjunto de dados.
 
@@ -351,9 +351,9 @@ Recebemos então, uma imagem com um pixel preto. Chamaremos esse único pixel de
 
 Esse **parâmetro de entrada** está conectado aos neurônios na camada oculta. A esta conexão, damos o nome de **peso**.
 
-> Para lembrar: Para cada um dos neurônios, multiplicamos parâmetro e peso.
+> ***_Para lembrar :thought_balloon: :_***Para cada um dos neurônios, multiplicamos parâmetro e peso.
 
-> Para lembrar: Os pesos podem ser positivos ou negativos, dando mais ou menos força àquela conexão.
+> ***_Para lembrar :thought_balloon: :_***Os pesos podem ser positivos ou negativos, dando mais ou menos força àquela conexão.
 
 A camada oculta vai tentar entender a informação recebida em diversos níveis, dependendo do que foi configurado.
 
@@ -385,7 +385,7 @@ Na imagem do número `4`, o `primeiro fragmento` é representado por uma linha v
 
 O treinamento de reconhecimento destas imagens são feitos ao mesmo tempo nas camadas ocultas de mais alto nível.
 
-> **NOTA:** As camadas ocultas de mais alto nível são aquelas que estão mais próximas da camada de saída.
+> ***_NOTA :clipboard: :pencil2: :_*** As camadas ocultas de mais alto nível são aquelas que estão mais próximas da camada de saída.
 
 ![Aula01_Figura30](imagens/Aula01_Figura30.png)
 
@@ -405,7 +405,7 @@ A ativação dos neurônios em verde nos mostra que há grandes chances do núme
 
 Em média, um Ser Humano é capaz de desenhar um círculo somente aos 3 anos de idade. Neste perído, estamos aprendendo a coordenar o campo visual juntamente com a musculatura fina da mão-de-escrita para que o formato redondo saia no papel. É uma tarefa complexa e desafiadora e o mesmo acontece no aprendizado da Rede Neural.
 
-> **_Curiosidade_: ** O círculo é um símbolo universal com significado amplo, nos remete às noções de totalidade, plenitude, perfeição original, o Eu, o infinito, a eternidade. Interessante notar que uma das formas mais espalhadas na natureza exija tanto de nós aprendermos seu formato. 
+> **_Curiosidade :brain: :_** O círculo é um símbolo universal com significado amplo, nos remete às noções de totalidade, plenitude, perfeição original, o Eu, o infinito, a eternidade. Interessante notar que uma das formas mais espalhadas na natureza exija tanto de nós aprendermos seu formato. 
 
 ![Aula01_Figura32](imagens/Aula01_Figura32.png)
 
@@ -428,6 +428,7 @@ Para fins didáticos podemos dividir o processo de aprendizado do dígito `9` em
 - Segunda camada oculta: o dígito `9` é construído com apenas dois fragmentos ativando apenas dois neurônios, e;
 - Camada de saída: preenchimento do neurônio correspondente ao dígito `9`.
 	
+
 ![Aula01_Figura36](imagens/Aula01_Figura36.png)
 
 > :key: :bulb: Lembre-se que cada neurônio é um parâmetro multiplicado por peso e bias.
@@ -442,26 +443,26 @@ Por ser uma função, o neurônio agora vai **receber** números e **transformá
 
 Vamos assimilar todas essas informações desta forma:
 
-- Recebemos o nosso neurônio inicial com seus parâmetros configurados. 
+Recebemos o nosso neurônio inicial com seus parâmetros configurados. 
 
 ![Aula01_Figura38](imagens/Aula01_Figura38.png)
 
-- Para a nossa **primeira** camada oculta os parâmetros são a camada de entrada. 
+Para a nossa **primeira** camada oculta os parâmetros são a camada de entrada. 
 
-O **primeiro** pixel será multiplicado pelo peso aleatório `1`.
+- O **primeiro** pixel será multiplicado pelo peso aleatório `1`.
 
 ![Aula01_Figura39](imagens/Aula01_Figura39.png)
 
 > :key: :bulb: Neste momento vamos assumir que o valor do peso é definido de forma **aleatória**.
 
-O **segundo** pixel será multiplicado pelo peso aleatório `2`.
+- O **segundo** pixel será multiplicado pelo peso aleatório `2`.
 
 ![Aula01_Figura40](imagens/Aula01_Figura40.png)
 
 Por exemplo:
 
-Parâmetro 1 x Peso 1: `1 x 0 = 0`
-Parâmetro 2 x Peso 2: `1 x 5 = 5`
+- Parâmetro 1 x Peso 1: `1 x 0 = 0`
+- Parâmetro 2 x Peso 2: `1 x 5 = 5`
 
 Tendo em mãos o resultado de cada parâmetro, o resultado final será:
 
@@ -471,19 +472,19 @@ Tendo em mãos o resultado de cada parâmetro, o resultado final será:
 
 > :key: :bulb: Para cada pixel entrando nós repetimos sua multiplicação pelo peso e o somamos aos que entraram na camada anteriormente
 
-- Não podemos esquecer de agregar o **valor de bias** que pode ser um valor negativo ou positivo, e que neste momento também será aleatório. 
+Não podemos esquecer de agregar o **valor de bias** que pode ser um valor negativo ou positivo, e que neste momento também será aleatório. 
 
-Parâmetros + bias: `5 + 30 = 35`
+- Parâmetros + bias: `5 + 30 = 35`
 
 ![Aula01_Figura42](imagens/Aula01_Figura42.png)
 
-> :key: :bulb: Os valores aleatórios são ajustados conforme a Rede Neural vai crescendo em aprendizado.Os valores aleatórios são ajustados conforme a Rede Neural vai crescendo em aprendizado.
+> :key: :bulb: Os valores aleatórios são ajustados conforme a Rede Neural vai crescendo em aprendizado. Os valores aleatórios são ajustados conforme a Rede Neural vai crescendo em aprendizado.
 
-- Com o valor total da soma de parâmetros + bias em mãos, precisamos passá-lo por uma **função de ativação** que o transformará em outro resultado. 
+Com o valor total da soma de parâmetros + bias em mãos, precisamos passá-lo por uma **função de ativação** que o transformará em outro resultado. 
 
 Neste momento esta função dobra o valor recebido.
 
-Total anterior -> função de ativação: `35 x 2 = 70`
+- Total anterior -> função de ativação: `35 x 2 = 70`
 
 ![Aula01_Figura43](imagens/Aula01_Figura43.png)
 
@@ -491,11 +492,11 @@ Total anterior -> função de ativação: `35 x 2 = 70`
 
 O processo de **aprendizado da Rede Neural** pode ser entendido da através de todas essas etapas que passamos. 
 
-O neurônio é uma estrutura com uma função de ativação.
-Os pesos e bias inicialmente são valores aleatórios.
-O valor de cada peso e bias é ajustado conforme o aprendizado vai aumentando.
+- O neurônio é uma estrutura com uma função de ativação.
+- Os pesos e bias inicialmente são valores aleatórios
+- O valor de cada peso e bias é ajustado conforme o aprendizado vai aumentando.
 
-:key: :bulb: Em síntese, aprendizado é ajustar os pesos e bias de forma correta e adequada. :bulb: :key:
+> :key: :bulb: Em síntese, aprendizado é ajustar os pesos e bias de forma correta e adequada. :bulb: :key:
 
 ![Aula01_Figura44](imagens/Aula01_Figura44.png)
 
@@ -503,7 +504,97 @@ O valor de cada peso e bias é ajustado conforme o aprendizado vai aumentando.
 
 <!-- 56:35 -->
 
+Sabemos que para cada pixel que entrando pela camada de entrada têm seu parâmetro multiplicado pelo peso e somado ao valor de bias.
 
+Vamos usar o exemplo para uma Rede Neural que possui **16 neurônios** em ambas camadas ocultas e **784 pixels** entrando pela camada de entrada.
+
+Cada neurônio terá seu parâmetro somado ao bias na **primeira camada oculta**.
+
+Cada neurônio terá seu parâmetro somado ao bias na **segunda camada oculta**.
+
+Este total será multiplicado pelas `10` opções dispostas na **camada de saída**.
+
+![Aula01_Figura45](imagens/Aula01_Figura45.png)
+
+> :key: :bulb: O valor total deste cálculo resulta na **quantidade de pesos** desta Rede Neural Profunda.
+
+>  :key: :bulb: Mais ou menos pesos depende da sua estrutura de camadas internas.
+
+## Funções em Rede Neural
+
+<!-- 57:50 -->
+
+Existem diversas funções à nossa disposição para trabalharmos. Vamos começar com uma bastante simples, sua notação matemática é a seguinte:
+
+`f(x) = 2x`
+
+Uma função é sempre algo que **transforma** um valor. Podemos imaginá-la como uma caixa onde uma informação está entrando (**Input**), passa pelo corpo da caixa, e sua transformação é devolvida na saída (**Output**).
+
+![Aula01_Figura46](imagens/Aula01_Figura46.png)
+
+Supondo que colocamos o valor de `10` na camada de entrada, ele é multiplicado por `2`, resultando em `20` na camada de saída.
+
+Se assumirmos que o valor de `x` será `10`, onde `x` aparecer, seu valor será `10`.
+
+- `f(x) = 2x`
+- `f(x) = 2 x 10`
+- f(x) = 20
+
+A função `f` recebendo o valor `(10)` na entrada, terá o valor `20` na camada de saída.
+
+Vamos supor que queremos `f(x)` para o intervalo de `-10 a 10`. Graficamente poderemos representar desta forma:
+
+![Aula01_Figura47](imagens/Aula01_Figura47.png)
+
+Note que o número `1` do eixo **x** assume valor `2` em **y**.
+
+Passando o intervalo de `-10 a 10` teremos como resultado o intervalo de `-20 a 20`.
+
+> ***_NOTA :clipboard: :pencil2: :_*** Sempre podemos colocar uma função em um gráfico para observar seu comportamento e dizer se é o que esperamos dela.
+
+![Aula01_Figura48](imagens/Aula01_Figura48.png)
+
+Para saber mais a respeito de funções e como funcionam, recomendamos o material do Deep Learning Book - [Capítulo 8](https://www.deeplearningbook.com.br/funcao-de-ativacao/). 
+
+### Escolhendo a Função de Ativação Correta
+
+<!-- Paulo, vale colar aqui no material a pincelada que você deu sobre estas funções e dar exemplos? -->
+
+### Função Sigmoide
+
+<!-- 1:05:11 -->
+
+Vamos novamente recorrer ao recurso visual para nos ajudar. No exemplo abaixo, temos um intervalo de valor que vai de `-5 a 5`:
+
+![Aula01_Figura49](imagens/Aula01_Figura49.png)
+
+- Se o valor de **x** está entre `0 e 2` o valor de **y** estará entre `0 e 0.9`.
+
+- Se o valor de **x** está entre `2 e 5` o valor de **y** estará entre `0.9 e 1`.
+
+Podemos notar que quando **x** está próximo a `0` o valor de **y** é bastante influenciado e o mesmo não acontece quando **x** se afasta de `0`.
+
+O mesmo acontecerá quando o intervalor de **x** estiver entre `0 e -2`.
+
+> ***_NOTA :clipboard: :pencil2: :_*** A função **sigmoide** também transforma um número. Se o valor de entrada for `2`, ela devolverá `0.9` como valor de saída.
+
+Abaixo, podemos ver a representação de um neurônio funcionando com a função sigmoide:
+
+![Aula01_Figura50](imagens/Aula01_Figura50.png)
+
+O valor de entrada `a1` é multiplicado pelo peso `w1` e o mesmo acontece para a quantidade de valores que entram. 
+
+Após o resultado de todas as somas, o valor de bias é aplicado. No exemplo, `-10`.
+
+> ***_NOTA :clipboard: :pencil2: :_*** A complexidade dos cálculos matemáticos são todos feitos pelo computador. A nós, cabe somente escolher a função que mais se adequa ao nosso propósito.
+
+## Recapitulando
+
+<!-- 1:07:10 a 1:16:00 - TRANSFORMAR ESTE PEDAÇO EM UM RESUMO (FORMATO DE BULLETS) QUE ANTECEDE TUDO E COLOCAR NA TABELA DA PÁGINA INICIAL FORA DESTE MAIN MATERIAL? -->
+
+## Entendendo o Processo de Aprendizado de Máquina
+
+<!-- 1:16:13 -->
 
 ## ❗️ Links & Referências usadas nesta aula
 
