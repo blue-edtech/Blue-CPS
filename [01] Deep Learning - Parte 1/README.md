@@ -590,13 +590,170 @@ Após o resultado de todas as somas, o valor de bias é aplicado. No exemplo, `-
 
 ## Recapitulando
 
-<!-- 1:07:10 a 1:16:00 - TRANSFORMAR ESTE PEDAÇO EM UM RESUMO (FORMATO DE BULLETS) QUE ANTECEDE TUDO E COLOCAR NA TABELA DA PÁGINA INICIAL FORA DESTE MAIN MATERIAL? -->
+<!-- 1:07:10 a 1:16:00 - TRANSFORMAR ESTE PEDAÇO EM UM RESUMO (BULLETS) QUE ANTECEDE TUDO E COLOCAR NA TABELA DA PÁGINA INICIAL FORA DESTE MAIN MATERIAL? -->
+
+<!-- 1:07:10 a 1:16:00 - TRANSFORMAR ESTE PEDAÇO EM UM RESUMO (BULLETS) E INSERIR NO COMEÇO DO MATERIAL DO VÍDEO 02? -->
 
 ## Entendendo o Processo de Aprendizado de Máquina
 
 <!-- 1:16:13 -->
 
-## ❗️ Links & Referências usadas nesta aula
+A essência do treinamento em Redes Neurais é o método de **backpropagation**, que realiza um ajuste fino dos pesos da Rede Neural com base na **taxa de erros** obtidos. 
+
+![Aula01_Figura51](imagens/Aula01_Figura51.png)
+
+Adequadamente feitos os ajustes, as taxas de erro vão diminuindo tornando o modelo confiável e aumentando sua capacidade de generalizar os resultados.
+
+> ***_NOTA :clipboard: :pencil2: :_***  Backpropagation é o método padrão de treinamento em Redes Neurais
+
+Quando falamos em **erros** cometidos pela Rede Neural, buscamos entender o quão longe estamos de acertar.
+
+![Aula01_Figura52](imagens/Aula01_Figura52.png)
+
+Vamos agora relembrar o ciclo de uma Rede Neural e para fixarmos, adicionaremos o Backpropagation.
+
+- Elegemos uma **base de treino** para o nosso modelo e realizamos o processo de achatamento das imagens que queremos utilizar;
+- As informações são inseridas na **camada de entrada**;
+- Os parâmetros de **peso** são aplicados;
+- Do valor obtido é então feito o **somatório**;
+- O **bias** é aplicado a estes parâmetros;
+- O valor resultante é passado pela **função de ativação**;
+- A **previsão** extraída da função de ativação é comparada ao **resultado esperado** através de uma **função de erro**;
+- A função de erro determina **a quantidade de erros**.
+
+![Aula01_Figura53](imagens/Aula01_Figura53.png)
+
+- Assim como acontece conosco quando analisamos nossos erros diante de um aprendizado para um desafio, o mesmo acontece no aprendizado da máquina. **Cada erro nos aproxima do resultado esperado**.
+- Saber o resultado que queremos nos permite fazer um **ajuste nos pesos** e refazer o processo até chegar novamente na função de erro.
+
+![Aula01_Figura54](imagens/Aula01_Figura54.png)
+
+> ***_NOTA :clipboard: :pencil2: :_*** As previsões vão ficando cada vez mais assertivas conforme este ciclo vai se repetindo.
+
+Este ciclo que se repete até a assertividade completa se chama **época**.
+
+Para cada imagem inserida na camada de entrada, uma época é realizada. Seu número de repetições e o entendimento do que acontece individualmente em cada uma é configurado por nós. 
+
+Graças à tecnologia, e aos que vieram antes de nós, todo o processo matemático de cada época é realizado por bibliotecas. :boom:
+
+Você se lembra que o Dataset do MNIST possui 60.000 imagens de treino? Cada uma dessas imagens passa por uma época e paralelamente a comparação com a **base de testes** é feita para que possamos fazer os ajustes.
+
+![Aula01_Figura55](imagens/Aula01_Figura55.png)
+
+O processo de comparação com a base de testes é extremamente importante, não só para avaliar o que estamos fazendo mas também para nos dizer sobre um problema chamado **_Overfitting_**.
+
+O _overfitting_ acontece quando estamos acertando muito a base de treino e errando na mesma proporção na base de testes, ou seja, quando estamos exagerando no polimento dos parâmetros.
+
+![Aula01_Figura56](imagens/Aula01_Figura56.png)
+
+Pode acontecer de nos preocuparmos demasiadamente em ensinar nosso algoritmo não necessariamente em generalizar e reconhecer o problema e sim ensinando a base de treino.
+
+:key: :bulb: É igualmente importante acertar a base de treino e também a base de testes para que o algoritmo seja capaz de reconhecer no dia-a-dia imagens novas e nunca vistas.
+
+## Entendendo a Função de Erro
+
+<!-- 1:26:53 -->
+
+Novamente, vamos usar uma imagem para nos ajudar a entender. 
+
+A linha de cor `laranja` possui pontos de cor `azul` espalhados que acompanham seu traçado.
+
+Cada ponto azul possui uma distância entre sua borda e o ponto que ele toca a reta laranja naquele momento do espaço.
+
+![Aula01_Figura59](imagens/Aula01_Figura59.png)
+
+Para definirmos a quantidade de erros e acertos necessitamos separar cada uma das retas e somar suas diferenças, ou seja:
+
+- r1 = possui 2 unidades
+- r2 = possui 2 unidades
+- r3 = possui 1 unidade
+- r4 = possui 1 unidade
+- r5 = possui 1 unidade
+
+> ***_NOTA :clipboard: :pencil2: :_*** Neste momento, o valor de cada ponto (r) não interfere no resultado pois representa apenas uma unidade.
+
+A soma total é de `7` unidades, ou seja, o **erro total foi de 7 unidades**.
+
+![Aula01_Figura58](imagens/Aula01_Figura58.png)
+
+Utilizando-nos da matemática percebemos que ao percorrer a linha laranja possuímos somente **um único acerto**, pois `-2` anula `2` e `-1` anula `1`. 
+
+![Aula01_Figura57](imagens/Aula01_Figura57.png)
+
+O algoritmo de Rede Neural não trabalha com números negativos e por este motivo as **funções de erro geralmente consideram a soma dos erros quadrados**, ou seja, todos os valores negativos são **elevados ao quadrado**.
+
+> ***_Importante :mega: :_*** Quanto maior a barra de erros, ou seja, mais longe de `0`, mais erros cometemos ao configurar o algoritmo. 
+
+> ***_Importante :mega: :_***Quanto mais próximo de `0`, menos erros cometemos ao configurar o algoritmo. No nosso exemplo erramos bastante pois `7` está bastante longe de `0`.
+
+<!-- Paulo, a ordem de apresentação dos conteúdos abaixo não ficou muito clara pra mim. Você pode por gentileza organizar? -->
+
+No exemplo abaixo, podemos perceber como isso funciona de outra forma:
+
+![Aula01_Figura60](imagens/Aula01_Figura60.png)
+
+Podemos observar que a camada de saída do modelo possui diversos neurônios bastante cheios, tendo o do número `8` se destacando. Entretanto, o resultado esperado é o número `3`.
+
+>  ***_NOTA :clipboard: :pencil2: :_*** O "custo" da diferença entre o resultado esperado e o resultado na camada de output se chamada **_Utter Trash_**.
+
+Sugerimos que dê uma pausa aqui e assista o terceiro vídeo da 3Blue1Brown [neste link](https://www.3blue1brown.com/lessons/neural-network-analysis) para que veja o processo de _Utter Trash_ acontecendo.
+
+Uma função de erro normalmente resulta em uma parábola, nos possibilitando encontrar o ponto mais baixo da função de erro.
+
+![Aula01_Figura61](imagens/Aula01_Figura61.png)
+
+Obtendo este menor valor, conseguimos minimizar a função, aproximando o valor de `0`, que é o nosso objetivo.
+
+A parábola acima não é o que normalmente encontramos em Redes Neurais, e sim, um formato que se assemelha a **vales**. 
+
+![Aula01_Figura62](imagens/Aula01_Figura62.png)
+
+A bolinha acima vai caminhando pelos vales de acordo com os ajustes feitos nos pesos conforme vamos executando as épocas. A camada de saída da Rede nos mostrará se devemos ajustar o peso para **mais** ou para **menos**.
+
+Sempre, **o vale mais adequado para o nosso objetivo é o que mais próximo está de `0`**.
+
+> ***_Importante :mega: :_*** Encontrar o ponto ótimo, ou seja, nos aproximarmos de `0` é o processo do aprendizado da rede em si.
+
+Sugerimos que dê uma pausa aqui e assista o segundo vídeo da 3Blue1Brown [neste link](https://www.3blue1brown.com/lessons/gradient-descent) para que este conteúdo fique mais claro em sua mente.
+
+## TensorFlow - Nosso Lugar para Experimentar em Redes Neurais 
+
+Ao acessar o site do [TensorFlow Playground](https://playground.tensorflow.org/) nos deparamos com uma estrutura de Rede Neural.
+
+![Aula01_Figura63](imagens/Aula01_Figura63.png)
+
+As **_features_** consistem nas propriedades que vamos alimentar a rede.
+
+No exemplo acima possuímos `2` camadas escondidas, a **primeira** com `4` neurônios e a **segunda** com apenas `2`.
+
+>  Tanto a quantidade de camadas ocultas quanto a de neurônios pode ser modificada.
+
+No canal **_Data_** escolhemos o _dataset_ que iremos trabalhar.
+
+No exemplo acima, podemos observar na camada de saída diversas bolinhas `azuis` ao centro cercadas de diversas bolinhas `laranjas`. Neste caso, o que a Rede precisa entender é que:
+
+- azul representa `informação` com valor `1`, e;
+- laranja representa `informação` com valor `-1`.
+
+Quando apertamos o Play, dizemos à rede para executar as épocas e iniciar o aprendizado. Note como ela está na **época 340**.
+
+![Aula01_Figura64](imagens/Aula01_Figura64.png)
+
+Na camada de saída vida evidente que a Rede está se ajustando cada vez mais em diferenciar o que é bolinha azul e bolinha laranja.
+
+Quando a base de treino atinge o valor `0.001`, neste exemplo, uma estagnação foi atingida e nenhum aprendizado está sendo somado ao processo.
+
+> ***_Importante :mega: :_*** Se dermos o Play diversas vezes notaremos que a camada de saída apresentará um comportamento diferente por conta do refinamento no ajuste dos pesos, que de início, são aleatórios.
+
+## Desafio Proposto
+
+Nosso desafio para você hoje é configurar a rede para aprender o problema **espiral** que está incluso no _dataset_ do site.
+
+
+
+Até a volta! :blue_heart:
+
+## ❗️ Links & Referências usados nesta aula
 
 Esta aula no <a href="https://miro.com/app/board/o9J_ljr0G-g=/" target="_blank">Miro</a>
 
