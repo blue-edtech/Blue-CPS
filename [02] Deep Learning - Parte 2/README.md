@@ -15,18 +15,6 @@ Sabemos que o conteúdo foi denso e sugerimos a leitura do material e revisão d
 
 ![Aula02_Figura01](imagens/Aula02_Figura01.png)
 
-## Relembrando: MNIST
-
-O **MNIST** é um banco de dados que contém imagens binárias de dígitos escritos à mão por diversas pessoas. 
-
-Suas imagens estão em escala de cinza, com tamanho 28x28 pixels. Possui 60.000 arquivos para treino e 10.000 arquivos para teste, organizadas em 10 classes distintas.
-
-No caso do MNIST, cada classe distinta representa um dos números de `0 a 9`.
-
-![Aula02_Figura02](imagens/Aula02_Figura02.png)
-
-> Agora sim, podemos deixar de nos preocupar em quebrar a maldição do **_Hello World_** em _Deep Learning_!
-
 ## Preparando o Ambiente
 
 Antes de entrarmos nas ferramentas técnicas, queremos te dizer que para praticar tudo que verá aqui não há necessidade de **conhecimento prévio**. 
@@ -427,3 +415,200 @@ print(outra_tupla, type(outra_tupla))
 ## Nossa Primeira Rede Neural :fireworks:
 
 <!-- 21:40 -->
+
+### Relembrando: MNIST
+
+O **MNIST** é um banco de dados que contém imagens binárias de dígitos escritos à mão por diversas pessoas. 
+
+Suas imagens estão em escala de cinza, com tamanho 28x28 pixels. Possui 60.000 arquivos para treino e 10.000 arquivos para teste, organizadas em 10 classes distintas.
+
+No caso do MNIST, cada classe distinta representa um dos números de `0 a 9`.
+
+![Aula02_Figura02](imagens/Aula02_Figura02.png)
+
+> Agora sim, podemos deixar de nos preocupar em quebrar a maldição do **_Hello World_** em _Deep Learning_!
+
+Dentro do _dataset_, organizamos os arquivos das imagens (`Images`) em um local e a representação de cada uma das imagens (`Labels`) em outro.
+
+Podemos acessar o site do MNIST e fazer o [download direto](http://yann.lecun.com/exdb/mnist/) das Imagens e _Labels_, ou podemos lançar mão de uma biblioteca para nos ajudar neste processo.
+
+Esta biblioteca se chama [Keras](https://keras.io/), sendo uma das principais utilizadas para se trabalhar com aprendizado de máquina.
+
+A Keras roda em cima de [TensorFlow](https://www.tensorflow.org/?hl=pt-br), sendo um dos principais motores e mantido pelo Google. Sugerimos fortemente que visite o site pois há muito conteúdo disponibilizado em Português.
+
+O que vamos fazer nesta aula é preparar esta estrutura, onde o nosso _dataset_ contém as figuras para os dígitos de `0 a 9` nos dados `10` opções de saída.
+
+![Aula01_Figura36](imagens/Aula01_Figura36.png)
+
+Vamos organizar a rede e estruturar as 70.000 imagens, achatando-as para passarem por todo o processo que vimos na aula anterior.
+
+> **Importante :mega: :** Se você não sabe ou não lembra do que estamos falando, dá um [pulinho aqui](https://github.com/blue-edtech/Blue-CPS/tree/main/%5B01%5D%20Deep%20Learning%20-%20Parte%201) no material. :wink:
+
+Durante o processo de treinamento da Rede, as imagens de **treino** que são **recebidas pelo algoritmo** sempre **são comparadas** às imagens de **teste**, que lhes são as **imagens desconhecidas**. Justamente por este motivo, os arquivos precisam estar separados para que não se misturem e a Rede não se perca.
+
+> **_Nota :pencil: :_** Quando falamos em comparar as imagens de treino com as imagens de teste, estamos dizendo sobre validação.
+
+![Aula02_Figura35](imagens/Aula02_Figura35.png)
+
+>  **_Nota :pencil: :_** De 100% das imagens contidas em um _dataset_, em média 70% são separadas para treino e 30% para testes. Estes números não são uma regra e nós podemos alterar sua configuração antes de iniciarmos o processo. 
+
+Tal qual acontece com um Ser Humano, quando uma Rede Neural se compromete a aprender, ela estará sempre em contato com o desconhecido. **Os problemas por ela são generalizados e o aprendizado se torna completo quando o desconhecido se torna conhecido.**
+
+![Aula02_Figura36](imagens/Aula02_Figura36.png)
+
+As 60.000 imagens que utilizaremos para treino serão achatadas individualmente em 784px e cada uma delas terá uma _label_ que dirá o que a imagem representa, **que são as categorias**.
+
+![Aula02_Figura37](imagens/Aula02_Figura37.png)
+
+## MNIST no Colab
+
+> **_Nota :pencil: :_** Se você não estiver utilizando o Colab, instel o tensorflow e o keras em sua máquina para acompanhar a aula. :wink:
+
+O primeiro passo a ser executado é a importação de todas as dependências e bibliotecas que utilizaremos no Colab. 
+
+Começaremos por trazer o somente o 'keras' da biblioteca 'tensorflow':
+
+```
+from tensorflow import keras
+```
+
+Agora que temos o 'keras' precisamos importar dele o _dataset_ do MNIST:
+
+```
+from keras.datasets import mnist
+```
+
+Precisamos também de `4` ferramentas para nos auxiliar no processo, entraremos no detalhe delas mais a frente:
+
+```
+from tensorflow.python.keras import Sequential
+```
+
+O **_Sequential_** é a arquitetura da nossa rede neural que utilizaremos para ter o **modelo sequencial de neurônios** que utilizaremos, nós o importamos de dentro do keras.
+
+Dentro do keras vamos entrar em um componente chamado **_layers_** e dele vamos importar:
+
+- **_Dense_** que nos ajuda a construir nossas camadas, servindo como o Neurônio de base da Rede, e;
+- **_Dropout_** que funciona como um regularizador que evita overfitting.
+
+```
+from tensorflow.python.keras.layers import Dense, Dropout
+```
+
+Precisamos de um algoritmo de _backpropagation_ e utilizaremos o **RMSprop**:
+
+```
+from tensorflow.compat.v1.keras.optimizers import RMSprop
+```
+
+O seu código dentro do Colab deve estar como segue abaixo:
+
+```
+from tensorflow import keras
+
+from keras.datasets import mnist
+
+from tensorflow.python.keras import Sequential
+from tensorflow.python.keras.layers import Dense, Dropout
+from tensorflow.compat.v1.keras.optimizers import RMSprop
+```
+
+Se ao executar o código acima você receber algum erro, acesse o [diffchecker](https://www.diffchecker.com/) e compare o código acima com o que digitou no Colab. Em **laranja** ele indicará o que há de errado no código:
+
+![Aula02_Figura39](imagens/Aula02_Figura39.png)
+
+> **Importante :mega: :** É essencial que você evite colar os códigos diretamente no Colab. Lembre-se que para alcançar a perfeição precisamos praticar, praticar, praticar e praticar. :blue_heart:
+
+![Aula02_Figura38](imagens/Aula02_Figura38.png)
+
+Agora podemos fazer o _download_ da base do MNIST. **Sem apertar o Play**, numa nova célula digite:
+
+```
+mnist.load_data()
+```
+
+A estrutura que recebemos contém `(x_train, y_train), (x_test_ y_test)`, ou seja, a base de treino e a base de testes, sendo:
+
+- `x` as imagens, e;
+- `y` a representação de cada imagem.
+
+Vamos extrair do `load_data()` as bases de treino e teste de acordo com a estrutura recomendada:
+
+```
+(x_treino, y_treino), (x_teste, y_teste) = mnist.load_data()
+```
+
+Ao executar este comando estamos dizendo que: 
+
+- **X_Treino** recebe 60.000 imagens com 28x28 pixels cada;
+- **Y_Treino** recebe 60.000 _labels_, contendo o número que está desenhado na imagem;
+- **X_Teste** recebe 10.000 imagens com 28x28 pixels cada;
+- **Y_Teste** recebe 10.000 _labels_, contendo o número que está desenhado na imagem, e;
+- E todas as vezes que chamamos `mnist.load_data()` estamos trazendo essa estrutura.
+
+Agora pode dar o _Play_ e criar uma célula nova. :stuck_out_tongue_winking_eye:
+
+![Aula02_Figura40](imagens/Aula02_Figura40.png)
+
+Vamos ver o detalhe de `mnist.load_data()`?
+
+Vamos utilizar uma função do _Python_ chamada `len()` para nos dizer a **quantidade** de imagens para treino e teste:
+
+```
+print("Quantidade de imagens para treino:", len(x_treino))
+print("Quantidade de imagens para teste:", len(x_teste))
+```
+
+![Aula02_Figura41](imagens/Aula02_Figura41.png)
+
+Legal, as imagens vieram organizadas do jeito que vimos! Vamos analisar qual o **tipo** da informação em `x_treino` e `x_teste`?
+
+![Aula02_Figura42](imagens/Aula02_Figura42.png)
+
+Vamos entender o que é esse **numpy.ndarray** quebrando em duas partes:
+
+A [numPy](https://numpy.org/) é uma biblioteca em Python para trabalhar com álgebra linear, matemática, matriz, entre outros assuntos, facilitando a parte matemática e a escrita de algumas partes do código pra gente.
+
+> **_Nota :pencil: :_** O NumPy trabalha com os tipos das informações não necessariamente em Python, mas em c++, que é uma linguagem **mais rápida** e complicada.
+
+> **_Nota :pencil: :_** O NumPy já vem embutido no TensorFlow e no Keras. Sensacional, não é?! :blue_heart:
+
+Um **array** é um nome geralmente usado para lista e funciona da mesma forma que uma.
+
+Vamos pegar a primeira imagem de `x_treino` e armazená-la em uma variável:
+
+```
+primeira_imagem = x_treino[0]
+```
+
+Vamos agora exibir seu conteúdo:
+
+```
+print(primeira_imagem)
+```
+
+![Aula02_Figura43](imagens/Aula02_Figura43.png)
+
+Bom, podemos ver que se trata de imagem maravilhosa, não é mesmo? Para o computador, no caso. :laughing:  :laughing:  :laughing:  :laughing:  :laughing:  :laughing:  :laughing: 
+
+Como Jack, vamos quebrar essa imensidão de informações em pedaços, começando pela primeira linha. Note que temos dois colchetes um ao lado do outro:
+
+![Aula02_Figura44](imagens/Aula02_Figura44.png)
+
+E se riscarmos estes `0's` teremos a primeira linha do nosso arquivo:
+
+![Aula02_Figura46](imagens/Aula02_Figura46.png)
+
+E contarmos cada linha desta forma, teremos `28` delas.
+
+Se assumirmos que o conteúdo entre cada colchete é uma lista, temos `28` listas.
+
+![Aula02_Figura47](imagens/Aula02_Figura47.png)
+
+Percebemos também que a imagem não contém somente `0's`, alguns outros valores aparecem como `136`, `253`, `251`...Se selecionarmos estes valores e juntarmos suas formas criando uma nova imagem, temos algo que representa um número:
+
+![Aula02_Figura45](imagens/Aula02_Figura45.png)
+
+O risco em vermelho nos lembra o número `5`, não é verdade? Para confirmar esta informação, precisamos exibi-la de outras formas:
+
+<!-- 42:29 -->
