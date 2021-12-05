@@ -849,6 +849,8 @@ Exatamente do jeito que esperávamos: `784 pixels`!
 
 ## Recapitulando
 
+<!-- Task: se coincidir com o fluxo do vídeo, colocar este como o último capítulo -->
+
 O MNIST é uma base de dados que possui, a termos didáticos, uma estrutura organizada em 4 caixas:
 
 - `x_treino`;
@@ -910,7 +912,113 @@ Agora que aprendemos a transformar nossa matriz e fazer o achatamento da imagem,
 
 Contudo, acabamos de ver que há um processo a ser feito caso os pixels fujam do intervalo entre `0-255`.
 
-### Normalizando os Dados
+### Normalizando os Dados para a Camada de Entrada
 
 <!-- 01:08:39 -->
 
+Para normalizar os dados precisamos que:
+
+- 255 vire 1;
+- 127 vire 0.5, e;
+- 0 vire 0.
+
+Para isso, pegamos o valor que estamos recebendo para transformar e dividimos pelo valor máximo do intervalo, no caso, 255. Por exemplo:
+
+- Se dividirmos 255 por 255, obteremos 1;
+- Se dividirmos 125 por 255, obteremos ~0.5;
+- Se dividirmos 0 por 255, obteremos 0, e;
+- Se recebermos 30% de 255, que é 76.5 e dividirmos por 255, obteremos 0.3.
+
+Cada um dos pixels da imagem, 784, precisam passar por essa normalização. Pra gente não pirar, o Numpy ajuda a gente nesse processo. 
+
+Vamos trabalhar com a primeira imagem da base de treino, pegando o primeiro pixel dela:
+
+```
+primeira_imagem = x_treino[0]
+
+print(primeira_imagem[0])
+```
+
+![Aula02_Figura70](imagens/Aula02_Figura70.png)
+
+Como resultado obtemos `0` como o valor para o primeiro pixel. Vamos agora observar o resultado do pixel na posição `160` e seu tipo:
+
+![Aula02_Figura71](imagens/Aula02_Figura71.png)
+
+Obtemos o valor de `166` com o tipo `numpy.uint8`, não se tratando do `class int` que vimos anteriormente.
+
+Vamos armazenar o valor deste pixel em uma variável, dividir por `255` e exibir seu tipo:
+
+```
+primeira_imagem = x_treino[0]
+
+print(primeira_imagem[160], type(primeira_imagem[160]))
+
+pixel_imagem = primeira_imagem[160]
+print(pixel_imagem / 255, type(pixel_imagem / 255))
+```
+
+![Aula02_Figura72](imagens/Aula02_Figura72.png)
+
+Quando pegamos especificamente o pixel `160` da primeira imagem em `x_treino`, este número vem como `numpy.uint8`, ou seja, **inteiro**.
+
+Quando dividimos este pixel por `255`, ele transforma este número em `numpy.float64`, ou seja, um **float/decimal** e nos garante que o resultado da divisão está entre `0 e 1`.
+
+Ainda precisamos realizar mais um ajuste para que estes valores passem pelo _TensorFlow_, pois ele não aceita `float64` e sim `float32`. Caso não fizermos, receberemos um erro mais adiante.
+
+> **_Nota :pencil: :_** Esta é uma característica deste modelo que estamos utilizando no _TensorFlow_.
+
+Em um novo bloco de código vamos fazer o seguinte:
+
+```
+x_treino = x_treino.astype('float32')
+x_teste = x_teste.astype('float32')
+```
+
+Onde `astype` é uma função específica que converte todos os valores em `x_treino` e `x_teste` em `float32`.
+
+Como aprendemos anteriormente que precisamos otimizar memória, vamos estamos armazenando estas informações convertidas nas bases originais. :wink: 
+
+Feita a conversão, podemos normalizar nossas bases de treino e teste, realizando o mesmo processo de divisão por `255` citado anteriormente:
+
+```
+x_treino /= 255
+x_teste /= 255
+```
+
+![Aula02_Figura73](imagens/Aula02_Figura73.png)
+
+Onde `/=` significa dizer que a variável que está na esquerda seja igual à ela mesma e tendo seu valor dividido pelo valor à direita.
+
+Agora nosso _dataset_ está pronto para o próximo passo, pois o Numpy sabe exatamente quantas imagens tem em cada base, pegando cada um dos pixels individualmente e os dividindo por `255`. 
+
+- `x_treino /= 255` - Divide todos os 60000 valores de x_treino por 255 e armazena esse resultado em x_treino
+- `x_teste /= 255` - Divide todos os 10000 valores de x_teste por 255 e armazena esse resultado em x_teste
+
+E a gente pensando aqui que ia dar um trabalhão normalizar 70.000 imagens! :laughing: :laughing: :laughing: :laughing:
+
+Vamos checar como está o pixel que vimos anteriormente, o `160` da primeira imagem de `x_treino`, juntamente com seu tipo:
+
+```
+print(x_treino[0][160], type(x_treino[0][160]))
+```
+
+![Aula02_Figura74](imagens/Aula02_Figura74.png)
+
+Diferente do `float64`, podemos notar que `float32` exibe menos dados pra gente, deixando a saída mais organizada.
+
+Lindo demais, não é mesmo?! Vamos ver como ficou a base `x_treino`?
+
+```
+print(x_treino[0][160], type(x_treino[0][160]))
+
+print(x_treino[0])
+```
+
+![Aula02_Figura75](imagens/Aula02_Figura75.png)
+
+Temos todas as imagens desta base transformadas em `float32` com valores entre `0 e 1`.
+
+### 2. Organizar a camada de saída (_output_)
+
+<!-- 01:21:18 -->
