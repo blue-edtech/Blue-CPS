@@ -734,9 +734,183 @@ Experimente outros valores de índice e veja o resultado nas bases de treino e t
 
 <!-- 53:00 -->
 
-1. Organizar a camada de entrada (input)
-2. Organizar a camada de saída (output)
-3. Estruturar a nossa rede neural
+Antes de começarmos precisamos estabelecer uma ordem para não nos perdermos no processo:
+
+1. Organizar a camada de entrada (_input_)
+   - Vamos realizar a preparação das 70.000 imagens para entrarem no modelo
+2. Organizar a camada de saída (_output_)
+   - Baseado em meu conjunto de dados, prepararamos as possibilidades de saída e previsões
+3. Estruturar a Rede Neural
+   - Número de Neurônios e camadas escondidas que utilizaremos
 4. Treinar o modelo
+   - Configurar adequadamente a realização do _backpropagation_ para não estagnar nossa Rede
 5. Fazer as previsões
+   - Parte mais divertida do processo
+
+### 1. Organizar a camada de entrada (_input_)
+
+Este é o processo onde transformamos a matriz de 28x28px de cada imagem em uma linha unidimensional de 784px criando uma lista de imagens.
+
+Primeiro, vamos definir a quantidade de imagens para treino e teste:
+
+```
+quantidade_treino = len(x_treino)
+quantidade_teste = len(x_teste)
+```
+
+Onde os valores para as bases `len(x_treino)` e `len(x_teste)` serão armazenados em suas respectivas variáveis.
+
+Vamos também armazenar a resolução destas imagens na variável `resolucao_imagem` utilizando a primeira imagem como referência:
+
+```
+resolucao_imagem = x_treino[0].shape
+```
+
+Lembrando que a resolução padrão será de 28x28px.
+
+> **_Nota :pencil: :_** O _dataset_ possui imagens e informações mais ou menos parecidas e para garantir que utilizaremos as informações corretas, as armazenamos dentro de variáveis. Facilita muito caso seja necessário a utilização de outra base para treino e teste.
+
+Para transformar a matriz em uma linha, o numpy.ndarray conta com uma função auxiliar chamada `reshape` que recebe a **quantidade de itens** de treino e a **resolução total** que queremos utilizar, 784px.
+
+```
+resolucao_total = resolucao_imagem[0] * resolucao_imagem[1]
+```
+
+Onde `resolucao_total` recebe 28pixels da primeira imagem **x** 28pixels da segunda imagem, totalizando 784px.
+
+Não utilizamos `resolucao_imagem[0]` x `resolucao_imagem[0]`, pois queremos garantir que o resultado final seja de uma imagem que contenha a matriz de 28x28px e não uma que contenha 28x50px, por exemplo, para não alterar a quantidade de linhas e colunas.
+
+Agora que declaramos a resolução que vamos utilizar, podemos achatar as imagens das bases de treino e teste utilizando o _reshape_:
+
+```
+x_treino_achatado = x_treino.reshape(quantidade_treino, resolucao_total)
+x_teste_achatado = x_teste.reshape(quantidade_teste, resolucao_total)
+```
+
+Vamos observar como ficaram as nossas 60.000 imagens achatadas da base de treino:
+
+```
+print(x_treino_achatado)
+```
+
+![Aula02_Figura57](imagens/Aula02_Figura57.png)
+
+Entrando no detalhe, vamos ver como a primeira imagem ficou achatada:
+
+```
+print(x_treino_achatado[0])
+```
+
+![Aula02_Figura58](imagens/Aula02_Figura58.png)
+
+Podemos perceber que temos um único par de colchetes, evidenciando uma lista, e os números organizados de forma sequencial.
+
+Só que agora nós temos um problema, armazenadas em memória nós possuímos variáveis contendo as mesmas informações:
+
+- `x_treino`;
+- `x_treino_achatado`;
+- `x_teste`;
+- `x_teste_achatado`
+
+Em _Deep Learning_ após a modificação dos dados iniciais, não precisamos mais deles pois o que verdadeiramente importa é o achatamento. É desta forma que as imagens entram no modelo e não em matriz.
+
+Podemos então substituir o conteúdo de `x_treino` e `x_teste` pelo conteúdo achatado das outras variáveis fazendo o seguinte:
+
+```
+x_treino = x_treino.reshape(quantidade_treino, resolucao_total)
+x_teste = x_teste.reshape(quantidade_teste, resolucao_total)
+```
+
+Armazenamos o resultado do _reshape_ nas variáveis originais, sobrescrevendo seus valores. :wink:
+
+> **Importante :mega: :** Sempre é bom reduzirmos a utilização de memória otimizando a forma que armazenamos informações que estão duplicadas em nosso código.
+
+Caso retorne erro ao executar seu código após sobrescrever as variáveis  `x_treino` e `x_teste`:
+
+![Aula02_Figura59](imagens/Aula02_Figura59.png)
+
+Selecione a opção de **Reiniciar e executar tudo** em Ambiente de execução:
+
+![Aula02_Figura60](imagens/Aula02_Figura60.png)
+
+Com o nosso servidor reiniciado e sem erros, vamos exibir o resultado para as duas bases:
+
+![Aula02_Figura61](imagens/Aula02_Figura61.png)
+
+Lembra que anteriormente vimos a estrutura da imagem do dígito `5`? Vamos ver como ela está após o achatamento:
+
+```
+print("Quantidade de itens em x_treino[0]:", len(x_treino[0]))
+```
+
+![Aula02_Figura62](imagens/Aula02_Figura62.png)
+
+Exatamente do jeito que esperávamos: `784 pixels`!
+
+## Recapitulando
+
+O MNIST é uma base de dados que possui, a termos didáticos, uma estrutura organizada em 4 caixas:
+
+- `x_treino`;
+- `y_treino`;
+- `x_teste`, e;
+- `y_teste`
+
+Cada uma delas possui imagens organizadas em matrizes de 28x28px, onde cada pixel contém um valor específico.
+
+![Aula02_Figura63](imagens/Aula02_Figura63.png)
+
+Na imagem abaixo, circulado em **rosa** nós temos `2 listas`, também conhecidas como `ndarray`. 
+
+Cada uma destas listas estão organizadas dentro de uma lista maior, circulada em **amarelo** na imagem, também chamada de `ndarray`.
+
+![Aula02_Figura64](imagens/Aula02_Figura64.png)
+
+A lista maior, em amarelo, possui um _shape_ de `28x28` posições e cada posição individual é um novo `ndarray`.
+
+A lista menor, em rosa, também possui um _shape_ de `28x28` posições e cada posição individual contém um número inteiro.
+
+Com as imagens em mãos, necessitamos realizar o processo de **achatamento**, transformar a matrix de 28x28px em uma linha unidimensional que entrará pela camada de entrada. 
+
+O resultado do achatamento também será uma lista ndarray com um _shape_ de 784px.
+
+![Aula02_Figura67](imagens/Aula02_Figura67.png)
+
+Independente do tamanho da imagem que você tenha recebido, por exemplo, uma imagem de 1000x1000px, esta imagem precisa ser transformada em 28x28 para entrar na rede, pois este é o _shape_ que a rede foi configurada.
+
+> **Importante :mega: :** Para que os dados entrem pela camada de entrada, é importante que todos os dados estejam estruturados no mesmo formato.
+
+![Aula02_Figura68](imagens/Aula02_Figura68.png)
+
+A imagem que exploramos durante o início da aula possui o número `5` representado.
+
+![Aula02_Figura65](imagens/Aula02_Figura65.png)
+
+Os números inteiros dentro das imagens estão em um intervalo de `0-255` e quanto **mais próximo de 255**, **mais próximo de preto** o pixel estará.
+
+- Se `0`, não há nenhuma ativação, sendo representada pela cor branca.
+
+- Se `255`, sua ativação estará em nível máximo, sendo representada pela cor preta.
+
+- Se `127`, ou seja, entre os valores acima, a ativação será média, sendo representada pela cor cinza.
+
+![Aula02_Figura66](imagens/Aula02_Figura66.png)
+
+Anteriormente vimos que os valores dos pixels poderiam estar entre `0 e 1`, porém, isto não é obrigatório em todos os casos sendo possível mudá-los.
+
+Contudo, trabalhar com valores entre `0 e 1` é mais interessante para inserirmos as informações na camada de entrada e executarmos a **Normalização de Dados** com mais facilidade, ou seja:
+
+- Transformar o valor `255` em `1`;
+- Transformar o valor `127` em `0.5`, e;
+- Transformar o valor `0` em `0`.
+
+Agora que aprendemos a transformar nossa matriz e fazer o achatamento da imagem, precisamos que a informação entre pela camada de entrada, passe pelas camadas ocultas e seja devolvida na camada de saída.
+
+![Aula02_Figura69](imagens/Aula02_Figura69.png)
+
+Contudo, acabamos de ver que há um processo a ser feito caso os pixels fujam do intervalo entre `0-255`.
+
+### Normalizando os Dados
+
+<!-- 01:08:39 -->
 
