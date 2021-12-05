@@ -460,7 +460,9 @@ As 60.000 imagens que utilizaremos para treino serão achatadas individualmente 
 
 ![Aula02_Figura37](imagens/Aula02_Figura37.png)
 
-## MNIST no Colab
+Após o processo de achatamento, olhamos para cada um destes pixels para realizar a **extração de features**, ou seja, preparar nossa Rede para identificar curvas e linhas.
+
+## Primeiros Passos do MNIST no Colab
 
 > **_Nota :pencil: :_** Se você não estiver utilizando o Colab, instel o tensorflow e o keras em sua máquina para acompanhar a aula. :wink:
 
@@ -589,7 +591,7 @@ print(primeira_imagem)
 
 ![Aula02_Figura43](imagens/Aula02_Figura43.png)
 
-Bom, podemos ver que se trata de imagem maravilhosa, não é mesmo? Para o computador, no caso. :laughing:  :laughing:  :laughing:  :laughing:  :laughing:  :laughing:  :laughing: 
+Bom, podemos ver que se trata de imagem maravilhosa, não é mesmo? <strike>Para o computador, no caso</strike>. :laughing:  :laughing:  :laughing:  :laughing:  :laughing:  :laughing:  :laughing: 
 
 Como Jack, vamos quebrar essa imensidão de informações em pedaços, começando pela primeira linha. Note que temos dois colchetes um ao lado do outro:
 
@@ -609,6 +611,132 @@ Percebemos também que a imagem não contém somente `0's`, alguns outros valore
 
 ![Aula02_Figura45](imagens/Aula02_Figura45.png)
 
-O risco em vermelho nos lembra o número `5`, não é verdade? Para confirmar esta informação, precisamos exibi-la de outras formas:
+> **_Nota :pencil: :_** Os valores dentro da imagem vão de `0 a 255` pois na escala RGB, `R`  significa vermelho (_red_), `G` significa verde (_green_) e `B` significa azul (_blue_), um pixel `0` não contém informação e `255` contém o máximo de informações. Qualquer valor intermediário representa <strike>50</strike> tons de cinza. (risos).
+
+O risco em vermelho nos lembra o número `5`, não é verdade? Para confirmar esta informação, precisamos exibi-la de outras formas.
 
 <!-- 42:29 -->
+
+Se `x_treino` contém a representação da imagem, podemos checar em `y_treino` se a imagem acima é realmente o dígito `5`. Vamos ao Colab e inserir os dois comandos abaixo:
+
+```
+representacao_primeira_imagem = y_treino[0]
+
+print("A imagem x_treino[0] representa o número", representacao_primeira_imagem)
+```
+
+Onde `representacao_primeira_imagem` recebe `y_treino[0]`, ou seja, a primeira informação naquela lista. Em seguida, exibimos este conteúdo na tela utilizando `print()`.
+
+![Aula02_Figura48](imagens/Aula02_Figura48.png)
+
+Como resposta, temos a confirmação de que a primeira imagem em nosso _dataset_ se trata do número `5`.
+
+Podemos também saber o formato e o tipo da primeira imagem, através do atributo `shape` e o `type`, que já conhecemos. Vejamos:
+
+```
+print("Formato da primeira imagem:", primeira_imagem.shape, type(primeira_imagem.shape))
+```
+
+![Aula02_Figura49](imagens/Aula02_Figura49.png)
+
+O resultado deste comando valida a informação de que a imagem se trata de uma matriz de 28 linhas e 28 colunas, ou seja, uma imagem que possui 28x28 pixels e que não pode ter seu conteúdo alterado por se tratar de uma tupla.
+
+## Imagem com Cara de Imagem
+
+Agora que entendemos como é a nossa estrutura, a maneira que ela aparece e como identificar seu tipo e formato, podemos deixar as imagens num formato que o Ser Humano consegue melhor entender.
+
+Para isso vamos usar a biblioteca [Matplotlib](https://matplotlib.org/), que cria visualizações de dados gráficos. Precisamos importá-la no Colab e todas as vezes que necessitarmos usá-la ao longo do processo, vamos chamá-la pelo seu apelido `plt`:
+
+```
+import matplotlib.pyplot as plt
+```
+
+Como se trata somente de uma importação, não teremos nenhuma saída para este comando.
+
+![Aula02_Figura50](imagens/Aula02_Figura50.png)
+
+Feita a importação, vamos visualizar como a imagem é retornada para nós quando a chamamos:
+
+```
+plt.imshow(x_treino[0])
+```
+
+![Aula02_Figura51](imagens/Aula02_Figura51.png)
+
+Bem melhor, não é? 
+
+Vamos deixar essa visualização ainda melhor transformando essa imagem com diversas cores em tom de cinza, que é a cor que originalmente consta no _dataset_:
+
+```
+plt.imshow(x_treino[0], cmap=plt.cm.binary)
+```
+
+Onde `cmap` recebe `binary`, ou seja, estamos dizendo que queremos utilizar o `colormap` em preto e branco:
+
+![Aula02_Figura52](imagens/Aula02_Figura52.png)
+
+Sabemos que este _dataset_ contém 60.000 imagens e para visualizar cada uma de uma forma mais dinâmica, sem precisar repetir a linha de cima diversas vezes, vamos criar uma variável que irá receber a posição da imagem que queremos:
+
+> **_Nota :pencil: :_** Precisamos fazer desta forma pois não sabemos qual imagem está em cada posição. Até aqui sabemos que o número `5` ocupa a primeira posição no índice.
+
+```
+indice = 0
+```
+
+Onde `indice` é a variável que recebe a primeira posição.
+
+```
+print("A imagem representa:", y_treino[indice])
+```
+
+Onde `y_treino[indice] ` irá sempre exibir o número da imagem no **índice através do valor que nós definirmos na variável**. Como estamos querendo o valor da primeira posição no índice:
+
+![Aula02_Figura53](imagens/Aula02_Figura53.png)
+
+Se queremos a imagem da **quinta posição**:
+
+```
+indice = 4
+print("A imagem representa:", y_treino[indice])
+```
+
+![Aula02_Figura54](imagens/Aula02_Figura54.png)
+
+Podemos também chamar a variável `indice` quando queremos a representação da imagem em `x_treino`:
+
+```
+indice = 4
+
+print("A imagem representa:", y_treino[indice])
+
+plt.imshow(x_treino[indice], cmap=plt.cm.binary)
+```
+
+![Aula02_Figura55](imagens/Aula02_Figura55.png)
+
+Podemos também utilizar a variável `indice` na base de teste, substituindo `x_treino` e `y_treino`:
+
+```
+indice = 4000
+
+print("A imagem representa:", y_teste[indice])
+
+plt.imshow(x_teste[indice], cmap=plt.cm.binary)
+```
+
+![Aula02_Figura56](imagens/Aula02_Figura56.png)
+
+Experimente outros valores de índice e veja o resultado nas bases de treino e teste! :wink:
+
+> **Importante :mega: :** O índice começando em `0`, o último arquivo estará na posição `59999`. Ao tentar retornar o conteúdo da posição 60000, você obterá um erro.
+
+## Fluxo de Construção da Rede Neural
+
+<!-- 53:00 -->
+
+1. Organizar a camada de entrada (input)
+2. Organizar a camada de saída (output)
+3. Estruturar a nossa rede neural
+4. Treinar o modelo
+5. Fazer as previsões
+
