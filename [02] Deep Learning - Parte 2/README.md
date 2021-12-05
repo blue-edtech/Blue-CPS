@@ -1022,3 +1022,84 @@ Temos todas as imagens desta base transformadas em `float32` com valores entre `
 ### 2. Organizar a camada de saída (_output_)
 
 <!-- 01:21:18 -->
+
+Estamos trabalhando com um _dataset_ que nos dá um número de **possibilidades finita**s para a camada de saída. Sabemos que ela pode exibir números de `0 a 9`.
+
+Acompanhando a representação das imagens, temos suas _labels_, que também vão de `0 a 9`.
+
+Cada Neurônio na camada de saída precisa conter uma lista para **cada um dos números**, ou seja, o formato desta camada precisa ser transformado em: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ou seja, uma lista com `10` opções que vai de `0 a 9`. 
+
+Cada número dentro da lista possui uma **reserva**, por exemplo:
+
+- ```
+  Número 5 [0, 0, 0, 0, 0, 1, 0, 0, 0, 0]
+  ```
+
+- ```
+  Número 9 [0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
+  ```
+
+- ```
+  Número 0 [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  ```
+
+Sendo que, se a posição específica dentro da lista tiver valor igual a 1, significa que aquele espaço foi preenchido e será exibido. Lembrando quanto mais ativações, mais preenchido o Neurônio se torna, se destacando na camada de saída.
+
+Não se preocupe se isso tudo estiver ainda um pouco confuso. Ao longo do vídeo tudo ficará mais claro.
+
+Vamos começar a estruturar essa camada pegando a base de _labels_, `y_treino`, exibindo seu primeiro item juntamente com o tipo:
+
+```
+print("Primeiro elemento:", y_treino[0], type(y_treino[0]))
+```
+
+![Aula02_Figura76](imagens/Aula02_Figura76.png)
+
+Podemos ver que o primeiro elemento é o número `5` e seu tipo `uint8`, ou seja, um número inteiro.
+
+Precisamos agora saber quais **valores são únicos** dentro da nossa base de 60.000 itens. Para isso, vamos usar a função `set()` do `numpy`:
+
+```
+valores_unicos = set(y_treino)
+
+print("Valores únicos", valores_unicos)
+```
+
+![Aula02_Figura77](imagens/Aula02_Figura77.png)
+
+Podemos notar que o `numpy` foi capaz de encontrar somente os dígitos de `0 a 9` entre 60.000 _labels_. Para ficar mais claro a diferença, vamos exibir o conteúdo de `y_treino`:
+
+```
+print(y_treino)
+```
+
+![Aula02_Figura78](imagens/Aula02_Figura78.png)
+
+Evidenciando que sem a função `set()`o `numpy` não é capaz de agrupar o que é igual dentro da _label_.
+
+Vamos agora descobrir a quantidade de valores únicos encontrados e armazená-los em uma variável:
+
+![Aula02_Figura79](imagens/Aula02_Figura79.png)
+
+Agora, podemos transformar cada um dos números únicos em suas respectivas representações da camada de saída:
+
+```
+print("O que temos em y_treino (antes)?", y_treino)
+
+y_treino = keras.utils.to_categorical(y_treino, quantidade_valores_unicos)
+y_teste = keras.utils.to_categorical(y_teste, quantidade_valores_unicos)
+
+print("O que temos em y_treino (depois)?", y_treino)
+```
+
+Quem nos auxilia neste processo de transformação é o **_keras_**, através da função `utils.to_categorical` e para ela passamos as bases de treino e teste, juntamente com a quantidade de valores únicos que possuem.
+
+Otimizando a memória, sobrescrevemos o conteúdo das variáveis originais com a transformação feita pelo _keras_.
+
+![Aula02_Figura80](imagens/Aula02_Figura80.png)
+
+Podemos notar que na segunda posição da saída, temos o dígito `0` e na última, o `8`, evidenciando que a transformação foi feita.
+
+### 3. Organizar a camada de saída (_output_)
+
+<!-- 01:33:00 -->
