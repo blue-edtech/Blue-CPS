@@ -1100,6 +1100,85 @@ Otimizando a memória, sobrescrevemos o conteúdo das variáveis originais com a
 
 Podemos notar que na segunda posição da saída, temos o dígito `0` e na última, o `8`, evidenciando que a transformação foi feita.
 
-### 3. Organizar a camada de saída (_output_)
+### 3. Estruturando a Rede Neural
 
 <!-- 01:33:00 -->
+
+O primeiro passo neste momento é a criação de um **modelo sequencial**: 
+
+```
+model = Sequential()
+```
+
+Tendo o modelo, criamos a **primeira camada** oculta e sua quantidade de neurônios. Vamos começar com `30` destes.
+
+Sabemos que as camadas ocultas necessitam de uma **função de ativação** e por ser a primeira camada, nela definimos o **formato de entrada** dos dados:
+
+```
+model.add(Dense(30, activation='relu', input_shape=(resolucao_total,)))
+```
+
+Adicionamos a primeira camada oculta através da função `Dense` onde fazemos a seguinte configuração:
+
+- Dizemos que queremos `30` neurônios;
+- Usaremos a função de ativação `ReLu`, e;
+- O `input_shape`, será uma tupla de um único número com a `resolucao_total,` que criamos anteriormente com o valor de `784`.
+
+A fim de evitarmos _overfitting_, ou seja, quando nosso modelo se ajusta muito bem ao conjunto de dados conhecidos mas não é capaz de resolver imagens que ela não conhece, necessitamos adicionar um regularizador dentro da camada oculta.
+
+Vamos utilizar um genérico chamado **_dropout_** com um _rate_ de `0.2`.
+
+```
+model.add(Dropout(0.2))
+```
+
+> **_Nota :pencil: :_** Neste momento não vamos entrar muito no detalhe matemático do _overfitting_ e como ajustar isto na Rede para não complicarmos o aprendizado.
+
+No mesmo bloco de código, vamos construir a segunda camada, com `20` neurônios e também, a função de ativação `ReLu`:
+
+```
+model.add(Dense(20, activation='relu'))
+```
+
+Adicionamos mais um regularizador após esta camada:
+
+```
+model.add(Dropout(0.2))
+```
+
+Finalizamos com a **camada de saída**, com a quantidade de valores únicos que estão armazenados em `quantidade_valores_unicos`, juntamente com a função de ativação **_Softmax_**:
+
+```
+model.add(Dense(quantidade_valores_unicos, activation='softmax'))
+```
+
+A função _softmax_ na prática é uma sigmóide, capaz de lidar com duas classes somente e vamos usá-la para categorizar as saídas do nosso modelo.
+
+Por fim, exibimos um **resumo** do modelo criado:
+
+```
+model.summary()
+```
+
+![Aula02_Figura81](imagens/Aula02_Figura81.png)
+
+Na **primeira camada** temos:
+
+- `784` pixels ligados com cada um dos `30` Neurônios, resultando em `23.520` parâmetros. 
+- Como não nos esquecemos dos _bias_ que acompanham cada neurônio, temos `23.550` parâmetros. 
+
+Na **segunda camada** temos:
+
+- Os `30` Neurônios da primeira camada conectados aos `20` desta camada, resultando em `600` parâmetros.
+- Cada Neurônio desta camada acompanha um valor de _bias_, resultando em `620` parâmetros.
+
+Na **camada de saída** temos:
+
+- Os `20` Neurônios da segunda camada oculta conectados aos `10` desta camada, resultando em `200` parâmetros.
+- Cada Neurônio desta camada acompanha um valor de _bias_, resultando em `210` parâmetros.
+
+Se fizermos as contas, o **total de parâmetros** de toda a Rede é de `24.380` parâmetros entre pesos e _bias_, que no início do aprendizado são aleatórios e vão sendo ajustados conforme o treinamento progride.
+
+> **_Nota :pencil: :_** Lembre-se que o objetivo final do processo de aprendizagem é encontrar os pesos e _bias_ mais adequados ao nosso modelo.
+
+<!-- 01:45:15 -->
