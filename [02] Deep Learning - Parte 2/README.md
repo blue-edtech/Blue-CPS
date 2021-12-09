@@ -55,7 +55,7 @@ Em _Python_, quando queremos **exibir algo na tela** usamos o comando `print("")
 
 Entre as aspas vai o conteúdo que desejamos exibir. Sabendo disso, vamos já nos livrar da maldição com um '_Hello World!_' mostrando essa mensagem na tela. Digite no terminal ao lado do botão '**_Play_**' o seguinte:
 
-```
+```python
 print("Hello World!")
 ```
 
@@ -67,7 +67,7 @@ Quando a interface por onde digitamos os comandos é conectada ao servidor, o re
 
 ![Aula02_Figura08](imagens/Aula02_Figura08.png)
 
-Caso você nunca tenha programado em _Python_, não se preocupe! Em _Deep Learning_ não é necessário um conhecimento profundo na linguagem. Necessitamos entender e trabalhar com **listas**, **tuplas** e **variáveis** e falaremos sobre estes itens.
+Caso você nunca tenha programado em Python, não se preocupe! Em _Deep Learning_ não é necessário um conhecimento profundo na linguagem. Necessitamos entender e trabalhar com **listas**, **tuplas** e **variáveis** e falaremos sobre estes itens.
 
 > **Importante :mega: :** Caso seu desejo seja se aprofundar na linguagem, sugerimos que o faça associando aos conhecimentos em _Deep Learning_ e Ciência de Dados para que aprenda também a utilizar outras bibliotecas e com isso, explorar mais pontos.
 
@@ -81,49 +81,57 @@ Os notebooks do Colab, essa interface que utilizamos para digitar nossos comando
 
 > **Importante :mega: :** Todos os códigos são sempre executados nas células.
 
-Para saber mais sobre o _Jupyter_ e instalá-lo em sua máquina, clique [aqui](https://jupyter.org/about).
+Para saber mais sobre o Jupyter e instalá-lo em sua máquina, clique [aqui](https://jupyter.org/about).
 
-Em programação, costumamos **armazenar** boa parte das informações em **variáveis**. Vamos criar uma para armazenar nosso nome. Clique em `+ Código` e digite o seguinte:
+Em programação, costumamos **armazenar** boa parte das informações em **variáveis**. Vamos criar uma para armazenar nosso nome.
 
-`nome = "digite-seu nome"`
+Clique em `+ Código` e digite o seguinte:
+
+```python
+nome = "digite o seu nome"
+```
 
 Onde `nome` será o nome da nossa variável e `"Paulo Salvatore"` é o conteúdo de exemplo armazenado dentro dela.
 
-Não esqueça de utilizar as **aspas** para que o interpretador entenda que você está armazenando seu nome em forma de _String_ **dentro da variável nome**.
+Não esqueça de utilizar as **aspas** (`""`) para que o interpretador entenda que você está armazenando seu nome em forma de `string` **dentro da variável `nome`**.
 
-Ao executar o código, o _Jupyter_ vai gravar esta informação no servidor e realizar a ação que pedimos através do código. Neste caso, nada será exibido na tela, pois estamos somente armazenando uma informação dentro de uma variável na memória.
+Ao executar o código, o Jupyter vai gravar esta informação no servidor e realizar a ação que pedimos através do código. Neste caso, nada será exibido na tela, pois estamos somente armazenando uma informação dentro de uma variável na memória.
 
 ![Aula02_Figura09](imagens/Aula02_Figura09.png)
 
-Armazenada na memória, precisamos encontrar uma forma de resgatar a informação na memória e exibi-la na tela. Nós já aprendemos como exibir algo através do `print`. 
+Armazenada na memória, precisamos encontrar uma forma de resgatar a informação na memória e exibí-la na tela. Nós já aprendemos como exibir algo através do `print`. 
 
 A mesma regra de funcionamento se aplica, porém, como estamos mostrando algo na tela que já existe, ou seja, não estamos criando uma nova informação, o uso das aspas não se faz necessário.
 
-`print(nome-da-variável)` ou seja `print(nome)`
+`print(nome-da-variavel)` ou seja `print(nome)`
 
 ![Aula02_Figura10](imagens/Aula02_Figura10.png)
 
-Quando o _Play_ é clicado:
+Quando o Play é clicado:
 
 - O bloco de código é novamente executado;
-- É armazenando novamente a _string_ "Paulo Salvatore" na variável "nome", e;
-- O comando print(nome) exibe Paulo Salvatore na tela.
+- É armazenando novamente a `string` `"Paulo Salvatore"` na variável `nome`, e;
+- O comando `print(nome)` exibe `Paulo Salvatore` na tela.
 
-Perceba uma coisa interessante... Quando executamos o código, um número é colocado botão _Play_.
+Perceba uma coisa interessante... Quando executamos o código, um número é colocado no lugar do botão Play.
 
 ![Aula02_Figura11](imagens/Aula02_Figura11.png)
 
-Isso acontece porque as execuções são sequenciais e o _Jupyter_ as incrementas, ou seja, adiciona uma após a outra como se estivesse guardando um **histórico de execução** do nosso código.
+Isso acontece porque as execuções são sequenciais e o Jupyter as incrementas, ou seja, adiciona uma após a outra como se estivesse guardando um **histórico de execução** do nosso código.
 
 **Importante :mega:: Quando guardamos uma informação na memória ela fica salva.** Vamos a um exemplo:
 
 Adicione uma célula contendo o seguinte conteúdo:
 
-`variavel = 1`
+```python
+variavel = 1
+```
 
 e outra célula com este:
 
-`print(variavel)`
+```python
+print(variavel)
+```
 
 ![Aula02_Figura12](imagens/Aula02_Figura12.png)
 
@@ -165,11 +173,13 @@ A máquina foi reiniciada e tudo que havia na memória não existe mais.
 
 Para que isso fique mais claro, vamos manipular o valor armazenado dentro da variável que criamos:
 
-`variavel = variavel + 1`
+```python
+variavel = variavel + 1
+```
 
-Estamos dizendo ao computador que queremos que armazene dentro da variável o valor que já existia dentro dela e some + 1 a ele.
+Estamos dizendo ao computador que queremos que armazene dentro da `variavel` o valor que já existia dentro dela e some `+ 1` a ele.
 
-Ao apertamos o _Play_ **duas vezes** esperamos o valor `3`  como saída ao darmos o Play em `print(variável)` novamente.
+Ao apertamos o Play **duas vezes**, esperamos o valor `3`  como saída no bloco que contém o `print(variável)`.
 
 ![Aula02_Figura16](imagens/Aula02_Figura16.png)
 
@@ -193,21 +203,29 @@ Quando usamos o símbolo de `+` entre duas variáveis estamos **concatenando** e
 
 Como `nome` e `sobrenome` são dois textos, estamos de certa forma somando os dois. 
 
-A nossa saída ficou um pouco esquisita porque 'PauloSalvatore' necessita de espaço entre nome e sobrenome. Para isso, necessitamos adicionar uma _string_ vazia e concatenar ao que já temos:
+A nossa saída ficou um pouco esquisita porque `'PauloSalvatore'` necessita de espaço entre `nome` e `sobrenome`.
 
-- `print(nome + " " + sobrenome)`
+Para isso, necessitamos adicionar uma `string` vazia e concatenar ao que já temos:
+
+```python
+print(nome + " " + sobrenome)
+```
 
 ![Aula02_Figura19](imagens/Aula02_Figura19.png)
 
-Outras formas de adicionar um espaço entre duas _strings_ é utilizando uma vírgula `,`:
+Outras formas de adicionar um espaço entre duas `strings` é utilizando uma vírgula `,`:
 
-- `print(nome, sobrenome)`
+```python
+print(nome, sobrenome)
+```
 
 E
 
-- `print(f{nome} {sobrenome})`
+```python
+print(f{nome} {sobrenome})
+```
 
-Onde adicionamos `f` ao `print()`, colocando nome e sobrenome dentro de chaves `{}` e aspas `"{} {}"`.
+Onde adicionamos `f` ao `print()`, colocando `nome` e `sobrenome` dentro de chaves `{}` e aspas `"{} {}"`.
 
 ![Aula02_Figura20](imagens/Aula02_Figura20.png)
 
@@ -235,7 +253,7 @@ Da mesma forma que armazenamos _strings_, ou seja, texto em uma variável, podem
 
 Em _Python_ podemos utilizar `print()` juntamente com o recurso `type(qualque-variavel)` para nos mostrar o tipo dela:
 
-```
+```python
 nome = "Paulo"
 numero = 5
 
