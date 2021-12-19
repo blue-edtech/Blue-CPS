@@ -141,7 +141,7 @@ Ao dar _Play_ para exibir o conteúdo de 'variavel' na tela, recebemos um erro:
 
 Veja que o que está acontecendo nos é mostrado através da mensagem:
 
-```
+```python
 NameError: name 'variavel' is not defined
 ```
 
@@ -267,7 +267,7 @@ print(numero, type(numero))
 
 Em qualquer lugar do código, se adicionarmos uma _hashtag_ significa que estamos adicionando um **comentário** que nos ajuda a adicionar **mais informações** sobre o nosso código:
 
-```
+```python
 nome = "Paulo" # str -> string -> texto
 numero = 5 # int -> integer -> inteiro -> números inteiros
 numero_decimal = 5.2 # float -> números decimais
@@ -283,7 +283,7 @@ print(numero_decimal, type(numero_decimal))
 
 Note que ao executar este código com `type`, é mostrado pra gente a diferença entre números **inteiros** e números **decimais**.
 
-```
+```python
 5 <class 'int'>
 5.2 <class 'float'>
 ```
@@ -296,7 +296,7 @@ Uma lista é sempre criadas quando colocamos colchetes `[ ]` após o nome que da
 
 Vamos criar uma lista **contendo números como elementos**, exibi-los na tela juntamente com a informação de qual tipo de lista estamos trabalhando:
 
-```
+```python
 lista = [10, 20, 30]
 
 print(lista, type(lista))
@@ -310,7 +310,7 @@ Toda lista **sempre começa** em `0`, ou seja, o primeiro elemento na lista esta
 
 Nós podemos armazenar os elementos em uma variável, exibí-los na tela juntamente com a informação sobre seu tipo, como segue abaixo:
 
-```
+```python
 lista = [10, 20, 30]
 #        0   1   2
 
@@ -324,7 +324,7 @@ print(primeiro_elemento, type(primeiro_elemento))
 
 Também podemos alterar o valor do elemento na lista. Vamos fazer com o **segundo elemento**, exibindo como estava a lista antes e depois da alteração:
 
-```
+```python
 lista = [10, 20, 30]
 #        0   1   2
 
@@ -344,7 +344,7 @@ print("Lista depois", lista)
 
 Em termos de estrutura e criação, a tupla nos lembra uma lista. Contudo, criada, **o valor dos elementos não podem ser alterados**.
 
-```
+```python
 tupla = (50, 60, 70)
 
 print(tupla, type(tupla))
@@ -354,7 +354,7 @@ print(tupla, type(tupla))
 
 Para acessar o primeiro elemento no índice da tupla também utilizamos colchetes `[ ]`:
 
-```
+```python
 tupla = (50, 60, 70)
 
 print(tupla, type(tupla))
@@ -367,7 +367,7 @@ print(primeiro_elemento, type(primeiro_elemento))
 
 Vamos agora tentar modificar o segundo elemento da tupla e ver o que acontece:
 
-```
+```python
 tupla = (50, 60, 70)
 
 print(tupla, type(tupla))
@@ -384,7 +384,7 @@ Este resultado nos mostra que de fato, não podemos alterar os valores dentro de
 
 Note que ao tentar criar uma tupla com único valor, utilizar os parênteses não interfere no resultado.
 
-```
+```python
 tupla = (50, 60, 70)
 
 print(tupla, type(tupla))
@@ -400,7 +400,7 @@ print(outra_tupla, type(outra_tupla))
 
 Uma tupla é sempre criadas quando colocamos adicionamos uma vírgula `,` entre os elementos. 
 
-```
+```python
 tupla = (50, 60, 70)
 
 print(tupla, type(tupla))
@@ -416,7 +416,7 @@ print(outra_tupla, type(outra_tupla))
 
 Podemos entender então, que os parênteses são neste caso, apenas auxiliares de exibição:
 
-```
+```python
 tupla = 50, 60, 70 # Tupla criada
 
 print(tupla, type(tupla))
@@ -488,19 +488,19 @@ O primeiro passo a ser executado é a importação de todas as dependências e b
 
 Começaremos por trazer o somente o 'keras' da biblioteca 'tensorflow':
 
-```
+```python
 from tensorflow import keras
 ```
 
 Agora que temos o 'keras' precisamos importar dele o _dataset_ do MNIST:
 
-```
+```python
 from keras.datasets import mnist
 ```
 
 Precisamos também de `4` ferramentas para nos auxiliar no processo, entraremos no detalhe delas mais a frente:
 
-```
+```python
 from tensorflow.python.keras import Sequential
 ```
 
@@ -511,19 +511,19 @@ Dentro do keras vamos entrar em um componente chamado **_layers_** e dele vamos 
 - **_Dense_** que nos ajuda a construir nossas camadas, servindo como o Neurônio de base da Rede, e;
 - **_Dropout_** que funciona como um regularizador que evita overfitting.
 
-```
+```python
 from tensorflow.python.keras.layers import Dense, Dropout
 ```
 
 Precisamos de um algoritmo de _backpropagation_ e utilizaremos o **RMSprop**:
 
-```
+```python
 from tensorflow.compat.v1.keras.optimizers import RMSprop
 ```
 
 O seu código dentro do Colab deve estar como segue abaixo:
 
-```
+```python
 from tensorflow import keras
 
 from keras.datasets import mnist
@@ -543,7 +543,7 @@ Se ao executar o código acima você receber algum erro, acesse o [diffchecker](
 
 Agora podemos fazer o _download_ da base do MNIST. **Sem apertar o Play**, numa nova célula digite:
 
-```
+```python
 mnist.load_data()
 ```
 
@@ -554,7 +554,7 @@ A estrutura que recebemos contém `(x_train, y_train), (x_test_ y_test)`, ou sej
 
 Vamos extrair do `load_data()` as bases de treino e teste de acordo com a estrutura recomendada:
 
-```
+```python
 (x_treino, y_treino), (x_teste, y_teste) = mnist.load_data()
 ```
 
@@ -574,7 +574,7 @@ Vamos ver o detalhe de `mnist.load_data()`?
 
 Vamos utilizar uma função do _Python_ chamada `len()` para nos dizer a **quantidade** de imagens para treino e teste:
 
-```
+```python
 print("Quantidade de imagens para treino:", len(x_treino))
 print("Quantidade de imagens para teste:", len(x_teste))
 ```
@@ -597,13 +597,13 @@ Um **array** é um nome geralmente usado para lista e funciona da mesma forma qu
 
 Vamos pegar a primeira imagem de `x_treino` e armazená-la em uma variável:
 
-```
+```python
 primeira_imagem = x_treino[0]
 ```
 
 Vamos agora exibir seu conteúdo:
 
-```
+```python
 print(primeira_imagem)
 ```
 
@@ -637,7 +637,7 @@ O risco em vermelho nos lembra o número `5`, não é verdade? Para confirmar es
 
 Se `x_treino` contém a representação da imagem, podemos checar em `y_treino` se a imagem acima é realmente o dígito `5`. Vamos ao Colab e inserir os dois comandos abaixo:
 
-```
+```python
 representacao_primeira_imagem = y_treino[0]
 
 print("A imagem x_treino[0] representa o número", representacao_primeira_imagem)
@@ -651,7 +651,7 @@ Como resposta, temos a confirmação de que a primeira imagem em nosso _dataset_
 
 Podemos também saber o formato e o tipo da primeira imagem, através do atributo `shape` e o `type`, que já conhecemos. Vejamos:
 
-```
+```python
 print("Formato da primeira imagem:", primeira_imagem.shape, type(primeira_imagem.shape))
 ```
 
@@ -665,7 +665,7 @@ Agora que entendemos como é a nossa estrutura, a maneira que ela aparece e como
 
 Para isso vamos usar a biblioteca [Matplotlib](https://matplotlib.org/), que cria visualizações de dados gráficos. Precisamos importá-la no Colab e todas as vezes que necessitarmos usá-la ao longo do processo, vamos chamá-la pelo seu apelido `plt`:
 
-```
+```python
 import matplotlib.pyplot as plt
 ```
 
@@ -675,7 +675,7 @@ Como se trata somente de uma importação, não teremos nenhuma saída para este
 
 Feita a importação, vamos visualizar como a imagem é retornada para nós quando a chamamos:
 
-```
+```python
 plt.imshow(x_treino[0])
 ```
 
@@ -685,7 +685,7 @@ Bem melhor, não é?
 
 Vamos deixar essa visualização ainda melhor transformando essa imagem com diversas cores em tom de cinza, que é a cor que originalmente consta no _dataset_:
 
-```
+```python
 plt.imshow(x_treino[0], cmap=plt.cm.binary)
 ```
 
@@ -697,13 +697,13 @@ Sabemos que este _dataset_ contém 60.000 imagens e para visualizar cada uma de 
 
 > **_Nota :pencil: :_** Precisamos fazer desta forma pois não sabemos qual imagem está em cada posição. Até aqui sabemos que o número `5` ocupa a primeira posição no índice.
 
-```
+```python
 indice = 0
 ```
 
 Onde `indice` é a variável que recebe a primeira posição.
 
-```
+```python
 print("A imagem representa:", y_treino[indice])
 ```
 
@@ -713,7 +713,7 @@ Onde `y_treino[indice] ` irá sempre exibir o número da imagem no **índice atr
 
 Se queremos a imagem da **quinta posição**:
 
-```
+```python
 indice = 4
 print("A imagem representa:", y_treino[indice])
 ```
@@ -722,7 +722,7 @@ print("A imagem representa:", y_treino[indice])
 
 Podemos também chamar a variável `indice` quando queremos a representação da imagem em `x_treino`:
 
-```
+```python
 indice = 4
 
 print("A imagem representa:", y_treino[indice])
@@ -734,7 +734,7 @@ plt.imshow(x_treino[indice], cmap=plt.cm.binary)
 
 Podemos também utilizar a variável `indice` na base de teste, substituindo `x_treino` e `y_treino`:
 
-```
+```python
 indice = 4000
 
 print("A imagem representa:", y_teste[indice])
@@ -771,7 +771,7 @@ Este é o processo onde transformamos a matriz de 28x28px de cada imagem em uma 
 
 Primeiro, vamos definir a quantidade de imagens para treino e teste:
 
-```
+```python
 quantidade_treino = len(x_treino)
 quantidade_teste = len(x_teste)
 ```
@@ -780,7 +780,7 @@ Onde os valores para as bases `len(x_treino)` e `len(x_teste)` serão armazenado
 
 Vamos também armazenar a resolução destas imagens na variável `resolucao_imagem` utilizando a primeira imagem como referência:
 
-```
+```python
 resolucao_imagem = x_treino[0].shape
 ```
 
@@ -790,7 +790,7 @@ Lembrando que a resolução padrão será de 28x28px.
 
 Para transformar a matriz em uma linha, o numpy.ndarray conta com uma função auxiliar chamada `reshape` que recebe a **quantidade de itens** de treino e a **resolução total** que queremos utilizar, 784px.
 
-```
+```python
 resolucao_total = resolucao_imagem[0] * resolucao_imagem[1]
 ```
 
@@ -800,14 +800,14 @@ Não utilizamos `resolucao_imagem[0]` x `resolucao_imagem[0]`, pois queremos gar
 
 Agora que declaramos a resolução que vamos utilizar, podemos achatar as imagens das bases de treino e teste utilizando o _reshape_:
 
-```
+```python
 x_treino_achatado = x_treino.reshape(quantidade_treino, resolucao_total)
 x_teste_achatado = x_teste.reshape(quantidade_teste, resolucao_total)
 ```
 
 Vamos observar como ficaram as nossas 60.000 imagens achatadas da base de treino:
 
-```
+```python
 print(x_treino_achatado)
 ```
 
@@ -815,7 +815,7 @@ print(x_treino_achatado)
 
 Entrando no detalhe, vamos ver como a primeira imagem ficou achatada:
 
-```
+```python
 print(x_treino_achatado[0])
 ```
 
@@ -834,7 +834,7 @@ Em _Deep Learning_ após a modificação dos dados iniciais, não precisamos mai
 
 Podemos então substituir o conteúdo de `x_treino` e `x_teste` pelo conteúdo achatado das outras variáveis fazendo o seguinte:
 
-```
+```python
 x_treino = x_treino.reshape(quantidade_treino, resolucao_total)
 x_teste = x_teste.reshape(quantidade_teste, resolucao_total)
 ```
@@ -857,7 +857,7 @@ Com o nosso servidor reiniciado e sem erros, vamos exibir o resultado para as du
 
 Lembra que anteriormente vimos a estrutura da imagem do dígito `5`? Vamos ver como ela está após o achatamento:
 
-```
+```python
 print("Quantidade de itens em x_treino[0]:", len(x_treino[0]))
 ```
 
@@ -951,7 +951,7 @@ Cada um dos pixels da imagem, 784, precisam passar por essa normalização. Pra 
 
 Vamos trabalhar com a primeira imagem da base de treino, pegando o primeiro pixel dela:
 
-```
+```python
 primeira_imagem = x_treino[0]
 
 print(primeira_imagem[0])
@@ -967,7 +967,7 @@ Obtemos o valor de `166` com o tipo `numpy.uint8`, não se tratando do `class in
 
 Vamos armazenar o valor deste pixel em uma variável, dividir por `255` e exibir seu tipo:
 
-```
+```python
 primeira_imagem = x_treino[0]
 
 print(primeira_imagem[160], type(primeira_imagem[160]))
@@ -988,7 +988,7 @@ Ainda precisamos realizar mais um ajuste para que estes valores passem pelo _Ten
 
 Em um novo bloco de código vamos fazer o seguinte:
 
-```
+```python
 x_treino = x_treino.astype('float32')
 x_teste = x_teste.astype('float32')
 ```
@@ -999,7 +999,7 @@ Como aprendemos anteriormente que precisamos otimizar memória, vamos estamos ar
 
 Feita a conversão, podemos normalizar nossas bases de treino e teste, realizando o mesmo processo de divisão por `255` citado anteriormente:
 
-```
+```python
 x_treino /= 255
 x_teste /= 255
 ```
@@ -1017,7 +1017,7 @@ E a gente pensando aqui que ia dar um trabalhão normalizar 70.000 imagens! :lau
 
 Vamos checar como está o pixel que vimos anteriormente, o `160` da primeira imagem de `x_treino`, juntamente com seu tipo:
 
-```
+```python
 print(x_treino[0][160], type(x_treino[0][160]))
 ```
 
@@ -1027,7 +1027,7 @@ Diferente do `float64`, podemos notar que `float32` exibe menos dados pra gente,
 
 Lindo demais, não é mesmo?! Vamos ver como ficou a base `x_treino`?
 
-```
+```python
 print(x_treino[0][160], type(x_treino[0][160]))
 
 print(x_treino[0])
@@ -1067,7 +1067,7 @@ Não se preocupe se isso tudo estiver ainda um pouco confuso. Ao longo do vídeo
 
 Vamos começar a estruturar essa camada pegando a base de _labels_, `y_treino`, exibindo seu primeiro item juntamente com o tipo:
 
-```
+```python
 print("Primeiro elemento:", y_treino[0], type(y_treino[0]))
 ```
 
@@ -1077,7 +1077,7 @@ Podemos ver que o primeiro elemento é o número `5` e seu tipo `uint8`, ou seja
 
 Precisamos agora saber quais **valores são únicos** dentro da nossa base de 60.000 itens. Para isso, vamos usar a função `set()` do `numpy`:
 
-```
+```python
 valores_unicos = set(y_treino)
 
 print("Valores únicos", valores_unicos)
@@ -1087,7 +1087,7 @@ print("Valores únicos", valores_unicos)
 
 Podemos notar que o `numpy` foi capaz de encontrar somente os dígitos de `0 a 9` entre 60.000 _labels_. Para ficar mais claro a diferença, vamos exibir o conteúdo de `y_treino`:
 
-```
+```python
 print(y_treino)
 ```
 
@@ -1101,7 +1101,7 @@ Vamos agora descobrir a quantidade de valores únicos encontrados e armazená-lo
 
 Agora, podemos transformar cada um dos números únicos em suas respectivas representações da camada de saída:
 
-```
+```python
 print("O que temos em y_treino (antes)?", y_treino)
 
 y_treino = keras.utils.to_categorical(y_treino, quantidade_valores_unicos)
@@ -1124,7 +1124,7 @@ Podemos notar que na segunda posição da saída, temos o dígito `0` e na últi
 
 O primeiro passo neste momento é a criação de um **modelo sequencial**: 
 
-```
+```python
 model = Sequential()
 ```
 
@@ -1132,7 +1132,7 @@ Tendo o modelo, criamos a **primeira camada** oculta e sua quantidade de neurôn
 
 Sabemos que as camadas ocultas necessitam de uma **função de ativação** e por ser a primeira camada, nela definimos o **formato de entrada** dos dados:
 
-```
+```python
 model.add(Dense(30, activation='relu', input_shape=(resolucao_total,)))
 ```
 
@@ -1146,7 +1146,7 @@ A fim de evitarmos _overfitting_, ou seja, quando nosso modelo se ajusta muito b
 
 Vamos utilizar um genérico chamado **_dropout_** com um _rate_ de `0.2`.
 
-```
+```python
 model.add(Dropout(0.2))
 ```
 
@@ -1154,19 +1154,19 @@ model.add(Dropout(0.2))
 
 No mesmo bloco de código, vamos construir a segunda camada, com `20` neurônios e também, a função de ativação `ReLu`:
 
-```
+```python
 model.add(Dense(20, activation='relu'))
 ```
 
 Adicionamos mais um regularizador após esta camada:
 
-```
+```python
 model.add(Dropout(0.2))
 ```
 
 Finalizamos com a **camada de saída**, com a quantidade de valores únicos que estão armazenados em `quantidade_valores_unicos`, juntamente com a função de ativação **_Softmax_**:
 
-```
+```python
 model.add(Dense(quantidade_valores_unicos, activation='softmax'))
 ```
 
@@ -1174,7 +1174,7 @@ A função _softmax_ na prática é uma sigmóide, capaz de lidar com duas class
 
 Por fim, exibimos um **resumo** do modelo criado:
 
-```
+```python
 model.summary()
 ```
 
@@ -1200,3 +1200,124 @@ Se fizermos as contas, o **total de parâmetros** de toda a Rede é de `24.380` 
 > **_Nota :pencil: :_** Lembre-se que o objetivo final do processo de aprendizagem é encontrar os pesos e _bias_ mais adequados ao nosso modelo.
 
 <!-- 01:45:15 -->
+
+### 4. Compilando e Treinando o Modelo
+
+Até aqui falamos sobre:
+
+- Estrutura da Rede Neural;
+- Como as Redes funcionam;
+- Função de Neurônios, e
+- Função de Ativação.
+
+Agora precisamos de fato treinar nossa rede para realizar as previsões que desejamos.
+
+> Neste momento vamos falar alguns termos que não entraremos em detalhes aqui para não confundir nosso aprendizado, porém isso não impede a gente de buscar e aprender mais! :wink:
+
+Em _Deep Learning_, **compilar** é uma etapa que transforma as camadas que definimos no passo anterior em uma série eficiente de transformações de matriz, ou seja, é uma etapa de pré-cálculo que possibilita o computador treinar o modelo.
+
+O _TensorFlow_ nos permite realizar essa compilação pedindo da gente três parâmetros:
+
+- Função de erro;
+- Otimizador -> _backpropagation_, e;
+- Métrica de aprendizado.
+
+Primeiro criamos uma camada de compilação em branco para incluir essas três métricas:
+
+```python
+model.compile(loss= , optimizer=, metrics= )
+```
+
+Onde:
+
+`categorical_crossentropy`, será nossa função de erro. Ela é a mais utilizada para um modelo com múltiplas classificações onde existem duas ou mais camadas de saída.
+
+`RMSprop()`, é um algoritmo de _backpropagation_ muito conhecido com implementação pronta para uso.
+
+`['accuracy']`, as métricas devem sempre ser passadas como uma lista, mesmo quando vamos utilizar só uma. Elas nos auxiliam a medir a performance do nosso modelo.
+
+```python
+model.compile(loss='categorical_crossentropy',
+              optimizer=RMSprop(),
+              metrics=['accuracy'])
+```
+
+Feito isso, precisamos informar quais as imagens que vamos utilizar para treino e seus valores categóricos, ou seja, suas _labels_:
+
+`model.fit(x_treino, y_treino)`
+
+> **_Nota :pencil: :_** Aqui, devemos lembrar que `5`, é uma lista representada desta forma: `[0, 0, 0, 0, 0, 1, 0, 0, 0, 0]`.
+
+Enquanto programadores, sabemos que em alguns momentos vamos esbarrar em problemas de memória e para isso precisamos dizer ao computador para processar as imagens um pouquinho por vez, no nosso caso, `128`:
+
+`Batch Size = 128`
+
+Por conta da arquitetura das placas de vídeo, é interessante que o valor de _Batch Size_ seja sempre um múltiplo de `2`.
+
+Agora, precisamos definir quantas vezes queremos que o computador treine com as 60.000 imagens, ou seja, quantas épocas queremos realizar:
+
+`Epochs = 10`
+
+Este valor é totalmente opcional e devemos lembrar que a curva de aprendizado da Rede é relativamente rápida, sendo `10` um valor satisfatório.
+
+Também queremos ver as informações geradas durante o treinamento:
+
+`Verbose = 1`
+
+E por último, vamos indicar o _dataset_ contendo nossas imagens e labels para teste e validação dos dados:
+
+`validation_data=(x_teste, y_teste)`
+
+Armazenaremos todos estes parâmetros em uma variável chamada `history`:
+
+```python
+history = model.fit(x_treino, y_treino,
+                    batch_size=128,
+                    epochs=10,
+                    verbose=1,
+                    validation_data=(x_teste, y_teste))
+```
+
+Antes de rodarmos nossos comandos vamos atualizar algumas importações que fizemos anteriormente do _TensorFlow_ para garantir que não seremos surpreendidos pelo erro com a versão do `RMSprop`. 
+
+Busque pela célula que importamos as dependências e bibliotecas do _keras_ e _TensorFlow_ e substitua a versão do `rmsprop` e execute-a novamente:
+
+```python
+# from tensorflow.compat.v1.keras.optimizers import RMSprop # Otimizador (backpropagation)
+from tensorflow.python.keras.optimizer_v2.rmsprop import RMSprop # Otimizador (backpropagation)
+```
+
+![Aula02_Figura82](imagens/Aula02_Figura82.png)
+
+Bora então compilar e treinar?!
+
+![Aula02_Figura83](imagens/Aula02_Figura83.png)
+
+Podemos observar cada uma das épocas feitas com `469` ocorrências e se multiplicarmos este valor pelo _Batch Size_ veremos que caberiam `60.032` imagens para treino.
+
+Ao final da primeira época para as **imagens de treino** obtivemos o seguinte:
+
+- A função de perda ficou em `0.82`, um pouco alto se lembrarmos que quanto mais próximo de `0` este valor, melhor.
+- Inversamente proporcional, o valor de acurácia chegou a `0.74`. Quanto mais próximo de `1` este valor, melhor.
+
+Para as **imagens de validação**, com menos informações:
+
+- A função de perda ficou em `0.29`.
+- Inversamente proporcional, o valor de acurácia chegou a `0.91`.
+
+O objetivo é **diminuir o valor de perda** e **aumentar o valor de acurácia**. Note que na época `10` conseguimos atingir o resultado:
+
+Para as **imagens de treino**:
+
+- A função de perda ficou em `0.27`.
+- O valor de acurácia chegou a `0.93`.
+
+Para as **imagens de validação**:
+
+- A função de perda ficou em `0.16`.
+- O valor de acurácia chegou a `0.95`.
+
+### 5. Realizando Previsões
+
+<!-- 01:53:50 -->
+
