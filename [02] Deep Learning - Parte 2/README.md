@@ -1201,6 +1201,10 @@ Se fizermos as contas, o **total de parâmetros** de toda a Rede é de `24.380` 
 
 <!-- 01:45:15 -->
 
+**Importante :mega: :** Neste <a href="https://stats.stackexchange.com/questions/181/how-to-choose-the-number-of-hidden-layers-and-nodes-in-a-feedforward-neural-netw">link</a> você poderá se aprofundar em como escolher de forma adequada o número de camadas ocultas da Rede. Também acessível no nosso Miro. :wink:
+
+![Aula02_Figura91](imagens/Aula02_Figura91.png)
+
 ### 4. Compilando e Treinando o Modelo
 
 Até aqui falamos sobre:
@@ -1264,6 +1268,8 @@ Também queremos ver as informações geradas durante o treinamento:
 
 `Verbose = 1`
 
+> **Importante :mega: :** Neste <a href="https://towardsdatascience.com/epoch-vs-iterations-vs-batch-size-4dfb9c7ce9c9" target="_blank">link</a> você encontrará mais explicações para realizar as definições de _Batch Size_, épocas e iterações.
+
 E por último, vamos indicar o _dataset_ contendo nossas imagens e labels para teste e validação dos dados:
 
 `validation_data=(x_teste, y_teste)`
@@ -1321,3 +1327,163 @@ Para as **imagens de validação**:
 
 <!-- 01:53:50 -->
 
+Com o modelo treinado, podemos começar a realizar nossas previsões!
+
+Vamos definir uma variável de índice que vai nos ajudar a mudar as imagens e seu valor categórico:
+
+```python
+indice = 0
+
+print("Valor categórico em y_teste[indice]:", y_teste[indice])
+```
+
+![Aula02_Figura84](imagens/Aula02_Figura84.png)
+
+`y_teste` na posição de índice `0` possui o valor de `7`.
+
+Como estamos falando de um dado de teste, a nossa Rede não o conhece, e para isso precisamos exibi-lo **preparando a imagem** que neste momento possui um _nd.array_ com `784` pontos:
+
+```python
+imagem = x_teste[indice].reshape((1, resolucao_total))
+
+print()
+```
+
+Onde `reshape((1, resolucao_total))` coloca nossa imagem dentro de um outro _nd.array_ para que possamos mandar mais de uma imagem por vez.
+
+E **fazer sua previsão**:
+
+```python
+prediction = model.predict(imagem)
+print("Previsão", prediction)
+```
+
+Onde `prediction` é o que a Rede está identificando a partir da imagem:
+
+```python
+indice = 0
+
+print("Valor categórico em y_teste[indice]:", y_teste[indice])
+
+imagem = x_teste[indice].reshape((1, resolucao_total))
+
+print()
+
+prediction = model.predict(imagem)
+print("Previsão", prediction)
+```
+
+Mas gente, que loucura é esse resultado?! :worried::worried::worried::worried::worried::worried::worried::worried:
+
+![Aula02_Figura85](imagens/Aula02_Figura85.png)
+
+Este valor obtido, a princípio, é uma notação científica. Precisamos nos ater ao valor após **e-** que nos diz a quantidade de casas decimais após sua aparição.
+
+Onde `e-08` nos indica `8` casas decimais após o `0`. Quanto maior as casas decimais, mais longe o neurônio está de ser ativado. 
+
+Olha só, nosso valor categórico é de `[0. 0. 0. 0. 0. 0. 0. 1. 0. 0.]`, ou seja, `7`. Vamos ver qual a **porcentagem de chances** em que cada Neurônio na camada de saída foi ativado:
+
+- 0 = `2.2639002e-08`, **2%**;
+- 1 = `1.0934781e-11`, **1%**;
+- 2 = `4.6218614e-05`, **4%**;
+- 3 = `8.7155577e-06`, **8%**;
+- 4 = `3.2280099e-11`, **3%**;
+- 5 = `3.9999484e-09`, **3%**;
+- 6 = `1.3852753e-16`, **1%**;
+- 7 = `9.9994493e-01`, **9%**;
+- 8 = `1.4940038e-10`, **1%**, e;
+- 9 = `9.2540510e-08`, **9%**.
+
+Dentro deste valor, o maior número que obtemos é o `9.9994493e-01` pois ele possui somente **uma** casa decimal após o `0` e começa com `9.99`, chegando mais próximo a `1`, correspondendo ao `7` no valor categórico.
+
+![Aula02_Figura90](imagens/Aula02_Figura90.png)
+
+Vamos traduzir isso tudo para uma linguagem mais Humana?! :laughing::laughing::laughing::laughing:
+
+```python
+import numpy as np
+prediction_class = np.argmax(prediction, axis=-1)
+print("Previsão ajustada:", prediction_class)
+```
+
+Onde o `numpy` vai nos ajudar através da função `np.argmax(prediction, axis=-1)` 
+
+![Aula02_Figura86](imagens/Aula02_Figura86.png)
+
+Agora, vamos ver qual a imagem que está na Rede para validarmos o que de fato está lá:
+
+```python
+(x_treino_img, y_treino_img), (x_teste_img, y_teste_img) = mnist.load_data()
+plt.imshow(x_teste_img[indice], cmap=plt.cm.binary)
+plt.show()
+```
+
+Como esperado, a imagem do número `7` que tem cara de `7`.
+
+![Aula02_Figura87](imagens/Aula02_Figura87.png)
+
+Bonitão, não é?! :heart_eyes::heart_eyes::heart_eyes:
+
+Vamos testar o que está no índice `1`?
+
+![Aula02_Figura88](imagens/Aula02_Figura88.png)
+
+> **_Nota :pencil: :_** Você pode explorar cada vez mais, alterando o valor da variável `indice`. :wink:
+
+<!-- 02:02:35 -->
+
+Vamos deixar nossa exploração mais automatizada utilizando um **laço de repetição** chamado **for** para alterar o valor do índice.
+
+> **_Nota :pencil: :_** Para colocar todo o trecho de código que queremos repetir, devemos selecioná-lo e apertar a tecla `TAB`.
+
+Vamos ver o que nos é trazido entre `3 e 6`:
+
+```python
+for indice in range(3, 6):
+# indice = 1
+
+    print("Valor categórico em y_teste[indice]:", y_teste[indice])
+
+    imagem = x_teste[indice].reshape((1, resolucao_total))
+
+    print()
+
+    prediction = model.predict(imagem)
+    print("Previsão", prediction)
+
+    import numpy as np
+    prediction_class = np.argmax(prediction, axis=-1)
+    print("Previsão ajustada:", prediction_class)
+
+    print()
+
+    (x_treino_img, y_treino_img), (x_teste_img, y_teste_img) = mnist.load_data()
+    plt.imshow(x_teste_img[indice], cmap=plt.cm.binary)
+    plt.show()
+```
+
+![Aula02_Figura89](imagens/Aula02_Figura89.png)
+
+<!-- 02:05:00 -->
+
+## Indo Além
+
+Você pode se desafiar submetendo o que fizemos até aqui, com o **MNIST** no **<a href="https://www.kaggle.com/c/digit-recognizer" target="_blank">Kaggle</a>**. Ele é um site para cientistas de dados do mundo inteiro, com diversas competições, algumas pagas e outras não, para fixarmos ainda mais o que estamos aprendendo.
+
+![Aula02_Figura92](imagens/Aula02_Figura92.png)
+
+<!-- 02:07:50 -->
+
+Caso você queira aprender a reutilizar a estrutura que criamos para treinamento do modelo, pode acessar este <a href="https://www.tensorflow.org/guide/keras/save_and_serialize" target="_blank">link</a>.
+
+<!-- 02:08:30 -->
+
+No nosso <a href="https://github.com/blue-edtech/Blue-CPS/tree/main/%5B02%5D%20Deep%20Learning%20-%20Parte%202" target="_blank">GitHub</a> você vai encontrar um arquivo de treinamento para uma Rede treinada pelo Google chamada **<a href="https://github.com/blue-edtech/Blue-CPS/blob/main/%5B02%5D%20Deep%20Learning%20-%20Parte%202/ResNet50_Exemplo.ipynb" target="_blank">ResNet50</a>**, que é um modelo de reconhecimento de imagens. Disponibilizamos um arquivo **jpg** de um violão, mas você pode brincar com outras imagens! :stuck_out_tongue_winking_eye:
+
+## The End
+
+Assim como nós, desejamos que tenha se divertido e aprendido com tudo o que vimos. 
+
+Sabemos que é muita coisa, e novamente deixamos o convite para rever as aulas e se aprofundar no assunto.
+
+Até a volta! :laughing: :blue_heart:
