@@ -45,7 +45,7 @@ Selecione esta bateria através da caixa de busca, arraste-a para a tela e a rot
 
 ![Aula03_Figura06](imagens/Aula03_Figura06.png)
 
-> **_Nota_:** Não estranhe a proporção dos tamanhos reais das peças, pois o _Tinkercad_ os deixa assim propositadamente.
+> **_Nota :pencil: :_** Não estranhe a proporção dos tamanhos reais das peças, pois o _Tinkercad_ os deixa assim propositadamente.
 
 Para interconectar a bateria ao LED, necessitamos de fios virtuais. 
 
@@ -104,9 +104,9 @@ A fim de deixar nosso projeto mais organizado, necessitamos de uma **protoboard*
 
 ![Aula03_Figura12](imagens/Aula03_Figura12.png)
 
-> **_Nota_**: Se passarmos o mouse pelas indicações de `= e -` podemos notar que os pontos estão todos interconectados na horizontal.
+> **_Nota :pencil: :_** Se passarmos o mouse pelas indicações de `= e -` podemos notar que os pontos estão todos interconectados na horizontal.
 
-> **_Nota_**: Se passarmos o mouse pelas indicações de `letras e números` podemos notar que os pontos estão todos interconectados na vertical.
+> **_Nota :pencil: :_** Se passarmos o mouse pelas indicações de `letras e números` podemos notar que os pontos estão todos interconectados na vertical.
 
 Podemos notar que o Arduíno possui **3 portas GND** que possuem polo negativo e servem para se ligar ao **polo positivo** dos componentes.
 
@@ -141,7 +141,7 @@ Para entendermos o que está acontecendo, vamos construir o código do zero. Apa
 ```c++
 void setup()
 {
-  pinMode();
+	pinMode();
 }
 ```
 
@@ -152,7 +152,7 @@ O `pinMode`(), é o código que define uma porta, vamos adicionar a porta `13`, 
 ```c++
 void setup()
 {
-  pinMode(13, OUTPUT);
+	pinMode(13, OUTPUT);
 }
 ```
 
@@ -163,7 +163,7 @@ A partir desta função partir começamos a construir o comportamento do nosso L
 ```c++
 void loop()
 {
-   digitalWrite(13, HIGH);
+	digitalWrite(13, HIGH);
 }
 ```
 
@@ -174,12 +174,12 @@ Se executarmos somente este código, veremos que o Arduíno ligará o LED, e nad
 ```c++
 void setup()
 {
-  pinMode(13, OUTPUT);
+	pinMode(13, OUTPUT);
 }
 
 void loop()
 {
-   digitalWrite(13, HIGH);
+	digitalWrite(13, HIGH);
 }
 ```
 
@@ -192,13 +192,13 @@ Para podermos ligar e desligar o LED, necessitamos adicionar algumas linhas de c
 ```c++
 void setup()
 {
-  pinMode(13, OUTPUT);
+	pinMode(13, OUTPUT);
 }
 
 void loop()
 {
-   digitalWrite(13, HIGH);
-   digitalWrite(13, LOW);
+	digitalWrite(13, HIGH);
+	digitalWrite(13, LOW);
 }
 ```
 
@@ -207,15 +207,15 @@ Da forma que está o código acima, a velocidade para ligar e desligar o LED est
 ```c++
 void setup()
 {
-  pinMode(13, OUTPUT);
+	pinMode(13, OUTPUT);
 }
 
 void loop()
 {
-   digitalWrite(13, HIGH);
-   	delay(1000);
-   digitalWrite(13, LOW);
-    delay(1000);
+	digitalWrite(13, HIGH);
+	delay(1000);
+	digitalWrite(13, LOW);
+	delay(1000);
 }
 ```
 
@@ -238,14 +238,14 @@ int LED_Vermelho = 13;
 
 void setup()
 {
-  pinMode(LED_Vermelho, OUTPUT);
+	pinMode(LED_Vermelho, OUTPUT);
 }
 
 void loop()
 {
-   digitalWrite(LED_Vermelho, HIGH);
+	digitalWrite(LED_Vermelho, HIGH);
    	delay(1000);
-   digitalWrite(LED_Vermelho, LOW);
+	digitalWrite(LED_Vermelho, LOW);
     delay(1000);
 }
 ```
@@ -273,9 +273,9 @@ E vamos configurá-las como saída:
 ```c++
 void setup()
 {
-  pinMode(LED_Vermelho, OUTPUT);
-  pinMode(LED_Amarelo, OUTPUT);
-  pinMode(LED_Verde, OUTPUT);
+	pinMode(LED_Vermelho, OUTPUT);
+	pinMode(LED_Amarelo, OUTPUT);
+	pinMode(LED_Verde, OUTPUT);
 }
 ```
 
@@ -286,21 +286,21 @@ void loop()
 {
 	// Controle LED Verde  
    	digitalWrite(Led_Verde, HIGH);
-   		delay(10000);
+   	delay(10000);
    	digitalWrite(Led_Verde, LOW);
-    	delay(1000);
+    delay(1000);
   
   // Controle LED Amarelo  
    	digitalWrite(Led_Amarelo, HIGH);
-   		delay(3000);
+   	delay(3000);
    	digitalWrite(Led_Amarelo, LOW);
-    	delay(1000);
+    delay(1000);
   
   // Controle LED Vermelho 
    	digitalWrite(Led_Vermelho, HIGH);
-   		delay(5000);
+   	delay(5000);
    	digitalWrite(Led_Vermelho, LOW);
-    	delay(1000);
+    delay(1000);
 }
 ```
 
@@ -328,21 +328,21 @@ void loop()
 {
 	// Controle LED Verde  
    	digitalWrite(Led_Verde, HIGH);
-   		delay(10000);
+   	delay(10000);
    	digitalWrite(Led_Verde, LOW);
-    	delay(1000);
+    delay(1000);
   
   // Controle LED Amarelo  
    	digitalWrite(Led_Amarelo, HIGH);
-   		delay(3000);
+   	delay(3000);
    	digitalWrite(Led_Amarelo, LOW);
-    	delay(1000);
+    delay(1000);
   
   // Controle LED Vermelho 
    	digitalWrite(Led_Vermelho, HIGH);
-   		delay(5000);
+   	delay(5000);
    	digitalWrite(Led_Vermelho, LOW);
-    	delay(1000);
+    delay(1000);
 }
 ```
 
@@ -362,26 +362,26 @@ Abaixo do `void loop()` vamos criar nossas funções para cada LED:
 void LedVerde(){
   // Controle LED Verde  
    	digitalWrite(Led_Verde, HIGH);
-   		delay(10000);
+ 	delay(10000);
    	digitalWrite(Led_Verde, LOW);
-    	delay(1000);
+  	delay(1000);
 }
 
 void LedAmarelo(){
     // Controle LED Amarelo  
    	digitalWrite(Led_Amarelo, HIGH);
-   		delay(3000);
+ 	delay(3000);
    	digitalWrite(Led_Amarelo, LOW);
-    	delay(1000);
+  	delay(1000);
 }
 
 void LedVermelho(){
   
   // Controle LED Vermelho 
    	digitalWrite(Led_Vermelho, HIGH);
-   		delay(5000);
+   	delay(5000);
    	digitalWrite(Led_Vermelho, LOW);
-    	delay(1000);
+    delay(1000);
 }
 ```
 
@@ -420,26 +420,26 @@ void loop()
 void LedVerde(){
   // Controle LED Verde  
    	digitalWrite(Led_Verde, HIGH);
-   		delay(10000);
+   	delay(10000);
    	digitalWrite(Led_Verde, LOW);
-    	delay(1000);
+    delay(1000);
 }
 
 void LedAmarelo(){
     // Controle LED Amarelo  
    	digitalWrite(Led_Amarelo, HIGH);
-   		delay(3000);
+   	delay(3000);
    	digitalWrite(Led_Amarelo, LOW);
-    	delay(1000);
+    delay(1000);
 }
 
 void LedVermelho(){
   
   // Controle LED Vermelho 
    	digitalWrite(Led_Vermelho, HIGH);
-   		delay(5000);
+   	delay(5000);
    	digitalWrite(Led_Vermelho, LOW);
-    	delay(1000);
+    delay(1000);
 }
 ```
 
@@ -447,6 +447,291 @@ E os LEDs funcionando normalmente.
 
 ## Criando Semáforos para um Cruzamento de Avenidas
 
-Agora que temos um único farol funcionando, vamos adicionar mais um, para nosso cenário hipotético de cruzamento entre duas avenidas.
+Agora que temos um único farol funcionando, vamos adicionar mais um para nosso cenário hipotético de cruzamento entre duas avenidas.
 
 <!-- 32:40 -->
+
+Para tanto, é necessário deixar evidente em nosso código quando o semáforo do primeiro cruzamento `c1` estiver aberto. 
+
+Primeiro, vamos renomear as variáveis dos LEDs que criamos até aqui, para se referirem ao primeiro semáforo: 
+
+```c++
+int C1_Led_Vermelho = 13;
+int C1_Led_Amarelo = 11;
+int C1_Led_Verde = 7;
+```
+
+E com as variáveis renomeadas, modificar também o conteúdo de nossas funções:
+
+```c++
+int C1_Led_Vermelho = 13;
+int C1_Led_Amarelo = 11;
+int C1_Led_Verde = 7;
+
+void setup()
+{
+	pinMode(C1_Led_Vermelho, OUTPUT);
+	pinMode(C1_Led_Amarelo, OUTPUT);
+	pinMode(C1_Led_Verde, OUTPUT);
+}
+
+void loop()
+{
+	C1_LedVerde();
+  	C1_LedAmarelo();
+  	C1_LedVermelho();
+}
+
+void LedVerde(){
+  // Controle LED Verde  
+   	digitalWrite(C1_Led_Verde, HIGH);
+   	delay(10000);
+   	digitalWrite(C1_Led_Verde, LOW);
+    delay(1000);
+}
+
+void C1_LedAmarelo(){
+    // Controle LED Amarelo  
+   	digitalWrite(C1_Led_Amarelo, HIGH);
+   	delay(3000);
+   	digitalWrite(C1_Led_Amarelo, LOW);
+    delay(1000);
+}
+
+void C1_LedVermelho(){
+  
+  // Controle LED Vermelho 
+   	digitalWrite(C1_Led_Vermelho, HIGH);
+   	delay(5000);
+   	digitalWrite(C1_Led_Vermelho, LOW);
+    delay(1000);
+}
+```
+
+Agora que temos tudo certo para o primeiro semáforo, vamos construir o segundo `c2` adicionando-o em nosso circuito.
+
+- Ligaremos o LED **verde** à porta `3`;
+- Ligaremos o LED **amarelo** à porta `4`, e;
+- Ligaremos o LED **vermelho** à porta `5`.
+
+![Aula03_Figura18](imagens/Aula03_Figura18.png)
+
+Para o código, começaremos com as variáveis para o **segundo circuito**:
+
+```c++
+int C2_Led_Vermelho = 5;
+int C2_Led_Amarelo = 4;
+int C2_Led_Verde = 3;
+```
+
+E adicionaremos suas portas ao `void setup()`:
+
+```c++
+void setup()
+{
+	pinMode(C1_Led_Vermelho, OUTPUT);
+	pinMode(C1_Led_Amarelo, OUTPUT);
+	pinMode(C1_Led_Verde, OUTPUT);
+  	pinMode(C2_Led_Vermelho, OUTPUT);
+	pinMode(C2_Led_Amarelo, OUTPUT);
+	pinMode(C2_Led_Verde, OUTPUT);
+}
+```
+
+Para que nossos semáforos funcionem adequadamente e na ordem certa, ou seja, ambos devem funcionar em perfeita sincronia. Para isso, as funções que criamos perdem o sentido e precisam ser readequadas:
+
+- `C1_Led_Verde` deve estar aceso quando `C2_Led_Vermelho` estiver aceso. Vamos criar uma função para isto e chamá-la de `Conjunto1`:
+
+  ```c++
+  void Conjunto1(int temp){
+  	digitalWrite(C1_Led_Verde, HIGH);
+  	digitalWrite(C2_Led_Vermelho, HIGH);
+  	delay(temp);
+  }
+  ```
+
+  Onde `int temp` é um parâmetro recebido pela nossa função que irá determinar quanto tempo estes LEDs permanecerão acesos e funcionando em conjunto. Este valor deve ser adicionado ao `void loop()` quando chamamos nossa função: 
+
+  ```c++
+  void loop(){
+  	Conjunto1(10000);
+  }
+  ```
+
+- `C1_Led_Verde` precisa ser desligado por `1 segundo` e ligar `C1_Led_Amarelo` por `3 segundos`, enquanto `C2_Led_Vermelho` permanece ligado: 
+
+  ```c++
+  void loop(){
+  	Conjunto1(10000);
+  	digitalWrite(C1_Led_Verde, LOW);
+  	delay(1000);
+  	digitalWrite(C1_Led_Amarelo, HIGH);
+  	delay(3000);
+  }
+  ```
+
+- Após essa sequência, `C1_Led_Amarelo` precisa ser desligado por `1 segundo`:
+
+  ```c++
+  void loop(){
+  	Conjunto1(10000);
+  	digitalWrite(C1_Led_Verde, LOW);
+  	delay(1000);
+  	digitalWrite(C1_Led_Amarelo, HIGH);
+  	delay(3000);
+  	digitalWrite(C1_Led_Amarelo, LOW);
+  	delay(1000);
+  }
+  ```
+
+- Enquanto `C2_Led_Verde` estiver aceso, `C1_Led_Vermelho` precisa acender e `C2_Led_Vemelho` apagar . Vamos criar uma função para isto e chamá-la de `Conjunto2`:
+
+  ```c++
+  void Conjunto2(int temp){
+  	digitalWrite(C2_Led_Verde, HIGH);
+  	digitalWrite(C1_Led_Vermelho, HIGH);
+      digitalWrite(C2_Led_Vermelho, LOW);
+  	delay(temp);
+  }
+  ```
+
+- Agora, adicionaremos o `Conjunto2` ao loop, juntamente à sua lógica de funcionamento, que será inversa à do `Conjunto1`:
+
+  ```c++
+  // Loop para Conjunto 2
+  Conjunto2(10000);
+  digitalWrite(C2_Led_Verde, LOW);
+  delay(1000);
+  digitalWrite(C2_Led_Amarelo, HIGH);
+  delay(3000);
+  digitalWrite(C2_Led_Amarelo, LOW);
+  delay(1000);
+  digitalWrite(C1_Led_Vermelho, LOW);
+  ```
+
+Ao final, este deverá ser seu código e a execução do projeto sendo realizada a contento:
+
+```c++
+int C1_Led_Vermelho = 13;
+int C1_Led_Amarelo = 11;
+int C1_Led_Verde = 7;
+
+int C2_Led_Vermelho = 5;
+int C2_Led_Amarelo = 4;
+int C2_Led_Verde = 3;
+
+void setup()
+{
+	pinMode(C1_Led_Vermelho, OUTPUT);
+	pinMode(C1_Led_Amarelo, OUTPUT);
+	pinMode(C1_Led_Verde, OUTPUT);
+  	pinMode(C2_Led_Vermelho, OUTPUT);
+	pinMode(C2_Led_Amarelo, OUTPUT);
+	pinMode(C2_Led_Verde, OUTPUT);
+}
+
+void loop()
+{
+	// Loop para Conjunto 1
+	Conjunto1(10000);
+	digitalWrite(C1_Led_Verde, LOW);
+	delay(1000);
+	digitalWrite(C1_Led_Amarelo, HIGH);
+	delay(3000);
+	digitalWrite(C1_Led_Amarelo, LOW);
+	delay(1000);
+  
+    // Loop para Conjunto 2
+    Conjunto2(10000);
+    digitalWrite(C2_Led_Verde, LOW);
+    delay(1000);
+    digitalWrite(C2_Led_Amarelo, HIGH);
+    delay(3000);
+    digitalWrite(C2_Led_Amarelo, LOW);
+    delay(1000);
+    digitalWrite(C1_Led_Vermelho, LOW);
+}
+
+void Conjunto1(int temp){
+	digitalWrite(C1_Led_Verde, HIGH);
+	digitalWrite(C2_Led_Vermelho, HIGH);
+	delay(temp);
+}
+
+void Conjunto2(int temp){
+	digitalWrite(C2_Led_Verde, HIGH);
+	digitalWrite(C1_Led_Vermelho, HIGH);
+    digitalWrite(C2_Led_Vermelho, LOW);
+	delay(temp);
+}
+```
+
+<!-- 50:22 -->
+
+## Pokévoluindo Nossos LEDs em Lâmpadas 
+
+Para um semáforo de mesa, o nosso projeto está perfeito. Contudo, sabemos que um semáforo possui grandes lâmpadas e seu funcionamento em termos de energia deve ser diferente.
+
+O Arduíno é perfeito para projetos com pouca carga de energia, e caso ligado às lâmpadas, ele queimaria pois elas demandam muito mais energia.
+
+Para resolver este problema, adicionaremos uma fonte de energia externa que será **gerenciada pelo Arduíno através de um _Relé_**.
+
+Na barra de **Componentes** altere sua opção para `Todos`, busque pelo _relé_ amarelo e o arraste para a mesa:
+
+![Aula03_Figura19](imagens/Aula03_Figura19.png)
+
+O acionamento deste _relé_ é com `5V` manipulando energia de até `125V AC`. 
+
+A diferença entre `AC` e `DC` é que as correntes mais **baixas e contínuas**, como a do Arduíno, por exemplo, ficam em `DC`. Correntes mais **altas e alternadas** ficam em `AC`, como a energia `110V e 220V` que recebemos nas tomadas de casa, por exemplo.
+
+> **_Nota :pencil: :_** Correntes contínuas possuem polos positivos e negativos bem definidos no mesmo fio e não alternam entre si.
+
+> **_Nota :pencil: :_** Correntes alternadas alternam seus polos positivos e negativos e eles não são bem definidos no mesmo fio.
+
+Dentro do _relé_ existe um eletroímã e quando aplicamos energia nele, uma bobina interna é ativada puxando um filamento de metal. Ao puxar, a energia externa da bateria à direita passa pelo filamento acendendo a lâmpada, como nos mostra a animação abaixo:
+
+![releGif](imagens/releGif.gif)
+
+Este exemplo acima, possui um **comumente fechado**, composto da bateria, lâmpada e fio que vai do `30` para o `87a`. 
+
+Quando o _relé_ é ligado, note que o comumente fechado é **aberto** e o filamento de metal puxado, abre um **novo** comumente.
+
+É através destes **comumentes** que faremos a manipulação da energia.
+
+Novamente, adicionaremos à nossa mesa, uma **bateria externa de `9V`**.
+
+![Aula03_Figura20](imagens/Aula03_Figura20.png)
+
+Feito isso, ligaremos o **terminal superior** da bobina,
+
+![Aula03_Figura21](imagens/Aula03_Figura21.png)
+
+Ao **GND** geral em nosso circuito:
+
+![Aula03_Figura22](imagens/Aula03_Figura22.png)
+
+Feito isso, podemos ligar nossa bateria externa ao nosso circuito, para que posteriormente façamos a ligação de todos os LEDs à ela:
+
+![Aula03_Figura23](imagens/Aula03_Figura23.png)
+
+Para entendermos como funcionarão todos os LEDs ligados externamente, vamos adaptar nosso circuito para ligar somente e `C2_Led_Verde` à bateria externa.
+
+Para que a bobina do _relé_ seja ativada pelo Arduíno, precisamos ligá-la a ele. Podemos remover o fio do `C2_Led_Verde` e ligá-lo ao **terminal inferior** da bobina:
+
+![Aula03_Figura24](imagens/Aula03_Figura24.png)
+
+Ligaremos o **negativo** do nosso LED à energia externa vindo da bateria e passaremos o **positivo** da bateria pelo gerenciamento do _relé_, ligando-o ao `terminal 13`:
+
+![Aula03_Figura25](imagens/Aula03_Figura25.png)
+
+E, por fim, ligamos o **positivo** do nosso LED ao `terminal 9` do _relé_:
+
+![Aula03_Figura26](imagens/Aula03_Figura26.png)
+
+Agora que finalizamos, podemos executar a simulação e notar uma coisa bastante interessante no _relé_ que certifica o funcionamento da bateria externa. Ao ser ativada, a bobina muda a disposição dos terminais no _relé_:
+
+![Aula03_Figura27](imagens/Aula03_Figura27.png)
+
+Desta forma, poderíamos ligar qualquer outro componente que recebe uma carga maior, de até `9V`, no lugar do LED verde, visto que ele está funcionando pela carga que recebe da bateria externa.
+
+<!-- 58:00 -->
