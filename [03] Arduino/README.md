@@ -668,7 +668,7 @@ void Conjunto2(int temp){
 
 <!-- 50:22 -->
 
-## Pokévoluindo Nossos LEDs em Lâmpadas 
+## Gerenciamento Externo de Energia com _Relé_
 
 Para um semáforo de mesa, o nosso projeto está perfeito. Contudo, sabemos que um semáforo possui grandes lâmpadas e seu funcionamento em termos de energia deve ser diferente.
 
@@ -735,3 +735,35 @@ Agora que finalizamos, podemos executar a simulação e notar uma coisa bastante
 Desta forma, poderíamos ligar qualquer outro componente que recebe uma carga maior, de até `9V`, no lugar do LED verde, visto que ele está funcionando pela carga que recebe da bateria externa.
 
 <!-- 58:00 -->
+
+## Pokévoluindo Nossos LEDs em Lâmpadas 
+
+Vamos começar por reposicionar os fios do negativo de nossos LEDs à fonte externa e excluir os fios de controle que saem deles para o Arduíno:
+
+![Aula03_Figura28](imagens/Aula03_Figura28.png)
+
+Deixaremos nossa mesa ainda mais limpa e adicionaremos **6** _relés_, um para cada LED:
+
+![Aula03_Figura29](imagens/Aula03_Figura29.png)
+
+A fim de deixar mais bonito e organizado, ao invés de ligarmos os terminais `1`, os negativos, de cada bobina ao negativo do Arduíno, podemos interligá-los:
+
+![Aula03_Figura30](imagens/Aula03_Figura30.png)
+
+Agora, seguimos ligando as portas de cada LED. Para isso, necessitaremos ligar as portas do Arduíno à sua respectiva bobina. Podemos recorrer às nossas variáveis para saber a ordem correta. :wink:
+
+![Aula03_Figura31](imagens/Aula03_Figura31.png)
+
+Assim como fizemos com o `terminal 1` de cada bobina para ligar os negativos, faremos o mesmo com o `terminal 13` para ligar à fonte externa:
+
+![Aula03_Figura32](imagens/Aula03_Figura32.png)
+
+Por fim, ligaremos o positivo de cada LED ao `terminal 9` de sua respectiva bobina e testaremos se está tudo funcionando:
+
+![Aula03_Figura33](imagens/Aula03_Figura33.png)
+
+Se tudo está funcionando conforme fizemos, parabéns por ter chego até aqui! :blue_heart:
+
+## Alarme com Detecção de Movimentos
+
+<!-- 01:06:40 -->
