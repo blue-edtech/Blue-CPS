@@ -26,13 +26,13 @@ E em seguida, clique em **Criar novo Circuito** para ter acesso à nossa **Área
 
 À direita podemos ver nossa **Galeria de Componentes** e acima, os **Botões de Controle**.
 
-## Ligando um Led
+## Ligando um LED
 
-Para que possamos construir o nosso semáforo, a primeira etapa é aprender a ligar um Led, ou seja, uma pequena luz.
+Para que possamos construir o nosso semáforo, a primeira etapa é aprender a ligar um LED, ou seja, uma pequena luz.
 
 <!-- 2:31 -->
 
-Ao arrastarmos o Led vermelho para o centro da tela e passarmos o mouse em ambas as pernas, podemos observar que:
+Ao arrastarmos o LED vermelho para o centro da tela e passarmos o mouse em ambas as pernas, podemos observar que:
 
 - A perna torta `Anodo`, é sempre **positivo**, e;
 - A perna reta `Catódica`, é sempre **negativo**.
@@ -41,15 +41,15 @@ Ao arrastarmos o Led vermelho para o centro da tela e passarmos o mouse em ambas
 
 Por se tratar de um componente que necessita de eletricidade para funcionar, podemos liga-lo à uma fonte de alimentação ou, para o nosso projeto, uma **bateria** de `9V` que já possui conectores. 
 
-Selecione esta bateria através da caixa de busca, arraste-a para a tela e a rotacione apertando a letra `R` no teclado, alinhando-a com o **led**:
+Selecione esta bateria através da caixa de busca, arraste-a para a tela e a rotacione apertando a letra `R` no teclado, alinhando-a com o **LED**:
 
 ![Aula03_Figura06](imagens/Aula03_Figura06.png)
 
 > **_Nota_:** Não estranhe a proporção dos tamanhos reais das peças, pois o _Tinkercad_ os deixa assim propositadamente.
 
-Para interconectar a bateria ao led, necessitamos de fios virtuais. 
+Para interconectar a bateria ao LED, necessitamos de fios virtuais. 
 
-Vamos criar estas conexões levando um fio do polo **negativo da bateria** para o **positivo do led** e, um outro fio do polo **positivo da bateria** para o **negativo do led**.
+Vamos criar estas conexões levando um fio do polo **negativo da bateria** para o **positivo do LED** e, um outro fio do polo **positivo da bateria** para o **negativo do LED**.
 
 Seguindo as convenções, vamos utilizar a cor **preta** para as interconexões de polos **negativos** e a cor **vermelha** para as interconexões de polos **positivos**.
 
@@ -59,24 +59,24 @@ Vamos ver se já está funcionando?! Apertando o botão **Iniciar Simulação** 
 
 ![Aula03_Figura08](imagens/Aula03_Figura08.png)
 
-Eita, parece que o led explodiu! Por que isso acontece?
+Eita, parece que o LED explodiu! Por que isso acontece?
 
-Estamos fornecendo uma tensão de `9V` para este led, contudo, ele precisa de um consumo de tensão e corrente baixos. 
-Para limitar a nossa corrente, necessitamos ligar o **polo positivo** da nossa bateria e do led ao **resistor**. 
+Estamos fornecendo uma tensão de `9V` para este LED, contudo, ele precisa de um consumo de tensão e corrente baixos. 
+Para limitar a nossa corrente, necessitamos ligar o **polo positivo** da nossa bateria e do LED ao **resistor**. 
 
 ![Aula03_Figura09](imagens/Aula03_Figura09.png)
 
-O que ele está fazendo é transformar parte da energia em calor, retendo o excesso e deixando passar somente o necessário para o led.
+O que ele está fazendo é transformar parte da energia em calor, retendo o excesso e deixando passar somente o necessário para o LED.
 
 <!-- 6:28 -->
 
-## Adicionando um Botão para Ligar o Led
+## Adicionando um Botão para Ligar o LED
 
-Agora que conseguimos fazer nosso sistema inicial funcionar, vamos adicionar um botão para ligar e manter o led aceso:
+Agora que conseguimos fazer nosso sistema inicial funcionar, vamos adicionar um botão para ligar e manter o LED aceso:
 
 - Vamos procurar pelo botão mais simples;
 - Ligar a ponta superior do resistor ao botão;
-- Ligar o fio do botão ao polo positivo do led;
+- Ligar o fio do botão ao polo positivo do LED;
 - Iniciar a simulação, e;
 - Manter pressionando o botão esquerdo do mouse.
 
@@ -86,7 +86,7 @@ Agora que conseguimos fazer nosso sistema inicial funcionar, vamos adicionar um 
 
 <!-- 7:44 -->
 
-E se quisermos acender o led num horário programado? Ou, em um tempo específigo?
+E se quisermos acender o LED num horário programado? Ou, em um tempo específigo?
 
 Adicionando o **Arduíno Uno R3** em nossa mesa, podemos notar que ele possui diversas coisas bacanas:
 
@@ -98,7 +98,7 @@ Adicionando o **Arduíno Uno R3** em nossa mesa, podemos notar que ele possui di
 
 As portas servem tanto para entrada de dados como saídas dos mesmos. Podemos colocar sensores que são lidos por elas, ou ligar e desligar as coisas.
 
-Para o nosso exemplo, vamos usar as portas como saída para ligar e desligar o led.
+Para o nosso exemplo, vamos usar as portas como saída para ligar e desligar o LED.
 
 A fim de deixar nosso projeto mais organizado, necessitamos de uma **protoboard**, ou, placa de ensaio. Ela serve para espetarmos nossos componentes e organizá-los, além de ser um expansor de portas.
 
@@ -116,17 +116,17 @@ Caso a gente precise expandir em mais componentes, temos na _protoboard_ mais po
 
 Como o Arduíno possui uma fonte de energia através do **cabo USB**, podemos remover a bateria de nossa mesa e ligar nosso Arduíno os demais componentes à placa:
 
-- Ligar o led na **parte superior**;
-- Ligar o resistor no **polo positivo** do led até um dos furinhos na **parte inferior** da placa;
+- Ligar o LED na **parte superior**;
+- Ligar o resistor no **polo positivo** do LED até um dos furinhos na **parte inferior** da placa;
 - Ligar uma porta **GND** a um ponto **negativo** na _protoboard_, expandindo os polos **negativos**;
-- Ligar um fio do **catodo** do led à parte **negativa** na placa;
-- Ligar o polo **positivo** do led/resistor à parte **positiva** na porta `13` do Arduíno.
+- Ligar um fio do **catodo** do LED à parte **negativa** na placa;
+- Ligar o polo **positivo** do LED/resistor à parte **positiva** na porta `13` do Arduíno.
 
 Neste momento, podemos dispensar o botão, pois usaremos um digital no Arduíno.
 
 ![Aula03_Figura14](imagens/Aula03_Figura14.png)
 
-Ao iniciar a simulação, podemos notar que o led fica piscando, mesmo sem termos feito esta programação. Isto acontece porque todo Arduíno vem com um programa padrão chamado **blink**, que no nosso exemplo, está **ligando e desligando** a porta `13`, com dados positivos (`ligando o led`) e negativos (`desligando o led`).
+Ao iniciar a simulação, podemos notar que o LED fica piscando, mesmo sem termos feito esta programação. Isto acontece porque todo Arduíno vem com um programa padrão chamado **blink**, que no nosso exemplo, está **ligando e desligando** a porta `13`, com dados positivos (`ligando o LED`) e negativos (`desligando o LED`).
 
 <!-- 13:45 -->
 
@@ -158,7 +158,7 @@ void setup()
 
 Outra função essencial é a `void loop()`, que de forma bem grosseira podemos dizer que é um **laço de repetição**, ou seja, executará o que colocarmos dentro dele até pararmos manualmente sua execução. 
 
-A partir desta função partir começamos a construir o comportamento do nosso led:
+A partir desta função partir começamos a construir o comportamento do nosso LED:
 
 ```c++
 void loop()
@@ -169,7 +169,7 @@ void loop()
 
 Através da função `digitalWrite()`, faremos uma gravação na porta `13`, mandado um sinal(`HIGH`) de que ela está ligada.
 
-Se executarmos somente este código, veremos que o Arduíno ligará o led, e nada além disso:
+Se executarmos somente este código, veremos que o Arduíno ligará o LED, e nada além disso:
 
 ```c++
 void setup()
@@ -187,7 +187,7 @@ void loop()
 
 <!-- 17:03 -->
 
-Para podermos ligar e desligar o led, necessitamos adicionar algumas linhas de código:
+Para podermos ligar e desligar o LED, necessitamos adicionar algumas linhas de código:
 
 ```c++
 void setup()
@@ -202,7 +202,7 @@ void loop()
 }
 ```
 
-Da forma que está o código acima, a velocidade para ligar e desligar o led está tão **rápida** que ao executar o código, a sensação que temos é que o led está somente ligado. Vamos ajustar isso:
+Da forma que está o código acima, a velocidade para ligar e desligar o LED está tão **rápida** que ao executar o código, a sensação que temos é que o LED está somente ligado. Vamos ajustar isso:
 
 ```c++
 void setup()
@@ -219,8 +219,234 @@ void loop()
 }
 ```
 
-Com a função `delay()` dizemos ao Arduíno que queremos o intervalo de `1 segundo` entre ligar e desligar o led.
+Com a função `delay()` dizemos ao Arduíno que queremos o intervalo de `1 segundo` entre ligar e desligar o LED.
 
 Digite o código acima e execute a simulação.
 
-<!-- 17:00 -->
+<!-- 19:00 -->
+
+## Construindo Nosso Semáforo
+
+<!-- 20:20 -->
+
+Até aqui nós aprendemos a desligar e ligar um LED em nosso Arduíno. Com o código que construímos até aqui sabemos que o **LED vermelho** está ligado à **porta 13** porém, adicionaremos mais linhas e mais componentes, ou seja, mais saídas e por conta disso, algumas confusões podem ser feitas.
+
+Vamos evitar este problema, adicionando uma variável que será responsável **pelo LED vermelho, que está conectado à porta 13**:
+
+```c++
+int LED_Vermelho = 13;
+
+void setup()
+{
+  pinMode(LED_Vermelho, OUTPUT);
+}
+
+void loop()
+{
+   digitalWrite(LED_Vermelho, HIGH);
+   	delay(1000);
+   digitalWrite(LED_Vermelho, LOW);
+    delay(1000);
+}
+```
+
+Agora, nós temos a variável do tipo `int` chamada `LED_Vermelho` armazenando a informação de que este LED está na porta `13`.
+
+Vamos adicionar à nossa _protoboard_ os LEDs **amarelo** e **verde** e conectá-los ao Arduíno da mesma maneira que fizemos com o LED vermelho.
+
+> Ao arrastar um novo LED à mesa, aparecerá uma caixa de propriedades onde você pode alterar a sua cor.
+
+- Ligaremos o LED **amarelo** à porta `11`, e;
+- Ligaremos o LED **verde** à porta `7`.
+
+![Aula03_Figura17](imagens/Aula03_Figura17.png)
+
+Agora podemos atribuir as variáveis para os novos LED contendo suas portas:
+
+```c++
+int LED_Amarelo = 11;
+int LED_Verde = 7;
+```
+
+E vamos configurá-las como saída:
+
+```c++
+void setup()
+{
+  pinMode(LED_Vermelho, OUTPUT);
+  pinMode(LED_Amarelo, OUTPUT);
+  pinMode(LED_Verde, OUTPUT);
+}
+```
+
+Tendo em mente que um semáforo liga primeiro a luz **verde** para em seguida acender a **amarela** e por fim a **vermelha**, precisamos estabelecer esta ordem, juntamente com o tempo de funcionamento de cada cor em nosso código:
+
+```c++
+void loop()
+{
+	// Controle LED Verde  
+   	digitalWrite(Led_Verde, HIGH);
+   		delay(10000);
+   	digitalWrite(Led_Verde, LOW);
+    	delay(1000);
+  
+  // Controle LED Amarelo  
+   	digitalWrite(Led_Amarelo, HIGH);
+   		delay(3000);
+   	digitalWrite(Led_Amarelo, LOW);
+    	delay(1000);
+  
+  // Controle LED Vermelho 
+   	digitalWrite(Led_Vermelho, HIGH);
+   		delay(5000);
+   	digitalWrite(Led_Vermelho, LOW);
+    	delay(1000);
+}
+```
+
+Onde:
+
+- O LED **verde** ficará ligado por `10 segundos` e desligado por `1 segundo`;
+- O LED **amarelo** ficará ligado por `3 segundos` e desligado por `1 segundo`;
+- O LED **vermelho** ficará ligado por `5 segundos` e desligado por `1 segundo`;
+
+Ao final dos ajustes, o seu código deverá estar desta maneira:
+
+```c++
+int Led_Vermelho = 13;
+int Led_Amarelo = 11;
+int Led_Verde = 7;
+
+void setup()
+{
+	pinMode(Led_Vermelho, OUTPUT);
+	pinMode(Led_Amarelo, OUTPUT);
+	pinMode(Led_Verde, OUTPUT);
+}
+
+void loop()
+{
+	// Controle LED Verde  
+   	digitalWrite(Led_Verde, HIGH);
+   		delay(10000);
+   	digitalWrite(Led_Verde, LOW);
+    	delay(1000);
+  
+  // Controle LED Amarelo  
+   	digitalWrite(Led_Amarelo, HIGH);
+   		delay(3000);
+   	digitalWrite(Led_Amarelo, LOW);
+    	delay(1000);
+  
+  // Controle LED Vermelho 
+   	digitalWrite(Led_Vermelho, HIGH);
+   		delay(5000);
+   	digitalWrite(Led_Vermelho, LOW);
+    	delay(1000);
+}
+```
+
+E agora podemos realizar a execução e checar se os LEDs estão funcionando da maneira que configuramos.
+
+<!-- 29:10 -->
+
+Ótimo, agora temos um semáforo implementado e funcionando!
+
+Agora, imagine que em determinado momento a gente queira mudar a forma como um dos LEDs funciona e para isso precisaremos sempre implementar as mesmas 4 linhas de código que fizemos acima para cada um deles. Você concorda que o código ficaria gigante e um tanto difícil de dar manutenção?
+
+Para isso, nós podemos lançar mão de **funções** onde nelas colocamos toda a **lógica de funcionamento** para cada LED e as adicionamos ao **loop** que queremos repetir.
+
+Abaixo do `void loop()` vamos criar nossas funções para cada LED:
+
+```c++
+void LedVerde(){
+  // Controle LED Verde  
+   	digitalWrite(Led_Verde, HIGH);
+   		delay(10000);
+   	digitalWrite(Led_Verde, LOW);
+    	delay(1000);
+}
+
+void LedAmarelo(){
+    // Controle LED Amarelo  
+   	digitalWrite(Led_Amarelo, HIGH);
+   		delay(3000);
+   	digitalWrite(Led_Amarelo, LOW);
+    	delay(1000);
+}
+
+void LedVermelho(){
+  
+  // Controle LED Vermelho 
+   	digitalWrite(Led_Vermelho, HIGH);
+   		delay(5000);
+   	digitalWrite(Led_Vermelho, LOW);
+    	delay(1000);
+}
+```
+
+Desta forma, nosso `void loop()` ficará vazio e por consequência, nenhum LED funcionará. Para isso, precisamos **adicionar nossas funções** ao `void loop()` para que quando ele for executado, chame cada uma das funções:
+
+```c++
+void loop()
+{
+	LedVerde();
+  	LedAmarelo();
+  	LedVermelho();
+}
+```
+
+Ao final dos ajustes, o seu código deverá estar desta maneira:
+
+```c++
+int Led_Vermelho = 13;
+int Led_Amarelo = 11;
+int Led_Verde = 7;
+
+void setup()
+{
+	pinMode(Led_Vermelho, OUTPUT);
+	pinMode(Led_Amarelo, OUTPUT);
+	pinMode(Led_Verde, OUTPUT);
+}
+
+void loop()
+{
+	LedVerde();
+  	LedAmarelo();
+  	LedVermelho();
+}
+
+void LedVerde(){
+  // Controle LED Verde  
+   	digitalWrite(Led_Verde, HIGH);
+   		delay(10000);
+   	digitalWrite(Led_Verde, LOW);
+    	delay(1000);
+}
+
+void LedAmarelo(){
+    // Controle LED Amarelo  
+   	digitalWrite(Led_Amarelo, HIGH);
+   		delay(3000);
+   	digitalWrite(Led_Amarelo, LOW);
+    	delay(1000);
+}
+
+void LedVermelho(){
+  
+  // Controle LED Vermelho 
+   	digitalWrite(Led_Vermelho, HIGH);
+   		delay(5000);
+   	digitalWrite(Led_Vermelho, LOW);
+    	delay(1000);
+}
+```
+
+E os LEDs funcionando normalmente.
+
+## Criando Semáforos para um Cruzamento de Avenidas
+
+Agora que temos um único farol funcionando, vamos adicionar mais um, para nosso cenário hipotético de cruzamento entre duas avenidas.
+
+<!-- 32:40 -->
