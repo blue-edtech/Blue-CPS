@@ -141,7 +141,7 @@ Para entendermos o que está acontecendo, vamos construir o código do zero. Apa
 ```c++
 void setup()
 {
-	pinMode();
+pinMode();
 }
 ```
 
@@ -152,7 +152,7 @@ O `pinMode`(), é o código que define uma porta, vamos adicionar a porta `13`, 
 ```c++
 void setup()
 {
-	pinMode(13, OUTPUT);
+pinMode(13, OUTPUT);
 }
 ```
 
@@ -163,7 +163,7 @@ A partir desta função partir começamos a construir o comportamento do nosso L
 ```c++
 void loop()
 {
-	digitalWrite(13, HIGH);
+digitalWrite(13, HIGH);
 }
 ```
 
@@ -174,12 +174,12 @@ Se executarmos somente este código, veremos que o Arduíno ligará o LED, e nad
 ```c++
 void setup()
 {
-	pinMode(13, OUTPUT);
+pinMode(13, OUTPUT);
 }
 
 void loop()
 {
-	digitalWrite(13, HIGH);
+digitalWrite(13, HIGH);
 }
 ```
 
@@ -192,13 +192,13 @@ Para podermos ligar e desligar o LED, necessitamos adicionar algumas linhas de c
 ```c++
 void setup()
 {
-	pinMode(13, OUTPUT);
+pinMode(13, OUTPUT);
 }
 
 void loop()
 {
-	digitalWrite(13, HIGH);
-	digitalWrite(13, LOW);
+digitalWrite(13, HIGH);
+digitalWrite(13, LOW);
 }
 ```
 
@@ -207,15 +207,15 @@ Da forma que está o código acima, a velocidade para ligar e desligar o LED est
 ```c++
 void setup()
 {
-	pinMode(13, OUTPUT);
+pinMode(13, OUTPUT);
 }
 
 void loop()
 {
-	digitalWrite(13, HIGH);
-	delay(1000);
-	digitalWrite(13, LOW);
-	delay(1000);
+digitalWrite(13, HIGH);
+delay(1000);
+digitalWrite(13, LOW);
+delay(1000);
 }
 ```
 
@@ -238,15 +238,15 @@ int LED_Vermelho = 13;
 
 void setup()
 {
-	pinMode(LED_Vermelho, OUTPUT);
+pinMode(LED_Vermelho, OUTPUT);
 }
 
 void loop()
 {
-	digitalWrite(LED_Vermelho, HIGH);
-   	delay(1000);
-	digitalWrite(LED_Vermelho, LOW);
-    delay(1000);
+digitalWrite(LED_Vermelho, HIGH);
+delay(1000);
+digitalWrite(LED_Vermelho, LOW);
+delay(1000);
 }
 ```
 
@@ -273,9 +273,9 @@ E vamos configurá-las como saída:
 ```c++
 void setup()
 {
-	pinMode(LED_Vermelho, OUTPUT);
-	pinMode(LED_Amarelo, OUTPUT);
-	pinMode(LED_Verde, OUTPUT);
+pinMode(LED_Vermelho, OUTPUT);
+pinMode(LED_Amarelo, OUTPUT);
+pinMode(LED_Verde, OUTPUT);
 }
 ```
 
@@ -284,23 +284,23 @@ Tendo em mente que um semáforo liga primeiro a luz **verde** para em seguida ac
 ```c++
 void loop()
 {
-	// Controle LED Verde  
-   	digitalWrite(Led_Verde, HIGH);
-   	delay(10000);
-   	digitalWrite(Led_Verde, LOW);
-    delay(1000);
+// Controle LED Verde  
+digitalWrite(Led_Verde, HIGH);
+delay(10000);
+digitalWrite(Led_Verde, LOW);
+delay(1000);
   
-  // Controle LED Amarelo  
-   	digitalWrite(Led_Amarelo, HIGH);
-   	delay(3000);
-   	digitalWrite(Led_Amarelo, LOW);
-    delay(1000);
+// Controle LED Amarelo  
+digitalWrite(Led_Amarelo, HIGH);
+delay(3000);
+digitalWrite(Led_Amarelo, LOW);
+delay(1000);
   
-  // Controle LED Vermelho 
-   	digitalWrite(Led_Vermelho, HIGH);
-   	delay(5000);
-   	digitalWrite(Led_Vermelho, LOW);
-    delay(1000);
+// Controle LED Vermelho 
+digitalWrite(Led_Vermelho, HIGH);
+delay(5000);
+digitalWrite(Led_Vermelho, LOW);
+delay(1000);
 }
 ```
 
@@ -319,30 +319,30 @@ int Led_Verde = 7;
 
 void setup()
 {
-	pinMode(Led_Vermelho, OUTPUT);
-	pinMode(Led_Amarelo, OUTPUT);
-	pinMode(Led_Verde, OUTPUT);
+pinMode(Led_Vermelho, OUTPUT);
+pinMode(Led_Amarelo, OUTPUT);
+pinMode(Led_Verde, OUTPUT);
 }
 
 void loop()
 {
-	// Controle LED Verde  
-   	digitalWrite(Led_Verde, HIGH);
-   	delay(10000);
-   	digitalWrite(Led_Verde, LOW);
-    delay(1000);
+// Controle LED Verde  
+digitalWrite(Led_Verde, HIGH);
+delay(10000);
+digitalWrite(Led_Verde, LOW);
+delay(1000);
   
-  // Controle LED Amarelo  
-   	digitalWrite(Led_Amarelo, HIGH);
-   	delay(3000);
-   	digitalWrite(Led_Amarelo, LOW);
-    delay(1000);
+// Controle LED Amarelo  
+digitalWrite(Led_Amarelo, HIGH);
+delay(3000);
+digitalWrite(Led_Amarelo, LOW);
+delay(1000);
   
-  // Controle LED Vermelho 
-   	digitalWrite(Led_Vermelho, HIGH);
-   	delay(5000);
-   	digitalWrite(Led_Vermelho, LOW);
-    delay(1000);
+// Controle LED Vermelho 
+digitalWrite(Led_Vermelho, HIGH);
+delay(5000);
+digitalWrite(Led_Vermelho, LOW);
+delay(1000);
 }
 ```
 
@@ -360,28 +360,28 @@ Abaixo do `void loop()` vamos criar nossas funções para cada LED:
 
 ```c++
 void LedVerde(){
-  // Controle LED Verde  
-   	digitalWrite(Led_Verde, HIGH);
- 	delay(10000);
-   	digitalWrite(Led_Verde, LOW);
-  	delay(1000);
+// Controle LED Verde  
+digitalWrite(Led_Verde, HIGH);
+delay(10000);
+digitalWrite(Led_Verde, LOW);
+delay(1000);
 }
 
 void LedAmarelo(){
-    // Controle LED Amarelo  
-   	digitalWrite(Led_Amarelo, HIGH);
- 	delay(3000);
-   	digitalWrite(Led_Amarelo, LOW);
-  	delay(1000);
+// Controle LED Amarelo  
+digitalWrite(Led_Amarelo, HIGH);
+delay(3000);
+digitalWrite(Led_Amarelo, LOW);
+delay(1000);
 }
 
 void LedVermelho(){
   
-  // Controle LED Vermelho 
-   	digitalWrite(Led_Vermelho, HIGH);
-   	delay(5000);
-   	digitalWrite(Led_Vermelho, LOW);
-    delay(1000);
+// Controle LED Vermelho 
+digitalWrite(Led_Vermelho, HIGH);
+delay(5000);
+digitalWrite(Led_Vermelho, LOW);
+delay(1000);
 }
 ```
 
@@ -390,9 +390,9 @@ Desta forma, nosso `void loop()` ficará vazio e por consequência, nenhum LED f
 ```c++
 void loop()
 {
-	LedVerde();
-  	LedAmarelo();
-  	LedVermelho();
+LedVerde();
+LedAmarelo();
+LedVermelho();
 }
 ```
 
@@ -405,41 +405,40 @@ int Led_Verde = 7;
 
 void setup()
 {
-	pinMode(Led_Vermelho, OUTPUT);
-	pinMode(Led_Amarelo, OUTPUT);
-	pinMode(Led_Verde, OUTPUT);
+pinMode(Led_Vermelho, OUTPUT);
+pinMode(Led_Amarelo, OUTPUT);
+pinMode(Led_Verde, OUTPUT);
 }
 
 void loop()
 {
-	LedVerde();
-  	LedAmarelo();
-  	LedVermelho();
+LedVerde();
+LedAmarelo();
+LedVermelho();
 }
 
 void LedVerde(){
-  // Controle LED Verde  
-   	digitalWrite(Led_Verde, HIGH);
-   	delay(10000);
-   	digitalWrite(Led_Verde, LOW);
-    delay(1000);
+// Controle LED Verde  
+digitalWrite(Led_Verde, HIGH);
+delay(10000);
+digitalWrite(Led_Verde, LOW);
+delay(1000);
 }
 
 void LedAmarelo(){
-    // Controle LED Amarelo  
-   	digitalWrite(Led_Amarelo, HIGH);
-   	delay(3000);
-   	digitalWrite(Led_Amarelo, LOW);
-    delay(1000);
+// Controle LED Amarelo  
+digitalWrite(Led_Amarelo, HIGH);
+delay(3000);
+digitalWrite(Led_Amarelo, LOW);
+delay(1000);
 }
 
 void LedVermelho(){
-  
-  // Controle LED Vermelho 
-   	digitalWrite(Led_Vermelho, HIGH);
-   	delay(5000);
-   	digitalWrite(Led_Vermelho, LOW);
-    delay(1000);
+// Controle LED Vermelho 
+digitalWrite(Led_Vermelho, HIGH);
+delay(5000);
+digitalWrite(Led_Vermelho, LOW);
+delay(1000);
 }
 ```
 
@@ -470,41 +469,40 @@ int C1_Led_Verde = 7;
 
 void setup()
 {
-	pinMode(C1_Led_Vermelho, OUTPUT);
-	pinMode(C1_Led_Amarelo, OUTPUT);
-	pinMode(C1_Led_Verde, OUTPUT);
+pinMode(C1_Led_Vermelho, OUTPUT);
+pinMode(C1_Led_Amarelo, OUTPUT);
+pinMode(C1_Led_Verde, OUTPUT);
 }
 
 void loop()
 {
-	C1_LedVerde();
-  	C1_LedAmarelo();
-  	C1_LedVermelho();
+C1_LedVerde();
+C1_LedAmarelo();
+C1_LedVermelho();
 }
 
 void LedVerde(){
-  // Controle LED Verde  
-   	digitalWrite(C1_Led_Verde, HIGH);
-   	delay(10000);
-   	digitalWrite(C1_Led_Verde, LOW);
-    delay(1000);
+// Controle LED Verde  
+digitalWrite(C1_Led_Verde, HIGH);
+delay(10000);
+digitalWrite(C1_Led_Verde, LOW);
+delay(1000);
 }
 
 void C1_LedAmarelo(){
-    // Controle LED Amarelo  
-   	digitalWrite(C1_Led_Amarelo, HIGH);
-   	delay(3000);
-   	digitalWrite(C1_Led_Amarelo, LOW);
-    delay(1000);
+// Controle LED Amarelo  
+digitalWrite(C1_Led_Amarelo, HIGH);
+delay(3000);
+digitalWrite(C1_Led_Amarelo, LOW);
+delay(1000);
 }
 
 void C1_LedVermelho(){
-  
-  // Controle LED Vermelho 
-   	digitalWrite(C1_Led_Vermelho, HIGH);
-   	delay(5000);
-   	digitalWrite(C1_Led_Vermelho, LOW);
-    delay(1000);
+// Controle LED Vermelho 
+digitalWrite(C1_Led_Vermelho, HIGH);
+delay(5000);
+digitalWrite(C1_Led_Vermelho, LOW);
+delay(1000);
 }
 ```
 
@@ -529,12 +527,12 @@ E adicionaremos suas portas ao `void setup()`:
 ```c++
 void setup()
 {
-	pinMode(C1_Led_Vermelho, OUTPUT);
-	pinMode(C1_Led_Amarelo, OUTPUT);
-	pinMode(C1_Led_Verde, OUTPUT);
-  	pinMode(C2_Led_Vermelho, OUTPUT);
-	pinMode(C2_Led_Amarelo, OUTPUT);
-	pinMode(C2_Led_Verde, OUTPUT);
+pinMode(C1_Led_Vermelho, OUTPUT);
+pinMode(C1_Led_Amarelo, OUTPUT);
+pinMode(C1_Led_Verde, OUTPUT);
+pinMode(C2_Led_Vermelho, OUTPUT);
+pinMode(C2_Led_Amarelo, OUTPUT);
+pinMode(C2_Led_Verde, OUTPUT);
 }
 ```
 
@@ -544,9 +542,9 @@ Para que nossos semáforos funcionem adequadamente e na ordem certa, ou seja, am
 
   ```c++
   void Conjunto1(int temp){
-  	digitalWrite(C1_Led_Verde, HIGH);
-  	digitalWrite(C2_Led_Vermelho, HIGH);
-  	delay(temp);
+  digitalWrite(C1_Led_Verde, HIGH);
+  digitalWrite(C2_Led_Vermelho, HIGH);
+  delay(temp);
   }
   ```
 
@@ -554,7 +552,7 @@ Para que nossos semáforos funcionem adequadamente e na ordem certa, ou seja, am
 
   ```c++
   void loop(){
-  	Conjunto1(10000);
+  Conjunto1(10000);
   }
   ```
 
@@ -562,11 +560,11 @@ Para que nossos semáforos funcionem adequadamente e na ordem certa, ou seja, am
 
   ```c++
   void loop(){
-  	Conjunto1(10000);
-  	digitalWrite(C1_Led_Verde, LOW);
-  	delay(1000);
-  	digitalWrite(C1_Led_Amarelo, HIGH);
-  	delay(3000);
+  Conjunto1(10000);
+  digitalWrite(C1_Led_Verde, LOW);
+  delay(1000);
+  digitalWrite(C1_Led_Amarelo, HIGH);
+  delay(3000);
   }
   ```
 
@@ -574,13 +572,13 @@ Para que nossos semáforos funcionem adequadamente e na ordem certa, ou seja, am
 
   ```c++
   void loop(){
-  	Conjunto1(10000);
-  	digitalWrite(C1_Led_Verde, LOW);
-  	delay(1000);
-  	digitalWrite(C1_Led_Amarelo, HIGH);
-  	delay(3000);
-  	digitalWrite(C1_Led_Amarelo, LOW);
-  	delay(1000);
+  Conjunto1(10000);
+  digitalWrite(C1_Led_Verde, LOW);
+  delay(1000);
+  digitalWrite(C1_Led_Amarelo, HIGH);
+  delay(3000);
+  digitalWrite(C1_Led_Amarelo, LOW);
+  delay(1000);
   }
   ```
 
@@ -588,10 +586,10 @@ Para que nossos semáforos funcionem adequadamente e na ordem certa, ou seja, am
 
   ```c++
   void Conjunto2(int temp){
-  	digitalWrite(C2_Led_Verde, HIGH);
-  	digitalWrite(C1_Led_Vermelho, HIGH);
-      digitalWrite(C2_Led_Vermelho, LOW);
-  	delay(temp);
+  digitalWrite(C2_Led_Verde, HIGH);
+  digitalWrite(C1_Led_Vermelho, HIGH);
+  digitalWrite(C2_Led_Vermelho, LOW);
+  delay(temp);
   }
   ```
 
@@ -622,47 +620,47 @@ int C2_Led_Verde = 3;
 
 void setup()
 {
-	pinMode(C1_Led_Vermelho, OUTPUT);
-	pinMode(C1_Led_Amarelo, OUTPUT);
-	pinMode(C1_Led_Verde, OUTPUT);
-  	pinMode(C2_Led_Vermelho, OUTPUT);
-	pinMode(C2_Led_Amarelo, OUTPUT);
-	pinMode(C2_Led_Verde, OUTPUT);
+pinMode(C1_Led_Vermelho, OUTPUT);
+pinMode(C1_Led_Amarelo, OUTPUT);
+pinMode(C1_Led_Verde, OUTPUT);
+pinMode(C2_Led_Vermelho, OUTPUT);
+pinMode(C2_Led_Amarelo, OUTPUT);
+pinMode(C2_Led_Verde, OUTPUT);
 }
 
 void loop()
 {
-	// Loop para Conjunto 1
-	Conjunto1(10000);
-	digitalWrite(C1_Led_Verde, LOW);
-	delay(1000);
-	digitalWrite(C1_Led_Amarelo, HIGH);
-	delay(3000);
-	digitalWrite(C1_Led_Amarelo, LOW);
-	delay(1000);
+// Loop para Conjunto 1
+Conjunto1(10000);
+digitalWrite(C1_Led_Verde, LOW);
+delay(1000);
+digitalWrite(C1_Led_Amarelo, HIGH);
+delay(3000);
+digitalWrite(C1_Led_Amarelo, LOW);
+delay(1000);
   
-    // Loop para Conjunto 2
-    Conjunto2(10000);
-    digitalWrite(C2_Led_Verde, LOW);
-    delay(1000);
-    digitalWrite(C2_Led_Amarelo, HIGH);
-    delay(3000);
-    digitalWrite(C2_Led_Amarelo, LOW);
-    delay(1000);
-    digitalWrite(C1_Led_Vermelho, LOW);
+// Loop para Conjunto 2
+Conjunto2(10000);
+digitalWrite(C2_Led_Verde, LOW);
+delay(1000);
+digitalWrite(C2_Led_Amarelo, HIGH);
+delay(3000);
+digitalWrite(C2_Led_Amarelo, LOW);
+delay(1000);
+digitalWrite(C1_Led_Vermelho, LOW);
 }
 
 void Conjunto1(int temp){
-	digitalWrite(C1_Led_Verde, HIGH);
-	digitalWrite(C2_Led_Vermelho, HIGH);
-	delay(temp);
+digitalWrite(C1_Led_Verde, HIGH);
+digitalWrite(C2_Led_Vermelho, HIGH);
+delay(temp);
 }
 
 void Conjunto2(int temp){
-	digitalWrite(C2_Led_Verde, HIGH);
-	digitalWrite(C1_Led_Vermelho, HIGH);
-    digitalWrite(C2_Led_Vermelho, LOW);
-	delay(temp);
+digitalWrite(C2_Led_Verde, HIGH);
+digitalWrite(C1_Led_Vermelho, HIGH);
+digitalWrite(C2_Led_Vermelho, LOW);
+delay(temp);
 }
 ```
 
@@ -767,3 +765,141 @@ Se tudo está funcionando conforme fizemos, parabéns por ter chego até aqui! :
 ## Alarme com Detecção de Movimentos
 
 <!-- 01:06:40 -->
+
+Para dar início a este projeto, precisaremos colocar em nossa mesa os seguintes itens:
+
+- _Protoboard_;
+- Sensor PIR, e;
+- Arduíno.
+
+![Aula03_Figura34](imagens/Aula03_Figura34.png)
+
+O sensor **PIR** possui 3 pernas:
+
+- **Solo**: é o negativo;
+- **Potência**: é o positivo e trabalha com `5V`, e;
+- **Sinal**: envia um sinal positivo, ou seja, `HIGH` quando detecta algum movimento.
+
+Para que o nosso projeto funcione, precisamos configurar o Arduíno para ler a informação enviada pelo **sinal** quando algo for detectado. 
+
+Vamos começar nosso código criando uma variável para ser o **pino do sensor** e outra para **detectar o estado do sensor**, ou seja, detectar algum movimento:
+
+```c++
+int sensor_pin = 13;
+int sensor_state = 0;
+```
+
+Na configuração do `void setup()`, precisamos dizer que o `sensor_pin` é um canal de entrada de dados, e não de saída, como fizemos no projeto anterior. 
+
+Além disso, trabalharemos neste projeto com uma **porta serial**, que trabalhará com `9600 bits/s` de velocidade.
+
+```c++
+void setup(){
+pinMode(sensor_pin, INPUT);
+Serial.begin(9600);
+}
+```
+
+Em `void loop()`, inicialmente precisamos capturar o estado do sensor:
+
+```c++
+sensor_state = digitalRead(sensor_pin);
+```
+
+Através dessa função, configuramos a leitura digital dentro do sensor para ler o pino do **sinal** conectado à porta `13` do Arduíno quando alguma informação é enviada.
+
+![Aula03_Figura35](imagens/Aula03_Figura35.png)
+
+Podemos aproveita para ligar a potência aos `5V` do Arduíno e o **GND** ao negativo, conectando assim, todo o nosso circuito.
+
+![Aula03_Figura36](imagens/Aula03_Figura36.png)
+
+E agora, podemos analisar o que estamos recebendo do sensor: 
+
+```c++
+Serial.println(sensor_state);
+```
+
+Vamos executar nossa simulação e abrir o monitor serial que deverá alterar seu valor para `1` quando clicarmos no sensor e mexermos na zona de presença:
+
+![Aula03_Figura37](imagens/Aula03_Figura37.png)
+
+Agora que aprendemos a ler a informação através da porta, precisamos estabelecer algumas condições de funcionamento em nosso `void loop()` para **se algo passar na frente do sensor, faça**:
+
+```c++
+if(sensor_state == HIGH){
+
+}
+```
+
+Onde `==` representa uma comparação de valor. Estamos verificando se o estado sensor está `HIGH` e caso ele esteja, um LED será acendido.
+
+![Aula03_Figura38](imagens/Aula03_Figura38.png)
+
+Para que o LED funcione adequadamente, precisamos definir sua variável e realizar sua configuração em nosso código:
+
+```c++
+int sensor_pin = 13;
+int sensor_state = 0;
+int led = 12;
+
+void setup(){
+pinMode(led, OUTPUT);
+pinMode(sensor_pin, INPUT);
+Serial.begin(9600);
+}
+
+void loop(){
+sensor_state = digitalRead(sensor_pin);
+
+Serial.println(sensor_state);
+
+if(sensor_state == HIGH){
+digitalWrite(led, HIGH);
+}
+}
+```
+
+Nossa função desta maneira, somente liga o LED e nós queremos que ele seja desligado caso não tenha mais movimento na zona de sombra, ou seja, além do **if** nós adicionaremos o **else** para que esta condição seja atendida:
+
+```c++
+int sensor_pin = 13;
+int sensor_state = 0;
+int led = 12;
+
+void setup(){
+pinMode(led, OUTPUT);
+pinMode(sensor_pin, INPUT);
+Serial.begin(9600);
+}
+
+void loop(){
+sensor_state = digitalRead(sensor_pin);
+
+if(sensor_state == HIGH){
+digitalWrite(led, HIGH);
+Serial.println("Sensor Ativado!!!");
+}else 
+{
+  digitalWrite(led, LOW);
+  Serial.println("Sensor Desativado!!!");
+}
+}
+```
+
+Além das condições de `if/else` também mandamos uma mensagem na tela caso o sensor seja ou não ativado.
+
+Vamos agora adicionar uma sinaleira ao nosso circuito, o **Piezo**, onde ele disparará um som caso o movimento seja detectado:
+
+![Aula03_Figura39](imagens/Aula03_Figura39.png)
+
+Ligamos o **negativo** do Piezo ao negativo do LED e o mesmo com o **positivo** e ao iniciar a simulação, podemos ouvir tudo funcionando.
+
+## Knight Rider
+
+<!-- Não encontrei site para mais informações do projeto -->
+
+<!-- 01:20:12 -->
+
+
+
