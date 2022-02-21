@@ -20,10 +20,10 @@ Uma API permite que sua solução ou serviço se comunique com outros produtos e
 
 De maneira bem simplista, podemos dividir alguns softwares em duas camadas:
 
-- **_Frontend_**: a tela com tudo bonitinho que vemos, e;
+- **_Front-end_**: a tela com tudo bonitinho que vemos, e;
 - **_Backend_**: o lugar onde fica a lógica e também como acontece a comunicação com os dados.
 
-Quando falamos da construção e uma API, estamos dizendo sobre uma importante parte de todo o _Backend_.
+Quando falamos da construção e uma API, estamos dizendo sobre uma importante parte de todo o _Back-end_.
 
 ## Como funciona uma API? Onde vive? Do que se alimenta?
 
@@ -55,7 +55,51 @@ Neste cenário:
 
 > **_Importante:_** Utilizamos o termo "Persistência de Dados" para nos referir ao armazenamento de dados pelo nosso sistema após o término do processo com o qual foram criados.
 
-Importante salientar que a API dos Correios se comunica com seu próprio banco de dados, onde os CEP's estão armazenados juntamente com as demais informações do logradouro.
+Vale salientar que a API dos Correios se comunica com seu próprio banco de dados, onde os CEP's estão armazenados juntamente com as demais informações do logradouro.
+
+## Conceituando: CRUD
+
+Vamos a um conceito **muito** divertido e que é muito utilizado na prática no mundo _Back-end_?
+
+![crud](imagens/crud.jpg)
+
+Fonte: https://bit.ly/3IbdhQ6
+
+<!-- 10:00 -->
+
+Para que uma API persista dados em um banco, ela se utiliza de quatro funções básicas:
+
+- **CRIAR:** se trata de uma função que irá **adicionar** um dado novo ao banco
+- **LER**: se trata de uma função que será chamada para **ler** os dados no banco
+- **ATUALIZAR:** se trata de uma função para **modificar** um dado existente no banco
+- **DELETAR:** se trata de uma função para **remover** um dado no banco
 
 ## O que vamos precisa para construir nossa API?
 
+Essencialmente, vamos utilizar:
+
+- **Node.js**: um <a href="https://nodejs.org/en/" target="_blank">software</a> que permite a execução de códigos JavaScript fora de um navegador web. Acesse o site e faça a **instalação** do mesmo utilizando a **última versão LTS disponível**.
+
+- **Express.js**: um <a href="https://expressjs.com/en/starter/installing.html" target="_blank">framework</a> para Node.js que fornece recursos mínimos para construção de servidores web
+
+  > **_NOTA:_** Um framework nada mais é que uma caixa de ferramentas que nos ajuda a escrever códigos, reutilizando o que ele nos fornece de forma simples, rápida e eficiente.
+
+- **MongoDB**: um <a href="https://www.mongodb.com/pt-br" target="_blank">banco de dados</a> não-relacional (**NoSQL**) orientado a documentos
+
+  > **_NOTA:_** Quando nos utilizamos do termo "SQL" nos referimos à linguagem e **NoSQL** fala sobre uma base que não é somente SQL. Caso queira saber mais sobre isso, leita <a href="https://blog.geekhunter.com.br/sql-nosql-newsql-qual-banco-de-dados-usar/" target="_blank">este texto.</a>
+
+Inicialmente o **JavaScript** foi criado para ser executado no _Front-end_ e com a criação do Node.js, hoje podemos escrever códigos no lado do servidor e para facilitar esta escrita, o _Express_ nos ajuda.
+
+- **VS Code:** é um <a href="https://code.visualstudio.com/?wt.mc_id=DX_841432" target="_blank">editor de texto</a> maravilhÓtimo fornecido pela Microsoft e que nos ajudará a codificar a API. Acesse o site e faça a **instalação** do mesmo.
+
+- **Pasta para o projeto:** crie no local de sua preferência uma pasta chamada **api-hp** e nela, clique com o botão direito do mouse e selecione a opção **Abrir com Code**.
+
+  ![Aula04_Figura01](imagens/Aula04_Figura01.png)
+
+E com o _VS Code_ aberto, podemos notar nossa pasta aberta no explorador:
+
+![Aula04_Figura01](imagens/Aula04_Figura02.png)
+
+## Primeiros-Passos na Aplicação
+
+<!-- 12:15 -->
