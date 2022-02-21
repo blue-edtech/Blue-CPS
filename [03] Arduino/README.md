@@ -2,7 +2,7 @@
 
 Por <a href="https://www.linkedin.com/in/violigon/" target="_blank">Vinicius Gonçalves</a> - Professor <a href="https://blueedtech.com.br/quem-somos/" target="_blank">@Blue Edtech</a> & Chanely Marques - Eterna Aprendiz <a href="https://blueedtech.com.br/quem-somos/" target="_blank">@Blue Edtech</a>
 
-Olá :wave:, seja bem-vindo(a) ao primeiro vídeo desta série. Nosso objetivo é introduzir conceitos básicos de prototipação de circuitos, eletrônica e programação em conjunto através da construção de um **semáforo**. #partiu :blue_heart:
+Olá :wave:, seja bem-vindo(a) ao terceiro vídeo desta série. Nosso objetivo é introduzir conceitos básicos de prototipação de circuitos, eletrônica e programação em conjunto através da construção de um **semáforo**. #partiu :blue_heart:
 
 ## Introdução
 
