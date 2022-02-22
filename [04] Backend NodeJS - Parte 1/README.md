@@ -138,7 +138,7 @@ Feito isso, encerre o terminal clicando no ícone da **Lixeira** e abra um novo.
 
 Onde:
 
-- **Chanely**@**todynho: ** indica o nome da pessoa usuária `Chanely` executando tarefas no computador `todynho`. Você deverá ver o usuário que está utilizando e o nome do seu computador.
+- **Chanely** at **todynho:** indica o nome da pessoa usuária `Chanely` executando tarefas no computador `todynho`. Você deverá ver o usuário que está utilizando e o nome do seu computador.
 - **MINGW64:** fala sobre um conjunto de ferramentas minimalistas `GNU` para sistemas 64-bits. (Não entraremos em detalhes nesta aula).
 - **~Documents/GitHub/api-hp:** indica o diretório, ou a pasta, em que estamos executando o terminal. Note que é a mesma pasta onde iniciamos o VS Code.
 - **$:** marca o início da linha onde digitaremos nossos comandos e deve ser **ignorado**.
@@ -198,6 +198,116 @@ A importância deste arquivo para a nossa aplicação é que nele configuramos o
 
 > **_IMPORTANTE_**: o `package.json` fala sobre a configuração da API local, ou seja, a que estamos configurando. De forma alguma enviamos ou recebemos este arquivo entre APIs.
 
-## O Primeiro 'Olá mundo!' com o Express
+## O Primeiro 'Olá mundo!' com Express
 
 <!-- 20:25 -->
+
+Ao acessar o site do <a href="https://www.npmjs.com/" target="_blank">npm</a> e digitar 'express' na barra de busca podemos notar uma imensidão de bibliotecas relacionadas a ele:
+
+![Aula04_Figura13](imagens/Aula04_Figura13.png)
+
+Quando clicamos em **express** a página que abre contém informações importantes pra nós:
+
+![Aula04_Figura14](imagens/Aula04_Figura14.png)
+
+Onde:
+
+```bash
+npm i express
+```
+
+É o comando para a instalação (**i ou _install_**) do _express_ em nosso terminal através do **npm** que é instalado juntamente com o Node.js:
+
+![Aula04_Figura15](imagens/Aula04_Figura15.png)
+
+Ao término, percebemos que **50** novos pacotes foram instalados e **51** checados por vulnerabilidades. Além disso, uma pasta chamada **node_modules** foi criada e o arquivo `package-lock.json`:
+
+![Aula04_Figura16](imagens/Aula04_Figura16.png)
+
+O `package-lock.json` vai controlar a versão do _express_ e tudo o que veio com ele e para evitar catástrofes, é importante **não mexer** neste arquivo.
+
+Na pasta `node_module` encontramos tudo que veio instalado junto com o _express_.
+
+Voltando lá no site do **npm** vamos copiar o _template_ básico de configuração do _express_:
+
+```javascript
+const express = require('express')
+const app = express()
+
+// Rota
+app.get('/', function (req, res) {
+  res.send('Olá mundo!')
+})
+
+app.listen(3000)
+```
+
+E colar em nosso arquivo `index.js`. Vamos entender o que estamos fazendo:
+
+```javascript
+const express = require('express')
+```
+
+Cria uma variável imutável chamada `express` com uma função `require` que busca por `express` na pasta node_modules e armazena tudo na variável.
+
+```javascript
+const app = express()
+```
+
+Estamos executando `()` o _express_ dentro da variável `app`, ou seja, todas as vezes que chamarmos `app` é o mesmo que executar `express()`.
+
+```javascript
+app.listen(3000)
+```
+
+O _express_ irá criar na máquina local um servidor que escutará na porta `3000`. 
+
+Agora, podemos salvar o arquivo e executá-lo em nosso terminal através do comando `node index.js`
+
+Caso tenha dado algum erro na execução, busque por falhas de escrita no código, ou se o arquivo não foi salvo corretamente através da bolinha que indica que o arquivo precisa ser salvo:
+
+![Aula04_Figura17](imagens/Aula04_Figura17.png)
+
+> **_DICA:_** Ao clicar em **Arquivo** o VS Code nos dá uma opção de **Salvamento Automático**. Caso seu computador seja mais simples, sugiro não utilizar essa opção com o **nodemon**, que instalaremos em breve, para não sobrecarregar a execução do terminal. :wink:
+
+Em execução, não recebemos nada na saída do terminal, pois apenas pedimos ao Node para escutar na porta `3000`. 
+
+Isto gera um incômodo, uma sensação de que nada está funcionando.
+
+![Aula04_Figura18](imagens/Aula04_Figura18.png)
+
+Podemos checar se está tudo certo, indo até o navegador e digitando `localhost:3000`
+
+![Aula04_Figura19](imagens/Aula04_Figura19.png)
+
+Ufa, nosso **Olá mundo!** foi exibido com sucesso, indicando que nossa aplicação está sendo executada corretamente. E, pera, onde configuramos esta mensagem? Na **rota**:
+
+```javascript
+// Rota
+app.get('/', function (req, res) {
+  res.send('Olá mundo!')
+})
+```
+
+Onde:
+
+- `app.get()` é uma função do _express_ que significa **pegue**, que recebem os parâmetros que configuramos a seguir
+
+- `'/'`, **na rota /**, que é o primeiro parâmetro da nossa função,
+
+- E execute a função **callback**, que nada mais é uma função executada dentro de `app.get()`, sendo o segundo parâmetro.
+
+  ```javascript
+  function (req, res) {
+    res.send('Olá mundo!')
+  }
+  ```
+
+  Esta função de **callback** também recebe dois parâmetros:
+
+  - `req` de requisição, e;
+  - `res` de resposta.
+
+  E envia uma resposta na tela `res.send('Olá mundo!')`, mostrando a mensagem que digitarmos entre as **' '** simples todas as vezes que a rota `'/'` é solicitada.
+
+<!-- 28:40 -->  
