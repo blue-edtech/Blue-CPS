@@ -100,6 +100,52 @@ E com o _VS Code_ aberto, podemos notar nossa pasta aberta no explorador:
 
 ![Aula04_Figura01](imagens/Aula04_Figura02.png)
 
-## Primeiros-Passos na Aplicação
+## Primeiros-Passos no VS Code
 
 <!-- 12:15 -->
+
+Antes de colocarmos a mão no código, precisamos preparar o ambiente de forma a aumentar um pouco a nossa Performance. Para isto, vamos criar o arquivo onde codificaremos nossa API e configurar o VS Code.
+
+Clique com o botão direito no **Explorador** > **Novo Arquivo** e dê o nome de `index.js`
+
+![Aula04_Figura03](imagens/Aula04_Figura03.png)
+
+Após a criação do arquivo, sua tela deverá estar assim:
+
+![Aula04_Figura05](imagens/Aula04_Figura05.png)
+
+Todas as vezes que criamos arquivos com a extensão `.js` estamos nos referindo à extensão **JavaScript** e será neste arquivo que codificaremos o funcionamento da nossa API.
+
+A partir daqui, manipularemos muito o VS Code e por isso, recomendamos que faça o download do arquivo abaixo onde estarão listados os atalhos da ferramenta e atente-se aos marcados em `amarelo`, pois são alguns dos que mais usamos. :wink:
+
+![Aula04_Figura06](imagens/Aula04_Figura06.png)
+
+<a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf" target="_blank">Clique Aqui</a> para baixar o arquivo diretamente do site do VS Code.
+
+Apertando as teclas **Control + Shift + '** abriremos o terminal integrado que acompanha nossa ferramenta, e nele poderemos digitar comando para instalar aplicativos, bibliotecas e executar a aplicação.
+
+Por padrão este terminal vem configurado no **Powershell** e sugerimos que altere o seu modo de funcionamento, abrindo as opções e clicando em **Selecionar o Perfil Padrão**.
+
+![Aula04_Figura07](imagens/Aula04_Figura07.png)
+
+E na tela que abrir, selecione o terminal de sua preferência. Sugerimos que escolha o **Git Bash**:
+
+![Aula04_Figura08](imagens/Aula04_Figura08.png)
+
+Feito isso, encerre o terminal clicando no ícone da **Lixeira** e abra um novo.
+
+![Aula04_Figura09](imagens/Aula04_Figura09.png)
+
+Onde:
+
+- **Chanely @ todynho: ** indica o nome da pessoa usuária `Chanely` executando tarefas no computador `todynho`. Você deverá ver o usuário que está utilizando e o nome do seu computador.
+- **MINGW64:** fala sobre um conjunto de ferramentas minimalistas `GNU` para sistemas 64-bits. (Não entraremos em detalhes nesta aula).
+- **~Documents/GitHub/api-hp:** indica o diretório, ou a pasta, em que estamos executando o terminal. Note que é a mesma pasta onde iniciamos o VS Code.
+- **$:** marca o início da linha onde digitaremos nossos comandos e deve ser **ignorado**.
+
+## Primeiros-Passos na Aplicação
+
+A API que estamos começando a construir, servirá dados dos personagens de **Harry Potter**. 
+
+> **_DICA:_** Pause o vídeo e/ou leitura para adicionar tantos personagens quanto lembrar. Aqui, nós te ensinamos o beabá e ficamos muito felizes quando nossos alunos nos mostram o que fizeram a mais. 
+
