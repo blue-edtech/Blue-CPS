@@ -138,14 +138,66 @@ Feito isso, encerre o terminal clicando no ícone da **Lixeira** e abra um novo.
 
 Onde:
 
-- **Chanely @ todynho: ** indica o nome da pessoa usuária `Chanely` executando tarefas no computador `todynho`. Você deverá ver o usuário que está utilizando e o nome do seu computador.
+- **Chanely**@**todynho: ** indica o nome da pessoa usuária `Chanely` executando tarefas no computador `todynho`. Você deverá ver o usuário que está utilizando e o nome do seu computador.
 - **MINGW64:** fala sobre um conjunto de ferramentas minimalistas `GNU` para sistemas 64-bits. (Não entraremos em detalhes nesta aula).
 - **~Documents/GitHub/api-hp:** indica o diretório, ou a pasta, em que estamos executando o terminal. Note que é a mesma pasta onde iniciamos o VS Code.
 - **$:** marca o início da linha onde digitaremos nossos comandos e deve ser **ignorado**.
 
 ## Primeiros-Passos na Aplicação
 
+<!-- 13:32 -->
+
 A API que estamos começando a construir, servirá dados dos personagens de **Harry Potter**. 
 
 > **_DICA:_** Pause o vídeo e/ou leitura para adicionar tantos personagens quanto lembrar. Aqui, nós te ensinamos o beabá e ficamos muito felizes quando nossos alunos nos mostram o que fizeram a mais. 
 
+Para iniciar nosso projeto em Node.js, vamos digitar no terminal o comando `npm init`
+
+![Aula04_Figura10](imagens/Aula04_Figura10.png)
+
+Onde:
+
+- **npm:** é a sigla para <a href="https://docs.npmjs.com/cli/v6/commands/npm/" target="_blank">_Node Package Manager_</a>, ou seja, o gerenciador de pacotes do Node. Não entraremos no detalhe dele agora, porém, recomendamos que leia sua documentação porque o npm é capaz de realizar **muitas** coisas.
+- **init:** inicia um novo projeto Node na pasta.
+
+E então algumas informações de preenchimento nos são solicitadas e sua confirmação:
+
+![Aula04_Figura11](imagens/Aula04_Figura11.png)
+
+Onde:
+
+- **package name: (api-hp):** aqui confirmamos ou damos outro nome à nossa API, no caso, `api-hp`;
+
+- **version: (1.0.0):** versão da API;
+
+- **description:** breve descrição sobre o que é a API que estamos criando;
+
+- **entry point: (index.js):** arquivo onde nossa aplicação será iniciada;
+
+- **test command:** comando utilizado para realizarmos testes;
+
+- **git repository:** repositório no _Git_ onde armazenaremos nosso código. Não utilizaremos esta função neste projeto;
+
+- **keywords:** palavras-chave de auxílio;
+
+- **author:** pessoas que estão codificando a API, e;
+
+- **license: (ISC):** licença utilizada para este projeto. 
+
+  > **SOBRE LICENÇAS:** Você pode entender um pouco mais sobre este assunto importantíssimo vendo este <a href="https://www.youtube.com/watch?v=fPfzp6ov2bQ" target="_blank">vídeo</a> no canal **Código Fonte TV**.
+
+Ao término, note que um arquivo chamado `package.json` foi criado, e ao abrirmos este arquivo clicando nele, seu conteúdo está preenchido com as informações anteriores:
+
+![Aula04_Figura12](imagens/Aula04_Figura12.png)
+
+O formato de arquivo **JSON** se refere a _JavaScript Object Notation_, ou seja, **uma forma de escrever arquivos JavaScript como objetos** e, atualmente é a forma mais simples e leve de **transmitir** e **solicitar** informações entre APIs.
+
+> **_DICA_:** Você pode ler um pouco mais ~~prometo que é só um pouco~~ sobre JSON, clicando neste <a href="https://www.alura.com.br/artigos/o-que-e-json" target="_blank">link.</a>
+
+A importância deste arquivo para a nossa aplicação é que nele configuramos os _scripts_ de testes, acompanhamos tudo o que é instalado para o correto funcionamento da API e sua configuramos sua forma de funcionar. :wink:
+
+> **_IMPORTANTE_**: o `package.json` fala sobre a configuração da API local, ou seja, a que estamos configurando. De forma alguma enviamos ou recebemos este arquivo entre APIs.
+
+## O Primeiro 'Olá mundo!' com o Express
+
+<!-- 20:25 -->
