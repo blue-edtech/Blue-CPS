@@ -295,7 +295,7 @@ Vamos entender:
 
     ```javascript
     function (req, res) {
-      res.send('Olá mundo!')
+      res.send('Hello World')
     }
     ```
 
@@ -330,7 +330,7 @@ app.get('/ola', function (req, res) {
 app.listen(3000)
 ```
 
-> **_DICA:_** Usamos sempre // para realizar comentários no código. :wink:
+> **_DICA:_** Usamos sempre // para realizar comentários no código e estes não são executados pela aplicação. :wink: 
 
 Salve o arquivo e digite `node index.js` novamente, vá até o navegador e digite **localhost:3000/ola**
 
@@ -377,3 +377,59 @@ Pronto! Agora temos duas rotas **diferentes** configuradas em nossa API. :smiley
 
 <!-- 32:00 -->
 
+Até aqui, todas as vezes que realizamos uma mudança no código, precisamos para o terminal e executar `node index.js` novamente para que as alterações sejam executadas.
+
+Podemos automatizar essa execução sempre **após salvar** o arquivo através do **nodemon**, que é uma biblioteca para Node.js que reinicia automaticamente o servidor.
+
+No site do npm, vamos buscar pelo **nodemon** e ver como podemos instalar:
+
+![Aula04_Figura23](imagens/Aula04_Figura23.png)
+
+Ótimo! No terminal podemos executar o comando abaixo para realizar a sua instalação:
+
+```bash
+npm i nodemon
+```
+
+![Aula04_Figura24](imagens/Aula04_Figura24.png)
+
+Com o _nodemon_ instalado, vamos configurar a automatização do servidor no arquivo `package.json`. Primeiro, vamos melhorar a forma de executar o comando `node index.js` na parte de **scripts**.
+
+Remova este conteúdo:
+
+```json
+"test": "echo \"Error: no test specified\" && exit 1"
+```
+
+E, adicione:
+
+```json
+"start": "node index.js"
+```
+
+Salve o arquivo, vá até o terminal e digite:
+
+``` bash
+npm start
+```
+
+![Aula04_Figura25](imagens/Aula04_Figura25.png)
+
+Note que agora não precisamos mais digitar o comando `node index.js` para executar nosso servidor, e sim, `npm start`. 
+
+Para o nosso servidor ser executado com o _nodemon_, precisamos fazer mais uma alteração no arquivo `package.json` na parte de **scripts**:
+
+```json
+"scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+ },
+```
+
+Onde `dev` chama o _nodemon_ executando nosso servidor configurado no `index.js`. Vamos ao terminal e ver o que acontece:
+
+```bash
+npm run dev
+```
+
+<!-- 38:00 -->
