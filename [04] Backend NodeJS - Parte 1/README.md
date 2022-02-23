@@ -21,7 +21,7 @@ Uma API permite que sua solução ou serviço se comunique com outros produtos e
 De maneira bem simplista, podemos dividir alguns softwares em duas camadas:
 
 - **_Front-end_**: a tela com tudo bonitinho que vemos, e;
-- **_Backend_**: o lugar onde fica a lógica e também como acontece a comunicação com os dados.
+- **_Back-end_**: o lugar onde fica a lógica e também como acontece a comunicação com os dados.
 
 Quando falamos da construção e uma API, estamos dizendo sobre uma importante parte de todo o _Back-end_.
 
@@ -138,7 +138,7 @@ Feito isso, encerre o terminal clicando no ícone da **Lixeira** e abra um novo.
 
 Onde:
 
-- **Chanely** at **todynho:** indica o nome da pessoa usuária `Chanely` executando tarefas no computador `todynho`. Você deverá ver o usuário que está utilizando e o nome do seu computador.
+- **Chanely** @ **todynho:** indica o nome da pessoa usuária `Chanely` executando tarefas no computador `todynho`. Você deverá ver o usuário que está utilizando e o nome do seu computador.
 - **MINGW64:** fala sobre um conjunto de ferramentas minimalistas `GNU` para sistemas 64-bits. (Não entraremos em detalhes nesta aula).
 - **~Documents/GitHub/api-hp:** indica o diretório, ou a pasta, em que estamos executando o terminal. Note que é a mesma pasta onde iniciamos o VS Code.
 - **$:** marca o início da linha onde digitaremos nossos comandos e deve ser **ignorado**.
@@ -234,9 +234,8 @@ Voltando lá no site do **npm** vamos copiar o _template_ básico de configuraç
 const express = require('express')
 const app = express()
 
-// Rota
 app.get('/', function (req, res) {
-  res.send('Olá mundo!')
+  res.send('Hello World')
 })
 
 app.listen(3000)
@@ -270,44 +269,111 @@ Caso tenha dado algum erro na execução, busque por falhas de escrita no códig
 
 > **_DICA:_** Ao clicar em **Arquivo** o VS Code nos dá uma opção de **Salvamento Automático**. Caso seu computador seja mais simples, sugiro não utilizar essa opção com o **nodemon**, que instalaremos em breve, para não sobrecarregar a execução do terminal. :wink:
 
-Em execução, não recebemos nada na saída do terminal, pois apenas pedimos ao Node para escutar na porta `3000`. 
-
-Isto gera um incômodo, uma sensação de que nada está funcionando.
+Após rodar o comando acima, não recebemos nada na saída do terminal, pois **apenas pedimos** ao Node para escutar na porta `3000`. 
 
 ![Aula04_Figura18](imagens/Aula04_Figura18.png)
 
-Podemos checar se está tudo certo, indo até o navegador e digitando `localhost:3000`
+Isto gera um incômodo, uma sensação de que nada está funcionando e podemos checar se está tudo certo, indo até o navegador e digitando `localhost:3000`
 
 ![Aula04_Figura19](imagens/Aula04_Figura19.png)
 
-Ufa, nosso **Olá mundo!** foi exibido com sucesso, indicando que nossa aplicação está sendo executada corretamente. E, pera, onde configuramos esta mensagem? Na **rota**:
+Ufa, nosso **Hello World** foi exibido com sucesso, indicando que nossa aplicação está sendo executada corretamente. Mas, pera, onde esta mensagem foi configurada?
 
 ```javascript
-// Rota
 app.get('/', function (req, res) {
-  res.send('Olá mundo!')
+  res.send('Hello World')
 })
 ```
 
-Onde:
+Vamos entender:
 
-- `app.get()` é uma função do _express_ que significa **pegue**, que recebem os parâmetros que configuramos a seguir
+- `app.get()` é uma **função** do _express_ que quando chamada, **recebe** os parâmetros que configuramos a seguir:
 
-- `'/'`, **na rota /**, que é o primeiro parâmetro da nossa função,
+  - `'/'`, o primeiro parâmetro da função `app.get()` que significa raiz, o ponto de partida;
 
-- E execute a função **callback**, que nada mais é uma função executada dentro de `app.get()`, sendo o segundo parâmetro.
+  - Uma função **callback**, o segundo parâmetro da função `app.get()` que nada mais é do uma função executada dentro de `app.get()`:
 
-  ```javascript
-  function (req, res) {
-    res.send('Olá mundo!')
-  }
-  ```
+    ```javascript
+    function (req, res) {
+      res.send('Olá mundo!')
+    }
+    ```
 
-  Esta função de **callback** também recebe dois parâmetros:
+    Esta função de **callback** também recebe dois parâmetros:
 
-  - `req` de requisição, e;
-  - `res` de resposta.
+    - `req` de requisição, ou seja, ele recebe o que digitarmos no navegador, e;
 
-  E envia uma resposta na tela `res.send('Olá mundo!')`, mostrando a mensagem que digitarmos entre as **' '** simples todas as vezes que a rota `'/'` é solicitada.
+    - `res` de resposta, ou seja, devolve a mensagem que configurarmos.
 
-<!-- 28:40 -->  
+    Ela envia uma resposta na tela através do `res.send()`, mostrando a mensagem que digitarmos entre as **' '** simples todas as vezes que a rota `'/'` é solicitada.
+
+    Por tanto, todas as vezes que digitarmos no navegador **localhost:3000**, a função `app.get()` será chamada e se configurada corretamente, nos devolverá a mensagem **'Hello World**.
+
+
+Para que este conhecimento fique mais claro, vamos chamar no navegador **localhost:3000/ola**, que deve nos devolver a mensagem: **Olá mundo!**
+
+Primeiro, pause a execução no terminal digitando **Control+C** e edite o código da forma que segue:
+
+```javascript
+const express = require('express')
+const app = express()
+
+app.get('/ola', function (req, res) { 
+  // Dentro das aspas acima nós configuramos o /ola, que
+  // será chamado após o :3000 no navegador
+
+  res.send('Olá mundo!')
+  // Olá mundo! é a mensagem que queremos de resposta
+  // A gente configura a resposta nesta função
+})
+
+app.listen(3000)
+```
+
+> **_DICA:_** Usamos sempre // para realizar comentários no código. :wink:
+
+Salve o arquivo e digite `node index.js` novamente, vá até o navegador e digite **localhost:3000/ola**
+
+![Aula04_Figura20](imagens/Aula04_Figura20.png)
+
+<!-- 28:40 -->
+
+Interessante notar o que acontece no navegador se tentarmos acessar novamente **localhost:3000** 
+
+![Aula04_Figura21](imagens/Aula04_Figura21.png)
+
+O navegador já considera que após o 3000 já existe uma **"/"** , chamando ela no `app.get()` e que neste momento, já não existe mais pois alteramos a rota para receber **"/ola"**.
+
+> **_IMPORTANTE:_** Quando usamos o termo **rota** em API, estamos nos referindo a um "caminho" que é chamado por outra API ou um cliente, como o navegador por exemplo, e que responde com alguma configuração que fizermos.
+>
+> Cada rota pode ter uma ou mais funções, realizar cálculos e devolver a respostas para a tela, enfim... podemos fazer **n** coisas em uma rota. 
+>
+> Contudo, cada rota **deve ser única** dentro da API. :wink:
+
+Vamos adicionar a rota **"/"** à nossa aplicação novamente, que nos devolverá a mensagem **Home**. 
+
+Pause a execução no terminal digitando **Control+C** e edite o código da forma que segue:
+
+```javascript
+const express = require('express');
+const app = express();
+
+app.get('/', function (req, res) {
+  res.send('Home');
+});
+
+app.get('/ola', function (req, res) {
+  res.send('Olá mundo!');
+});
+
+app.listen(3000);
+```
+
+Salve o arquivo e digite `node index.js` novamente, vá até o navegador e digite **localhost:3000**
+
+![Aula04_Figura22](imagens/Aula04_Figura22.png)
+
+Pronto! Agora temos duas rotas **diferentes** configuradas em nossa API. :smiley:
+
+<!-- 32:00 -->
+
