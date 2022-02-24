@@ -377,6 +377,8 @@ Pronto! Agora temos duas rotas **diferentes** configuradas em nossa API. :smiley
 
 <!-- 32:00 -->
 
+### Automatizando a execução do servidor
+
 Até aqui, todas as vezes que realizamos uma mudança no código, precisamos para o terminal e executar `node index.js` novamente para que as alterações sejam executadas.
 
 Podemos automatizar essa execução sempre **após salvar** o arquivo através do **nodemon**, que é uma biblioteca para Node.js que reinicia automaticamente o servidor.
@@ -459,7 +461,38 @@ Ainda sim, a saída deste terminal gera um um tanto de desconforto porque quase 
 No arquivo `index.js` a gente configurou o servidor para ouvir na porta 3000. Vamos fazer com que nosso terminal nos diga isto adicionando as configurações a seguir:
 
 ```javascript
+app.listen(3000, () => {
+  console.log("Servidor rodando em http://localhost:3000");
+});
 ```
 
+Aqui, estamos passando mais alguns parâmetros para a função `app.listen()`:
 
+- A porta 3000;
+- Uma _arrow function_ `() => { }` que:
+  - Devolve pra tela através do `console.log()` a mensagem **Servidor rodando em http://localhost:3000**
+
+> **_DICA:_** Você pode explorar mais sobre <a href="https://www.youtube.com/watch?v=mc3TKp2XzhI" target="_blank">funções</a> nesta aula maraviGold do professor Guanabara :heartbeat: ou ler mais a respeito na própria <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Functions" target="_blank">documentação</a>
+
+Salve o arquivo e vamos ver a saída em nosso terminal:
+
+![Aula04_Figura27](imagens/Aula04_Figura27.png)
+
+Agora sim! Mais confortável...
+
+Antes de prosseguirmos, vamos entender duas coisas acerca do terminal que irá nos ajudar na próxima tarefa: 
+
+- Quando a gente clica no ícone da **lixeira**, nosso terminal é encerrada e perdemos a execução do servidor, sendo necessário rodar `npm run dev` novamente:
+
+  ![Aula04_Figura28](imagens/Aula04_Figura28.png)
+
+- Quando clicamos no ícone do **x**, apenas fechamos o painel que contém o terminal sem perder execução do servidor. O atalho no teclado para **fechar** o terminal e também **abrí-lo** novamente é **Control + J**. :wink:
+
+  ![Aula04_Figura29](imagens/Aula04_Figura29.png)
+
+A segunda coisa que precisamos entender é que o terminal nos ajuda em muitos sentidos. Se passarmos o mouse em cima de **localhost:3000** e segurarmos a tecla **Control** no teclado, ele abre automaticamente uma nova tela no navegador:
+
+![Aula04_Figura30](imagens/Aula04_Figura30.png)
+
+Experimente! :wink:
 
