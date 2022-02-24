@@ -496,3 +496,23 @@ A segunda coisa que precisamos entender é que o terminal nos ajuda em muitos se
 
 Experimente! :wink:
 
+<!-- 40:07 -->
+
+### Fazendo requisições com o Thunder
+
+Enquanto pessoas desenvolvedoras _Back-end_, mexemos muito pouco com interfaces gráficas. Não é correto realizarmos nossos testes e saber se as coisas estão acontecendo como gostaríamos pelo navegador.
+
+Para nos auxiliar nisso, o VS Code conta com uma extensão maraviGold chamada **Thunder**, vamos instalá-la clicando no ícone de extensões ou utilizando o atalho **Control + Shift + x**:
+
+![Aula04_Figura31](imagens/Aula04_Figura31.png)
+
+Na barra de pesquisa digite **Thunder** e selecione o ícone abaixo, clicando em **Instalar**:
+
+![Aula04_Figura32](imagens/Aula04_Figura32.png)
+
+Após a instalação, o _thunder_ fica disponível pra gente na barra:
+
+![Aula04_Figura33](imagens/Aula04_Figura33.png)
+
+<!-- 41:05 -->
+
