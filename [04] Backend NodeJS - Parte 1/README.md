@@ -410,14 +410,14 @@ E, adicione:
 Salve o arquivo, vá até o terminal e digite:
 
 ``` bash
-npm start
+npm run start
 ```
 
 ![Aula04_Figura25](imagens/Aula04_Figura25.png)
 
-Note que agora não precisamos mais digitar o comando `node index.js` para executar nosso servidor, e sim, `npm start`. 
+Nós configuramos o comando `node index.js` para ser executado todas as vezes que digitamos `npm run start`.
 
-Para o nosso servidor ser executado com o _nodemon_, precisamos fazer mais uma alteração no arquivo `package.json` na parte de **scripts**:
+Agora,  precisamos colocar _nodemon_ no meio dessa execução. Vamos fazer mais uma alteração no arquivo `package.json` na parte de **scripts**:
 
 ```json
 "scripts": {
@@ -433,3 +433,33 @@ npm run dev
 ```
 
 <!-- 38:00 -->
+
+![Aula04_Figura26](imagens/Aula04_Figura26.png)
+
+A linha verde nos indica que o _nodemon_ está executando nosso servidor com sucesso. Antes, contudo, precisamos entender algumas coisas.
+
+Anteriormente dissemos que o **npm** é um gerenciador de pacotes e agora, estamos percebendo que é possível fazer mais coisas com ele!
+
+A grosso modo... quando utilizamos `npm run`, uma espécie de interface é disponibilizada e onde podemos configurar diversas formas de execução do servidor. 
+
+Estas configurações são feitas e lidas pelo **npm** ali na parte de scripts do arquivo `package.json`. Portanto:
+
+- `npm run start` executa o comando **node index.js**, e;
+- `npm run dev` executa o comando **nodemon index.js**.
+
+Quando o _nodemon_ é executado, as coisas abaixo acontecem:
+
+- Na primeira linha temos a versão do pacote;
+- Na segunda recebemos a informação de que para reiniciar o serviço, basta digitar `rs`;
+- Na terceira linha ele fica procurando alterações em arquivos **.js, .mjs e .json**, e;
+- Por fim, na quarta linha, o servidor é iniciado.
+
+Ainda sim, a saída deste terminal gera um um tanto de desconforto porque quase nenhuma informação a mais é passada pra gente. Vamos dar uma melhorada nisso!
+
+No arquivo `index.js` a gente configurou o servidor para ouvir na porta 3000. Vamos fazer com que nosso terminal nos diga isto adicionando as configurações a seguir:
+
+```javascript
+```
+
+
+
