@@ -516,3 +516,14 @@ Após a instalação, o _thunder_ fica disponível pra gente na barra:
 
 <!-- 41:05 -->
 
+Clicando em **New Request**, o VS Code abre pra gente uma tela cheia de coisas e o mais interessante neste momento, é a URL **https://www.thunderclient.com/welcome**. Vamos clicar no botão **Send** e ver o que acontece:
+
+![Aula04_Figura34](imagens/Aula04_Figura34.png)
+
+A resposta parece bastante com algo que já vimos até aqui, um **json**:
+
+![Aula04_Figura35](imagens/Aula04_Figura35.png)
+
+Desde já, é um formato que vamos nos acostumando a trabalhar, pois utilizaremos muito como forma de enviar e receber informações entre APIs. :wink:
+
+<!-- 41:50 -->
