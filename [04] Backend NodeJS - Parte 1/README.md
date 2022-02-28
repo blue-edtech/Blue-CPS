@@ -603,3 +603,263 @@ Segundo o <a href="https://pt.stackoverflow.com/questions/488912/qual-a-diferen%
 
 <!-- 46:40 -->
 
+Agora que entendemos a diferença entre CRUD e uma requisição _HTTP_, vamos configurar nossa API para **persistir os dados em um simples arquivo JSON** antes de evoluir para o banco de dados.
+
+Este processo é importante para vermos na prática se entendemos os conceitos acima. :wink:
+
+Tal qual Jack, vamos por partes... se temos uma requisição _HTTP_ para cada operação CRUD, vamos precisar de uma única rota para cada requisição.
+
+No arquivo `index.js` vamos adicionar comentários no código de forma a nos apoiar no que vamos fazer:
+
+```javascript
+const express = require('express');
+const app = express();
+
+// Rotas da minha API
+
+// 1 - Método HTTP GET - Operação Read
+
+app.get('/', function (req, res) {
+  res.send({
+    message: 'Home'
+  });
+});
+
+// 2 - Método HTTP POST - Operação Create
+
+// 3 - Método HTTP PUT - Operação Update
+
+// 4 - Método HTTP DELETE - Operação Delete
+
+app.listen(3000, () => {
+  console.log("Servidor rodando em http://localhost:3000");
+});
+
+```
+
+Até aqui, nós vimos como enviar uma mensagem através do Thunder e para alcançar nosso primeiro resultado, que é enviar uma lista de personagens armazenados em **memória**, precisamos preparar nossa rota `app.get` para mostrar essa informação na tela.
+
+Vamos entender isso através de um simples _array_, ou seja, uma lista:
+
+``` javascript
+const express = require('express');
+const app = express();
+
+// Array contendo os personagens
+
+const characters = [2, 3, 4, 5];
+
+// Rotas da minha API
+
+// 1 - Método HTTP GET - Operação Read
+
+app.get('/', function (req, res) {
+  res.send(characters); // Adicionando o Array na resposta para ser exibida na tela
+});
+
+// 2 - Método HTTP POST - Operação Create
+
+// 3 - Método HTTP PUT - Operação Update
+
+// 4 - Método HTTP DELETE - Operação Delete
+
+app.listen(3000, () => {
+  console.log("Servidor rodando em http://localhost:3000");
+});
+
+```
+
+Ao realizar a requisição, a resposta é exatamente a nossa lista:
+
+![Aula04_Figura38](imagens/Aula04_Figura38.png)
+
+Entretanto, novamente a resposta não é um _JSON_ e sim uma lista de números. Para facilitar o nosso trabalho, vamos configurar o _Express_ para sempre nos retornar a resposta em um _JSON_.
+
+```javascript
+const express = require('express');
+const app = express();
+
+app.use(express.json());
+```
+
+Onde `app.use` é uma função que diz para a aplicação utilizar `app.json()`, que também é uma função, em todas as respostas e requisições. :wink:
+
+Vamos testar:
+
+![Aula04_Figura39](imagens/Aula04_Figura39.png)
+
+Ué!? Parece que o trem tá doido, mas tá não. :smiley:
+
+Lembra que anteriormente nós criamos um **objeto** e que ao fazer isso a resposta na tela retornou em formato _JSON_? Exatamente, precisamos transformar esta lista numa lista de objetos:
+
+```javascript
+const characters = [
+  { number: 2 },
+  { number: 3 }, 
+  { number: 4 }, 
+  { number: 5 }
+];
+```
+
+Onde:
+
+- **number** representa a _key_, e;
+- Cada um dos números, um valor.
+
+Vamos testar novamente:
+
+![Aula04_Figura40](imagens/Aula04_Figura40.png)
+
+Para uma lista de objetos, cada um dos números **representa um único objeto** diferente.
+
+O número **2** é par e tem seu formato único. O mesmo acontece com cada dígito do nosso sistema atual de números.
+
+Com isso em mente, cada personagem do _Harry Potter_ em nossa lista, será um objeto com:
+
+- Nome;
+- Espécie;
+- Casa, e;
+- Ator que interpreta o personagem.
+
+Vamos começar pelo próprio _Harry_: 
+
+```javascript
+const characters = [
+  { 
+    name: 'Harry Potter',
+    specie: 'Human',
+    house: 'Gryffindor',
+    portrayedBy: 'Daniel Radcliffe'
+  },
+];
+```
+
+E ver como ficou nossa requisição:
+
+![Aula04_Figura41](imagens/Aula04_Figura41.png)
+
+Ótimo, o _Express_ está transformando nosso objeto num _JSON_, colocando aspas também nas chaves, e exibindo o resultado que esperamos na tela. 
+
+Vamos adicionar mais um personagem à nossa lista e um detalhe importante em cada um deles:
+
+```javascript
+const characters = [
+  { 
+    id: 1,
+    name: 'Harry Potter',
+    specie: 'Human',
+    house: 'Gryffindor',
+    portrayedBy: 'Daniel Radcliffe'
+  }, // Após esta vírgula, adicionamos a personagem abaixo
+  { 
+    id: 2,
+    name: 'Hermione Granger',
+    specie: 'Human',
+    house: 'Gryffindor',
+    portrayedBy: 'Emma Watson'
+  },
+];
+```
+
+Ao adicionarmos a _Hermione_, também colocamos **identificadores** numéricos em cada um destes personagens.
+
+Cada identificador impede que tenhamos informações duplicadas em nossa lista de objetos e também no banco de dados. 
+
+Este identificador é criado de forma **automática** pelo banco, entretanto, nós estamos utilizando dados apenas em memória e por isso, precisamos criar manualmente.
+
+Dando andamento, vamos criar nossa rota `app.post` e criar todas as rotas a partir daqui com _arrow functions_:
+
+```javascript
+// 1 - Método HTTP GET - Operação Read
+
+app.get('/', (req, res) => {
+  res.send(characters); // Adicionando o Array na resposta para ser exibida na tela
+});
+
+// 2 - Método HTTP POST - Operação Create
+
+app.post('/create', (req, res) => {
+
+});
+```
+
+Note que a estrutura de criação das rotas é semelhante. Aqui, no entanto, temos o caminho **/create** que é para onde enviaremos a requisição **POST**.
+
+Como estamos devolvendo uma requisição em _JSON_ e configuramos o _Express_ para também receber requisições neste formato, vamos ver onde colocamos isso no Thunder:
+
+![Aula04_Figura42](imagens/Aula04_Figura42.png)
+
+Seguindo as setas no sentido horário:
+
+- **Seta 1** - Mudamos o verbo _HTTP_ para **POST**;
+- **Seta 2** - Alteramos o endereço da requisição para **http://localhost:3000/create**;
+- **Seta 3** -  Dizemos ao Thunder que vamos passar uma informação através do corpo, **Body**, da requisição, e;
+- **Seta 4** - Que o formato do corpo será em _**JSON**_.
+
+Agora, vamos configurar no Thunder o que irá no corpo da requisição:
+
+```json
+{
+    "name": "Ron Weasley",
+    "specie": "Human",
+    "house": "Gryffindor",
+    "portrayedBy": "Rupert Grint"
+}
+```
+
+Também, um objeto, só que sem a informação do **ID**. Se tentarmos enviar a requisição, a mesma não será processada pois apenas criamos a rota, sem configurar o que ela deve fazer com os dados recebidos no corpo. Vamos voltar à ela:
+
+```javascript
+app.post('/create', (req, res) => {
+  const character = req.body;
+});
+```
+
+Primeiro, criamos uma variável que vai armazenar os dados que chegarão do corpo da requisição.
+
+Em seguida:
+
+```javascript
+app.post('/create', (req, res) => {
+  const character = req.body;
+
+  character.id = characters.length + 1;
+});
+```
+
+A cada novo personagem recebido na requisição, criamos um **ID** para ele:
+
+- Analisando a quantidade de objetos na lista através de `characters.lenght`e somando `+1`, e;
+- Em `characters.id` estamos enviando para o **id** o número da soma anterior.
+
+```javascript
+app.post('/create', (req, res) => {
+  const character = req.body;
+
+   character.id = characters.length + 1;
+  characters.push(character);
+});
+```
+
+Por fim, mandamos através do `characters.push`, as informações do personagem que chegam no **corpo da requisição + id**.
+
+```javascript
+app.post('/create', (req, res) => {
+  const character = req.body;
+
+   character.id = characters.length + 1;
+  characters.push(character);
+
+  res.send({message: 'Character successfully created!'}); 
+});
+```
+
+Para enfim, devolver uma resposta na tela de que o personagem foi criado com sucesso!
+
+![Aula04_Figura43](imagens/Aula04_Figura43.png)
+
+Aparentemente nossos dados foram criados com sucesso. Vamos checar através de um **GET** se a nossa lista contém todos os dados:
+
+![Aula04_Figura44](imagens/Aula04_Figura44.png)
+
+<!-- 01:00:20 -->
