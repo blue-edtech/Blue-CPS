@@ -14,9 +14,9 @@ Hoje, o nosso tema é **API**, um acrônimo em inglês para (_Application Progra
 
 Uma API permite que sua solução ou serviço se comunique com outros produtos e serviços sem precisar saber como eles foram implementados.
 
-> **_NOTA:_** Quando construímos uma API estamos disponibilizando um serviço que pode ser utilizado por qualquer outro serviço e/ou aplicação de maneira isolada.
+> ***_NOTA :clipboard: :pencil2: :_***  Quando construímos uma API estamos disponibilizando um serviço que pode ser utilizado por qualquer outro serviço e/ou aplicação de maneira isolada.
 
-> **_Curiosidade:_** Quando você ouvir/ler o termo "Consumir uma API", significa que algum serviço ou outra API está utilizando ao menos uma das funcionalidades que a API-fonte fornece.
+> ***_Curiosidade :brain: :_***  Quando você ouvir/ler o termo "Consumir uma API", significa que algum serviço ou outra API está utilizando ao menos uma das funcionalidades que a API-fonte fornece.
 
 De maneira bem simplista, podemos dividir alguns softwares em duas camadas:
 
@@ -53,7 +53,7 @@ Neste cenário:
 - Que devolve os dados que são exibidos no formulário, e;
 - Ao finalizar o preenchimento e apertando o botão de "Ok", os dados são enviados e salvos no banco de dados.
 
-> **_Importante:_** Utilizamos o termo "Persistência de Dados" para nos referir ao armazenamento de dados pelo nosso sistema após o término do processo com o qual foram criados.
+> ***_Importante :mega: :_*** Utilizamos o termo "Persistência de Dados" para nos referir ao armazenamento de dados pelo nosso sistema após o término do processo com o qual foram criados.
 
 Vale salientar que a API dos Correios se comunica com seu próprio banco de dados, onde os CEP's estão armazenados juntamente com as demais informações do logradouro.
 
@@ -82,11 +82,11 @@ Essencialmente, vamos utilizar:
 
 - **Express.js**: um <a href="https://expressjs.com/en/starter/installing.html" target="_blank">framework</a> para Node.js que fornece recursos mínimos para construção de servidores web
 
-  > **_NOTA:_** Um framework nada mais é que uma caixa de ferramentas que nos ajuda a escrever códigos, reutilizando o que ele nos fornece de forma simples, rápida e eficiente.
+  > ***_NOTA :clipboard: :pencil2: :_***  Um framework nada mais é que uma caixa de ferramentas que nos ajuda a escrever códigos, reutilizando o que ele nos fornece de forma simples, rápida e eficiente.
 
 - **MongoDB**: um <a href="https://www.mongodb.com/pt-br" target="_blank">banco de dados</a> não-relacional (**NoSQL**) orientado a documentos
 
-  > **_NOTA:_** Quando nos utilizamos do termo "SQL" nos referimos à linguagem e **NoSQL** fala sobre uma base que não é somente SQL. Caso queira saber mais sobre isso, leita <a href="https://blog.geekhunter.com.br/sql-nosql-newsql-qual-banco-de-dados-usar/" target="_blank">este texto.</a>
+  > ***_NOTA :clipboard: :pencil2: :_***  Quando nos utilizamos do termo "SQL" nos referimos à linguagem e **NoSQL** fala sobre uma base que não é somente SQL. Caso queira saber mais sobre isso, leita <a href="https://blog.geekhunter.com.br/sql-nosql-newsql-qual-banco-de-dados-usar/" target="_blank">este texto.</a>
 
 Inicialmente o **JavaScript** foi criado para ser executado no _Front-end_ e com a criação do Node.js, hoje podemos escrever códigos no lado do servidor e para facilitar esta escrita, o _Express_ nos ajuda.
 
@@ -149,7 +149,7 @@ Onde:
 
 A API que estamos começando a construir, servirá dados dos personagens de **Harry Potter**. 
 
-> **_DICA:_** Pause o vídeo e/ou leitura para adicionar tantos personagens quanto lembrar. Aqui, nós te ensinamos o beabá e ficamos muito felizes quando nossos alunos nos mostram o que fizeram a mais. 
+> ***_NOTA :clipboard: :pencil2: :_***  Pause o vídeo e/ou leitura para adicionar tantos personagens quanto lembrar. Aqui, nós te ensinamos o beabá e ficamos muito felizes quando nossos alunos nos mostram o que fizeram a mais. 
 
 Para iniciar nosso projeto em Node.js, vamos digitar no terminal o comando `npm init`
 
@@ -192,11 +192,11 @@ Ao término, note que um arquivo chamado `package.json` foi criado, e ao abrirmo
 
 O formato de arquivo **JSON** se refere a _JavaScript Object Notation_, ou seja, **uma forma de escrever arquivos JavaScript como objetos** e, atualmente é a forma mais simples e leve de **transmitir** e **solicitar** informações entre APIs.
 
-> **_DICA_:** Você pode ler um pouco mais ~~prometo que é só um pouco~~ sobre JSON, clicando neste <a href="https://www.alura.com.br/artigos/o-que-e-json" target="_blank">link.</a>
+> ***_NOTA :clipboard: :pencil2: :_***  Você pode ler um pouco mais ~~prometo que é só um pouco~~ sobre JSON, clicando neste <a href="https://www.alura.com.br/artigos/o-que-e-json" target="_blank">link.</a>
 
 A importância deste arquivo para a nossa aplicação é que nele configuramos os _scripts_ de testes, acompanhamos tudo o que é instalado para o correto funcionamento da API e sua configuramos sua forma de funcionar. :wink:
 
-> **_IMPORTANTE_**: o `package.json` fala sobre a configuração da API local, ou seja, a que estamos configurando. De forma alguma enviamos ou recebemos este arquivo entre APIs.
+> ***_Importante :mega: :_*** o `package.json` fala sobre a configuração da API local, ou seja, a que estamos configurando. De forma alguma enviamos ou recebemos este arquivo entre APIs.
 
 ## O Primeiro 'Olá mundo!' com Express
 
@@ -267,7 +267,7 @@ Caso tenha dado algum erro na execução, busque por falhas de escrita no códig
 
 ![Aula04_Figura17](imagens/Aula04_Figura17.png)
 
-> **_DICA:_** Ao clicar em **Arquivo** o VS Code nos dá uma opção de **Salvamento Automático**. Caso seu computador seja mais simples, sugiro não utilizar essa opção com o **nodemon**, que instalaremos em breve, para não sobrecarregar a execução do terminal. :wink:
+> ***_NOTA :clipboard: :pencil2: :_***  Ao clicar em **Arquivo** o VS Code nos dá uma opção de **Salvamento Automático**. Caso seu computador seja mais simples, sugiro não utilizar essa opção com o **nodemon**, que instalaremos em breve, para não sobrecarregar a execução do terminal. :wink:
 
 Após rodar o comando acima, não recebemos nada na saída do terminal, pois **apenas pedimos** ao Node para escutar na porta `3000`. 
 
@@ -330,7 +330,7 @@ app.get('/ola', function (req, res) {
 app.listen(3000)
 ```
 
-> **_DICA:_** Usamos sempre // para realizar comentários no código e estes não são executados pela aplicação. :wink: 
+> ***_NOTA :clipboard: :pencil2: :_***  Usamos sempre // para realizar comentários no código e estes não são executados pela aplicação. :wink: 
 
 Salve o arquivo e digite `node index.js` novamente, vá até o navegador e digite **localhost:3000/ola**
 
@@ -344,7 +344,7 @@ Interessante notar o que acontece no navegador se tentarmos acessar novamente **
 
 O navegador já considera que após o 3000 já existe uma **"/"** , chamando ela no `app.get()` e que neste momento, já não existe mais pois alteramos a rota para receber **"/ola"**.
 
-> **_IMPORTANTE:_** Quando usamos o termo **rota** em API, estamos nos referindo a um "caminho" que é chamado por outra API ou um cliente, como o navegador por exemplo, e que responde com alguma configuração que fizermos.
+> ***_Importante :mega: :_*** Quando usamos o termo **rota** em API, estamos nos referindo a um "caminho" que é chamado por outra API ou um cliente, como o navegador por exemplo, e que responde com alguma configuração que fizermos.
 >
 > Cada rota pode ter uma ou mais funções, realizar cálculos e devolver a respostas para a tela, enfim... podemos fazer **n** coisas em uma rota. 
 >
@@ -472,7 +472,7 @@ Aqui, estamos passando mais alguns parâmetros para a função `app.listen()`:
 - Uma _arrow function_ `() => { }` que:
   - Devolve pra tela através do `console.log()` a mensagem **Servidor rodando em http://localhost:3000**
 
-> **_DICA:_** Você pode explorar mais sobre <a href="https://www.youtube.com/watch?v=mc3TKp2XzhI" target="_blank">funções</a> nesta aula maraviGold do professor Guanabara :heartbeat: ou ler mais a respeito na própria <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Functions" target="_blank">documentação</a>
+> ***_NOTA :clipboard: :pencil2: :_***  Você pode explorar mais sobre <a href="https://www.youtube.com/watch?v=mc3TKp2XzhI" target="_blank">funções</a> nesta aula maraviGold do professor Guanabara :heartbeat: ou ler mais a respeito na própria <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Functions" target="_blank">documentação</a>
 
 Salve o arquivo e vamos ver a saída em nosso terminal:
 
@@ -562,7 +562,7 @@ Em ambas as rotas:
 - Usamos o parâmetro **message** como chave para o nosso objeto, e;
 - O valor **'Home'** como chave para a rota **/** e, **'Olá mundo!'** para a rota **/ola**
 
-> **_DICA:_** Caso queira entender melhor sobre Objetos com JavaScript, <a href="https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Objects/Basics" target="_blank">clique aqui</a>. Não entraremos neste tema para esta aula.
+> ***_NOTA :clipboard: :pencil2: :_***  Caso queira entender melhor sobre Objetos com JavaScript, <a href="https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Objects/Basics" target="_blank">clique aqui</a>. Não entraremos neste tema para esta aula.
 
 Vamos novamente salvar o arquivo e apertar o botão **Send** no Thunder para ver a nova resposta:
 
@@ -574,7 +574,7 @@ Não entraremos no detalhe pois não é o foco desta aula. Podemos dizer que o _
 
 E, falando em protocolos, nossas requisições são feitas utilizando um dos mais conhecidos: **HTTP**. 
 
-> **_DICA:_** O pessoal do Código Fonte TV também têm um <a href="https://www.youtube.com/watch?v=hwttZtWkXTk" target="_blank">vídeo</a> super bacana sobre o tema.
+> ***_NOTA :clipboard: :pencil2: :_***  O pessoal do Código Fonte TV também têm um <a href="https://www.youtube.com/watch?v=hwttZtWkXTk" target="_blank">vídeo</a> super bacana sobre o tema.
 
 Neste momento é importante entendermos que o _HTTP_ executa algumas ações. 
 
@@ -587,7 +587,7 @@ Se lembrarmos bem de nossas aulas de português, sabemos que **um verbo fala de 
 
 O _HTTP_ conta com mais verbos, porém, para a execução de um CRUD básico, somente estes quatro são necessários.
 
->  **_DICA:_** Você pode ler um pouco mais sobre os verbos _HTTP_ clicando <a href="https://www.devmedia.com.br/servicos-restful-verbos-http/37103" target="_blank">aqui</a>
+>  ***_NOTA :clipboard: :pencil2: :_***  Você pode ler um pouco mais sobre os verbos _HTTP_ clicando <a href="https://www.devmedia.com.br/servicos-restful-verbos-http/37103" target="_blank">aqui</a>
 
 Atente-se aqui que CRUD **não é** o mesmo que realizar requisições _HTTP_, esta é um equívoco que cometemos.
 
@@ -916,7 +916,7 @@ Para enfim, devolver uma resposta na tela de que o personagem foi criado com suc
 
 Aparentemente nossos dados foram criados com sucesso. Vamos checar através de um **GET** se a nossa lista contém todos os dados:
 
-> **_NOTA:_** Você não precisa apagar o que está escrito em _Body_ para realizar uma requisição **_GET_**. :wink:
+> ***_NOTA :clipboard: :pencil2: :_***   Você não precisa apagar o que está escrito em _Body_ para realizar uma requisição **_GET_**. :wink:
 
 ![Aula04_Figura44](imagens/Aula04_Figura44.png)
 
@@ -1153,6 +1153,429 @@ Testando:
 
 ![Aula04_Figura46](imagens/Aula04_Figura47.png)
 
-> **_DICA:_** Nós veremos com mais detalhes o que são e o que significam os códigos de erro _HTTP_. Caso queira ir fuçando, clique <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status" target="_blank">aqui</a>.
+> ***_NOTA :clipboard: :pencil2: :_***  Nós veremos com mais detalhes o que são e o que significam os códigos de erro _HTTP_. Caso queira ir fuçando, clique <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status" target="_blank">aqui</a>.
 
 <!-- 01:10:25 -->
+
+Agora que temos a informação de como buscar um personagem pelo seu _id_, somos capazes de configurar o **_PUT_** para modificar suas propriedades:
+
+```javascript
+app.put('/character/:id', (req, res) => {
+  const id = +req.params.id;
+  const character = characters.find(c => c.id === id);
+    
+  if(!character) {
+    res.status(404).send({message: 'Character not found!'});
+    return;
+  }
+
+});
+```
+
+Até aqui, a única novidade é o `app.put`. Vamos codificar como a alteração das propriedades serão feitas:
+
+```javascript
+const newCharacter = req.body;
+```
+
+Criamos uma variável para armazenar os dados vindo da requisição e quebrá-los posteriormente:
+
+```javascript
+character.name = newCharacter.name;
+character.specie = newCharacter.specie;
+character.house = newCharacter.house;
+character.portrayedBy = newCharacter.portrayedBy;
+```
+
+Note que neste ponto o _PUT_ difere do _POST_. 
+
+Para que o servidor saiba exatamente qual propriedade do personagem alterar, elas devem estar separadas no código.
+
+Por fim, a resposta:
+
+```javascript
+res.status(200).send(character);
+```
+
+Ao final, seu código deverá estar assim:
+
+```javascript
+const express = require('express');
+const app = express();
+
+app.use(express.json());
+
+// Array contendo os personagens
+
+const characters = [
+  { 
+    id: 1,
+    name: 'Harry Potter',
+    specie: 'Human',
+    house: 'Gryffindor',
+    portrayedBy: 'Daniel Radcliffe'
+  },
+  { 
+    id: 2,
+    name: 'Hermione Granger',
+    specie: 'Human',
+    house: 'Gryffindor',
+    portrayedBy: 'Emma Watson'
+  },
+];
+
+// Rotas da minha API
+
+// 1 - Método HTTP GET - Operação Read
+
+app.get('/', (req, res) => {
+  res.send(characters); // Adicionando o Array na resposta para ser exibida na tela
+});
+
+// 1.1 - Método HTTP GET - Operação Read or ID
+
+app.get('/character/:id', (req, res) => {
+  const id = +req.params.id;
+  const character = characters.find(c => c.id === id);
+
+  if(!character) {
+    res.status(404).send({message: 'Character not found!'});
+    return;
+  }
+
+  res.send(character);
+});
+
+// 2 - Método HTTP POST - Operação Create
+
+app.post('/create', (req, res) => {
+  const character = req.body;
+
+  character.id = characters.length + 1;
+  characters.push(character);
+
+  res.send({message: 'Character successfully created!'}); 
+});
+
+// 3 - Método HTTP PUT - Operação Update
+
+app.put('/character/:id', (req, res) => {
+  const id = +req.params.id;
+  const character = characters.find(c => c.id === id);
+
+  if(!character) {
+    res.status(404).send({message: 'Character not found!'});
+    return;
+  }
+
+  const newCharacter = req.body;
+
+  character.name = newCharacter.name;
+  character.specie = newCharacter.specie;
+  character.house = newCharacter.house;
+  character.portrayedBy = newCharacter.portrayedBy;
+
+  res.status(200).send(character);
+});
+
+// 4 - Método HTTP DELETE - Operação Delete
+
+app.listen(3000, () => {
+  console.log("Servidor rodando em http://localhost:3000");
+});
+
+```
+
+Vamos testar, colocando no **id de número 2** as informações e o personagem **Ron Weasley**:
+
+![Aula04_Figura48](imagens/Aula04_Figura48.png)
+
+A requisição deu certo. Vamos dar um _GET_ em **/** para retornar a lista atualizada:
+
+![Aula04_Figura49](imagens/Aula04_Figura49.png)
+
+Com tudo funcionado, podemos otimizar nosso código:
+
+```javascript
+const { name, specie, house, portrayedBy } = req.body;
+
+character.name = name;
+character.specie = specie;
+character.house = house;
+character.portrayedBy = portrayedBy;
+```
+
+Onde cada _key_ do objeto se torna uma variável, ou seja, cada propriedade do personagem é diretamente modificada sem antes ser armazenada em uma única variável `newCharacter` para depois quebrada e realizar a modificação que mandamos no corpo da requisição. :wink:
+
+O nome que damos para esse desmonte é **desestruturação de objetos**, e você pode ler mais sobre isso clicando <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment" target="_blank">aqui</a>.
+
+Seu código ao final, deve estar assim:
+
+```javascript
+const express = require('express');
+const app = express();
+
+app.use(express.json());
+
+// Array contendo os personagens
+
+const characters = [
+  { 
+    id: 1,
+    name: 'Harry Potter',
+    specie: 'Human',
+    house: 'Gryffindor',
+    portrayedBy: 'Daniel Radcliffe'
+  },
+  { 
+    id: 2,
+    name: 'Hermione Granger',
+    specie: 'Human',
+    house: 'Gryffindor',
+    portrayedBy: 'Emma Watson'
+  },
+];
+
+// Rotas da minha API
+
+// 1 - Método HTTP GET - Operação Read
+
+app.get('/', (req, res) => {
+  res.send(characters); // Adicionando o Array na resposta para ser exibida na tela
+});
+
+// 1.1 - Método HTTP GET - Operação Read or ID
+
+app.get('/character/:id', (req, res) => {
+  const id = +req.params.id;
+  const character = characters.find(c => c.id === id);
+
+  if(!character) {
+    res.status(404).send({message: 'Character not found!'});
+    return;
+  }
+
+  res.send(character);
+});
+
+// 2 - Método HTTP POST - Operação Create
+
+app.post('/create', (req, res) => {
+  const character = req.body;
+
+  character.id = characters.length + 1;
+  characters.push(character);
+
+  res.send({message: 'Character successfully created!'}); 
+});
+
+// 3 - Método HTTP PUT - Operação Update
+
+app.put('/character/:id', (req, res) => {
+  const id = +req.params.id;
+  const character = characters.find(c => c.id === id);
+
+  if(!character) {
+    res.status(404).send({message: 'Character not found!'});
+    return;
+  }
+
+  const { name, specie, house, portrayedBy } = req.body;
+
+  character.name = name;
+  character.specie = specie;
+  character.house = house;
+  character.portrayedBy = portrayedBy;
+
+  res.status(200).send(character);
+});
+
+// 4 - Método HTTP DELETE - Operação Delete
+
+app.listen(3000, () => {
+  console.log("Servidor rodando em http://localhost:3000");
+});
+
+```
+
+Testando:
+
+![Aula04_Figura50](imagens/Aula04_Figura50.png)
+
+Podemos ver que conseguimos alterar as propriedades do nosso personagem com o código otimizado:
+
+![Aula04_Figura51](imagens/Aula04_Figura51.png)
+
+Por fim, o método **DELETE**:
+
+```javascript
+app.delete('/character/:id', (req, res) => {
+  const id = +req.params.id;
+  const character = characters.find(c => c.id === id);
+
+  if(!character) {
+    res.status(404).send({message: 'Character not found!'});
+    return;
+  }
+
+});
+```
+
+Utilizamos o mesmo bloco de código do _PUT_ e _POST_.
+
+Tendo o _id_ do objeto que queremos em mãos, precisamos encontrar sua posição na **lista**, que neste caso, são duas coisas diferentes:
+
+```javascript
+const indexCharacter = characters.indexOf(character);
+```
+
+Deletar o personagem que se encontra nesta posição, na lista:
+
+```javascript
+delete characters[indexCharacter];
+```
+
+E retornar uma mensagem de que a operação foi bem sucedida:
+
+```javascript
+res.status(200).send({message: 'Character sucessfully removed!'});
+```
+
+Ao final, seu código deverá estar assim:
+
+```javascript
+const express = require('express');
+const app = express();
+
+app.use(express.json());
+
+// Array contendo os personagens
+
+const characters = [
+  { 
+    id: 1,
+    name: 'Harry Potter',
+    specie: 'Human',
+    house: 'Gryffindor',
+    portrayedBy: 'Daniel Radcliffe'
+  },
+  { 
+    id: 2,
+    name: 'Hermione Granger',
+    specie: 'Human',
+    house: 'Gryffindor',
+    portrayedBy: 'Emma Watson'
+  },
+];
+
+// Rotas da minha API
+
+// 1 - Método HTTP GET - Operação Read
+
+app.get('/', (req, res) => {
+  res.send(characters); // Adicionando o Array na resposta para ser exibida na tela
+});
+
+// 1.1 - Método HTTP GET - Operação Read or ID
+
+app.get('/character/:id', (req, res) => {
+  const id = +req.params.id;
+  const character = characters.find(c => c.id === id);
+
+  if(!character) {
+    res.status(404).send({message: 'Character not found!'});
+    return;
+  }
+
+  res.send(character);
+});
+
+// 2 - Método HTTP POST - Operação Create
+
+app.post('/create', (req, res) => {
+  const character = req.body;
+
+  character.id = characters.length + 1;
+  characters.push(character);
+
+  res.send({message: 'Character successfully created!'}); 
+});
+
+// 3 - Método HTTP PUT - Operação Update
+
+app.put('/character/:id', (req, res) => {
+  const id = +req.params.id;
+  const character = characters.find(c => c.id === id);
+
+  if(!character) {
+    res.status(404).send({message: 'Character not found!'});
+    return;
+  }
+
+  const { name, specie, house, portrayedBy } = req.body;
+
+  character.name = name;
+  character.specie = specie;
+  character.house = house;
+  character.portrayedBy = portrayedBy;
+
+  res.status(200).send(character);
+});
+
+// 4 - Método HTTP DELETE - Operação Delete
+
+app.delete('/character/:id', (req, res) => {
+  const id = +req.params.id;
+  const character = characters.find(c => c.id === id);
+
+  if(!character) {
+    res.status(404).send({message: 'Character not found!'});
+    return;
+  }
+
+  const indexCharacter = characters.indexOf(character);
+  delete characters[indexCharacter];
+
+  res.status(200).send({message: 'Character sucessfully removed!'});
+});
+
+app.listen(3000, () => {
+  console.log("Servidor rodando em http://localhost:3000");
+});
+
+```
+
+Vamos testar removendo o personagem com **id de número 2**:
+
+![Aula04_Figura52](imagens/Aula04_Figura52.png)
+
+E quando buscamos a lista completa:
+
+![Aula04_Figura53](imagens/Aula04_Figura53.png)
+
+Recebemos um **null**, ou seja, um valor nulo na segunda posição. Em se tratando de uma API é algo que também precisa ser devidamente tratado e corrigido para que ao persistir os dados em um banco, sua consistência esteja íntegra. Em `app.get`, adicione:
+
+```javascript
+app.get('/', (req, res) => {
+  res.send(characters.filter(Boolean));
+});
+```
+
+Onde a função `filter()` vai retornar todos os itens da lisa que não nulos.
+
+Salve o arquivo, faça a remoção do personagem de id 2 novamente e dê um _GET_:
+
+![Aula04_Figura54](imagens/Aula04_Figura54.png)
+
+Prontinho, nossa API retornou a lista de objetos sem nenhuma inconsistência.
+
+## Para Treinar
+
+Finalizamos a nossa API, porém, algumas melhorias ainda podem ser feitas no código:
+
+- Padronização no caminho das rotas;
+- Padronização das respostas com o número e a mensagem correta
+
+Assim que finalizar estas modificações, comente em nosso vídeo.
+
+Obrigada por ter vindo até aqui e até a volta! :blue_heart:
