@@ -847,11 +847,67 @@ Por fim, mandamos através do `characters.push`, as informações do personagem 
 app.post('/create', (req, res) => {
   const character = req.body;
 
-   character.id = characters.length + 1;
+  character.id = characters.length + 1;
   characters.push(character);
 
   res.send({message: 'Character successfully created!'}); 
 });
+```
+
+Ao final, seu código deverá estar assim:
+
+```javascript
+const express = require('express');
+const app = express();
+
+app.use(express.json());
+
+// Array contendo os personagens
+
+const characters = [
+  { 
+    id: 1,
+    name: 'Harry Potter',
+    specie: 'Human',
+    house: 'Gryffindor',
+    portrayedBy: 'Daniel Radcliffe'
+  },
+  { 
+    id: 2,
+    name: 'Hermione Granger',
+    specie: 'Human',
+    house: 'Gryffindor',
+    portrayedBy: 'Emma Watson'
+  },
+];
+
+// Rotas da minha API
+
+// 1 - Método HTTP GET - Operação Read
+
+app.get('/', (req, res) => {
+  res.send(characters); // Adicionando o Array na resposta para ser exibida na tela
+});
+
+// 2 - Método HTTP POST - Operação Create
+
+app.post('/create', (req, res) => {
+  const character = req.body;
+
+  character.id = characters.length + 1;
+  characters.push(character);
+
+  res.send({message: 'Character successfully created!'}); 
+});
+
+// 3 - Método HTTP PUT - Operação Update
+
+// 4 - Método HTTP DELETE - Operação Delete
+
+app.listen(3000, () => {
+  console.log("Servidor rodando em http://localhost:3000");
+});
+
 ```
 
 Para enfim, devolver uma resposta na tela de que o personagem foi criado com sucesso!
@@ -860,6 +916,243 @@ Para enfim, devolver uma resposta na tela de que o personagem foi criado com suc
 
 Aparentemente nossos dados foram criados com sucesso. Vamos checar através de um **GET** se a nossa lista contém todos os dados:
 
+> **_NOTA:_** Você não precisa apagar o que está escrito em _Body_ para realizar uma requisição **_GET_**. :wink:
+
 ![Aula04_Figura44](imagens/Aula04_Figura44.png)
 
+Perfeito! Nossos dados foram devidamente retornados com todas as informações.
+
+Não se preocupe com o _id_ do terceiro objeto aparecendo por último. O dado em si, que está dentro do objeto, é o que nos importa.
+
 <!-- 01:00:20 -->
+
+Para os próximos verbos, nós iremos necessitar manipular cada objeto, cada personagem, individualmente. Neste momento, poder fazer uma requisição buscando pelo _id_ se faz pertinente.
+
+Vamos criar uma rota que nos retorne as informações de cada personagem individualmente:
+
+```javascript
+// 1.1 - Método HTTP GET - Operação Read or ID
+
+app.get('/character/:id', (req, res) => {
+
+});
+```
+
+Novamente, estamos utilizando a função `app.get` criando a rota **/character/:id**
+
+O _Express_ entende que utilizando os **":"** alguma informação virá com a requisição. No nosso caso, o **id** do personagem que queremos as informações.
+
+```javascript
+app.get('/character/:id', (req, res) => {
+  const id = req.params.id;
+});
+```
+
+Aqui, estamos armazenando o _id_ recebido na requisição dentro de uma variável.
+
+> **_IMPORTANTE:_** O nome do parâmetro que você utilizar após os ":" na requisição, deve sempre ser o mesmo após `req.params` para que a busca seja feita de forma assertiva.
+
+Entretanto, o que chega através da nossa requisição é uma _**string**_ e a informação de _id_ que consta dentro do nosso objeto é um **número**. Precisamos fazer uma conversão:
+
+```javascript
+// 1.1 - Método HTTP GET - Operação Read or ID
+
+app.get('/character/:id', (req, res) => {
+  const id = +req.params.id;
+});
+```
+
+Em _JavaScript_ essa conversão pode ser feita facilmente através da inserção do **+** antes de `req.params`.
+
+Com o _id_ em mãos, precisamos buscá-lo na nossa lista de objetos:
+
+```javascript
+const character = characters.find(c => c.id === id);
+```
+
+Onde `c` representa cada personagem na lista.
+
+- `characters.find()` é uma função _JavaScript_ que percorrerá a lista de personagens;
+- Buscando por `c.id`, ou seja, o _id_ daquele personagem;
+- Comparando `=== id` com o _id_ recebido na requisição, e;
+- Quando a comparação é bem sucedida, o objeto inteiro é armazenado dentro da variável `character`.
+
+Com as informações armazenadas, agora precisamos responder na tela com um resultado: as informações daquele personagem:
+
+```javascript
+res.send(character);
+```
+
+Ao final, seu código deverá estar assim:
+
+```javascript
+const express = require('express');
+const app = express();
+
+app.use(express.json());
+
+// Array contendo os personagens
+
+const characters = [
+  { 
+    id: 1,
+    name: 'Harry Potter',
+    specie: 'Human',
+    house: 'Gryffindor',
+    portrayedBy: 'Daniel Radcliffe'
+  },
+  { 
+    id: 2,
+    name: 'Hermione Granger',
+    specie: 'Human',
+    house: 'Gryffindor',
+    portrayedBy: 'Emma Watson'
+  },
+];
+
+// Rotas da minha API
+
+// 1 - Método HTTP GET - Operação Read
+
+app.get('/', (req, res) => {
+  res.send(characters); // Adicionando o Array na resposta para ser exibida na tela
+});
+
+// 1.1 - Método HTTP GET - Operação Read or ID
+
+app.get('/character/:id', (req, res) => {
+  const id = +req.params.id;
+  const character = characters.find(c => c.id === id);
+
+  res.send(character);
+});
+
+// 2 - Método HTTP POST - Operação Create
+
+app.post('/create', (req, res) => {
+  const character = req.body;
+
+  character.id = characters.length + 1;
+  characters.push(character);
+
+  res.send({message: 'Character successfully created!'}); 
+});
+
+// 3 - Método HTTP PUT - Operação Update
+
+// 4 - Método HTTP DELETE - Operação Delete
+
+app.listen(3000, () => {
+  console.log("Servidor rodando em http://localhost:3000");
+});
+
+```
+
+Vamos salvar o arquivo e testar, buscando pelo **id de número 3**, o personagem que acabamos de criar:
+
+![Aula04_Figura45](imagens/Aula04_Figura45.png)
+
+Ué... a resposta veio vazia. É isso mesmo?! É sim! Lembra que anteriormente falamos que o servidor está rodando em **memória**?
+
+Todas as vezes que salvarmos o arquivo e o _nodemon_ reinicia o servidor, os dados que criamos são apagados, mantendo somente os da lista que estão configurados dentro do `index.js`. Por isso, mais pra frente vamos persistir os dados em um banco, para não sermos supreendidos novamente.
+
+Vamos então buscar pelo personagem de **id número 2** e ver o que é retornado:
+
+![Aula04_Figura46](imagens/Aula04_Figura46.png)
+
+Agora sim, a resposta que estávamos esperando! :smiley:
+
+Esse lance todo, da resposta ter dado um **200 Ok**, mas ter vindo vazia quando fizemos a requisição nos aponta um problema em nosso código.
+
+A requisição aconteceu, porém, não encontrou o que estávamos buscando e quando isso acontece o certo é respondermos na tela com uma mensagem **e** código de erro apropriados. Vamos configurar:
+
+```javascript
+if(!character) {}
+```
+
+Aqui estamos dizendo que **se (if)** o personagem não for encontrado **(!character)**, faça **{ }**
+
+```javascript
+res.status(404).send({message: 'Character not found!'});
+return;
+```
+
+Envie uma mensagem na tela e finalize a execução do código. 
+
+Ao final, seu código deverá estar assim:
+
+```javascript
+const express = require('express');
+const app = express();
+
+app.use(express.json());
+
+// Array contendo os personagens
+
+const characters = [
+  { 
+    id: 1,
+    name: 'Harry Potter',
+    specie: 'Human',
+    house: 'Gryffindor',
+    portrayedBy: 'Daniel Radcliffe'
+  },
+  { 
+    id: 2,
+    name: 'Hermione Granger',
+    specie: 'Human',
+    house: 'Gryffindor',
+    portrayedBy: 'Emma Watson'
+  },
+];
+
+// Rotas da minha API
+
+// 1 - Método HTTP GET - Operação Read
+
+app.get('/', (req, res) => {
+  res.send(characters); // Adicionando o Array na resposta para ser exibida na tela
+});
+
+// 1.1 - Método HTTP GET - Operação Read or ID
+
+app.get('/character/:id', (req, res) => {
+  const id = +req.params.id;
+  const character = characters.find(c => c.id === id);
+
+  if(!character) {
+    res.status(404).send({message: 'Character not found!'});
+    return;
+  }
+
+  res.send(character);
+});
+
+// 2 - Método HTTP POST - Operação Create
+
+app.post('/create', (req, res) => {
+  const character = req.body;
+
+  character.id = characters.length + 1;
+  characters.push(character);
+
+  res.send({message: 'Character successfully created!'}); 
+});
+
+// 3 - Método HTTP PUT - Operação Update
+
+// 4 - Método HTTP DELETE - Operação Delete
+
+app.listen(3000, () => {
+  console.log("Servidor rodando em http://localhost:3000");
+});
+
+```
+
+Testando:
+
+![Aula04_Figura46](imagens/Aula04_Figura47.png)
+
+> **_DICA:_** Nós veremos com mais detalhes o que são e o que significam os códigos de erro _HTTP_. Caso queira ir fuçando, clique <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status" target="_blank">aqui</a>.
+
+<!-- 01:10:25 -->
