@@ -527,3 +527,79 @@ A resposta parece bastante com algo que já vimos até aqui, um **json**:
 Desde já, é um formato que vamos nos acostumando a trabalhar, pois utilizaremos muito como forma de enviar e receber informações entre APIs. :wink:
 
 <!-- 41:50 -->
+
+Agora, vamos testar nosso servidor... entender o que ele nos devolve na tela. 
+
+Na barra de endereço:
+
+- Vamos remover o que está escrito;
+- Inserir o endereço do nosso servidor - **http://localhost:3000**, e;
+- Realizar a requisição apertando o botão **Send**
+
+![Aula04_Figura36](imagens/Aula04_Figura36.png)
+
+O servidor está mostrando exatamente o que configuramos nele, porém, não um JSON. 
+
+Vamos alterar nosso arquivo `index.js` para que ao acessar as rotas, uma mensagem em formato JSON seja enviada pra nós:
+
+```javascript
+app.get('/', function (req, res) {
+  res.send({
+    message: 'Home'
+  });
+});
+
+app.get('/ola', function (req, res) {
+  res.send({
+    message: 'Olá mundo!'
+  });
+});
+```
+
+Em ambas as rotas:
+
+- Usamos as chaves **{ }** para dizer ao JavaScript que vamos criar um objeto, neste caso, em JSON;
+- Usamos o parâmetro **message** como chave para o nosso objeto, e;
+- O valor **'Home'** como chave para a rota **/** e, **'Olá mundo!'** para a rota **/ola**
+
+> **_DICA:_** Caso queira entender melhor sobre Objetos com JavaScript, <a href="https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Objects/Basics" target="_blank">clique aqui</a>. Não entraremos neste tema para esta aula.
+
+Vamos novamente salvar o arquivo e apertar o botão **Send** no Thunder para ver a nova resposta:
+
+![Aula04_Figura37](imagens/Aula04_Figura37.png)
+
+Mas, Chanely, no arquivo `index.js` nós configuramos a **message** sem aspas. Como a requisição devolveu ela com as aspas?
+
+Não entraremos no detalhe pois não é o foco desta aula. Podemos dizer que o _Express_ realiza esta tarefa por debaixo dos panos e conforme vamos nos aprofundando em **protocolos**, esta maquinaria toda fica mais clara pra gente. :smile:
+
+E, falando em protocolos, nossas requisições são feitas utilizando um dos mais conhecidos: **HTTP**. 
+
+> **_DICA:_** O pessoal do Código Fonte TV também têm um <a href="https://www.youtube.com/watch?v=hwttZtWkXTk" target="_blank">vídeo</a> super bacana sobre o tema.
+
+Neste momento é importante entendermos que o _HTTP_ executa algumas ações. 
+
+Se lembrarmos bem de nossas aulas de português, sabemos que **um verbo fala de uma ação**, ou seja, o _HTTP_ se utiliza de **verbos** para realizar ações:
+
+- **GET**  - utilizado para obter um resultado;
+- **POST** - utilizado para adicionar um novo registro;
+- **PUT** - utilizado para editar os dados de um registro de que já existe, e;
+- **DELETE** - utilizado para remover um registro existente.
+
+O _HTTP_ conta com mais verbos, porém, para a execução de um CRUD básico, somente estes quatro são necessários.
+
+>  **_DICA:_** Você pode ler um pouco mais sobre os verbos _HTTP_ clicando <a href="https://www.devmedia.com.br/servicos-restful-verbos-http/37103" target="_blank">aqui</a>
+
+Atente-se aqui que CRUD **não é** o mesmo que realizar requisições _HTTP_, esta é um equívoco que cometemos.
+
+As raízes do CRUD estão em **registros relacionados a banco de dados**.
+
+As requisições _HTTP_ fala sobre um estilo de arquitetura chamado **REST**.
+
+Segundo o <a href="https://pt.stackoverflow.com/questions/488912/qual-a-diferen%C3%A7a-entre-rest-api-e-crud#:~:text=CRUD%20%C3%A9%20um%20conjunto%20de,interage%20com%20um%20sistema%20complexo." target="_blank">Stackoverflow</a>, temos a seguinte definição:
+
+> CRUD é um conjunto de operações primitivas (principalmente para bancos de dados e armazenamento de dados estáticos), enquanto o REST é um estilo de API de nível muito alto (principalmente para serviços da Web e outros sistemas "ativos").
+>
+> O primeiro manipula dados básicos, o outro interage com um sistema complexo.
+
+<!-- 46:40 -->
+
