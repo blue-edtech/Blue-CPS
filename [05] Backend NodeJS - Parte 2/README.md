@@ -20,7 +20,7 @@ Seguimos... :blue_heart:
 Vamos então, relembrar alguns conceitos que vimos na aula passada:
 
 - **MongoDB** é um <a href="https://www.mongodb.com/pt-br" target="_blank">banco de dados</a> não-relacional (**NoSQL**) orientado a documentos;
-- Quando nos utilizamos do termo "SQL" nos referimos à linguagem e **NoSQL** fala sobre uma base que não é somente SQL. Caso queira saber mais sobre isso, leita <a href="https://blog.geekhunter.com.br/sql-nosql-newsql-qual-banco-de-dados-usar/" target="_blank">este texto.</a>
+- Quando nos utilizamos do termo "SQL" nos referimos à linguagem e **NoSQL** fala sobre uma base que não é somente SQL. Caso queira saber mais sobre isso, leita <a href="https://blog.geekhunter.com.br/sql-nosql-newsql-qual-banco-de-dados-usar/" target="_blank">este texto</a>.
 
 Atualmente existem algumas formas de executar o MongoDB:
 
@@ -61,7 +61,7 @@ Enquanto aguarda a criação do banco, adicione um usuário e senha para o mesmo
 
 Criado o usuário e finalizada a criação do banco, clique em **Network Access** no menu lateral para configurar os lugares de onde nosso Banco de Dados aceitará conexões, pois na criação deixamos habilitado somente acesso local.
 
-Clique em **Add IP Address**:
+Clique em **_Add IP Address_**:
 
 ![Aula05_Figura08](imagens/Aula05_Figura08.png)
 
@@ -77,10 +77,238 @@ Aguarde até que o _status_ mude de _Pending_ para **_Active_**:
 
 > ***_Importante :mega: :_*** Todas as alterações que fazemos no site do _MongoDB Atlas_ chegam no e-mail. :wink:
 
-Clicando em **Database** no menu lateral, podemos ver que o _Cluster_ foi criado com sucesso e disponibilizado:
+Clicando em **_Database_** no menu lateral, podemos ver que o _Cluster_ foi criado com sucesso e disponibilizado:
 
 ![Aula05_Figura11](imagens/Aula05_Figura11.png)
 
 Agora podemos voltar ao código para dar início às configurações. :stuck_out_tongue_winking_eye:
 
 <!-- 19:40 -->
+
+## Conectado a API ao Banco de Dados
+
+Existem diversas formas de conectar uma API a um banco de dados e para auxiliar nesta tarefa, tem se tornado crescente o uso de uma _Object-Relational Mapping_ **_(ORM)_**, em tradução livre: mapeamento objeto-relacional.
+
+A _ORM_ se trata de uma técnica que se utiliza de Orientação a Objetos para fazer dois sistemas se comunicarem. Neste caso, precisamos fazer com que o _JavaScript_ se comunique de maneira adequada com o _MongoDB_.
+
+Através da _ORM_ conseguiremos manipular e persistir dados no banco sem necessariamente conhecer os **comandos** do _MongoDB_.
+
+>  ***_Importante :mega: :_*** Como sempre, recomendamos a leitura da documentação do _Mongoose_, basta clicar <a href="https://mongoosejs.com/docs/index.html" target="_blank">aqui</a>.
+
+Antes de irmos para o código, voltemos ao site do _MongoDB Atlas_ para pegarmos nossas credenciais. Clique em **_Connect_**:
+
+![Aula05_Figura13](imagens/Aula05_Figura13.png)
+
+Selecione a opção **_Connect your application_**:
+
+![Aula05_Figura14](imagens/Aula05_Figura14.png)
+
+E copie a _URL_ exibida na caixa de diálogo:
+
+![Aula05_Figura15](imagens/Aula05_Figura15.png)
+
+Na própria documentação eles nos informam como deve ser feita a instalação no _Noje.js_:
+
+```bash
+npm install mongoose --save
+```
+
+![Aula05_Figura12](imagens/Aula05_Figura12.png)
+
+Instalada, vamos configurar o arquivo `index.js` para realizar a conexão com o banco:
+
+```javascript
+const express = require('express');
+const app = express();
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb+srv://root:admin@cluster0.cjdgb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+
+```
+
+Onde:
+
+- Chamamos o _Mongoose_ através de `const mongoose = require('mongoose');`, e;
+
+- Realizamos a sua configuração através da função `mongoose.connect()` colocando entre **aspas** aquela _URL_ inteira que copiamos no passo anterior.
+
+  **Lembre-se de substituir o campo <password> na _URL_ copiada pela senha que configurou para seu banco de dados.**
+
+A função `mongoose.connect()`ainda recebe um segundo parâmetro que é um objeto:
+
+```javascript
+mongoose.connect(
+  "mongodb+srv://root:admin@cluster0.cjdgb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", // Segundo parâmetro após esta vírgula
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
+```
+
+Onde:
+
+- `useNewUrlParser: true` evita que o _Mongoose_ tenha problemas com a _URL_ de conexão, e;
+- `useUnifiedTopology: true` faz com que o _Mongoose_ lide com o monitoramento e reconexão do _cluster_ de forma mais eficiente.
+
+Feito isso, precisamos configurar uma mensagem nos sinalizando de que a conexão foi fechada. Para isso, vamos nos utilizar do `try{ }`:
+
+```javascript
+try {
+  mongoose.connect(
+    "mongodb+srv://root:admin@cluster0.cjdgb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    }
+  );
+  console.log('Database successfully connected!');
+} catch (err) {
+  console.log(`Connection failed with error: ${err}`);
+}
+```
+
+Ao final, as primeiras linhas do seu `index.js`deve estar assim:
+
+```javascript
+const express = require("express");
+const app = express();
+const mongoose = require("mongoose");
+
+try {
+  mongoose.connect(
+    'mongodb+srv://root:admin@cluster0.cjdgb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    }
+  );
+  console.log('Database successfully connected!');
+} catch (err) {
+  console.log(`Connection failed with error: ${err}`);
+}
+
+app.use(express.json());
+```
+
+Vamos testar:
+
+![Aula05_Figura16](imagens/Aula05_Figura16.png)
+
+Perfeito! Tudo conectando certinho. :wink:
+
+Quando falamos de bancos de dados _NoSQL_ também estamos falando de uma estrutura **Orientada a Documentos**, ou seja, este tipo de banco tem como característica conter todas as informações em um único documento.
+
+Até aqui, a gente já viu o formato de arquivo _JSON_, que é a sintaxe utilizada pelo _MongoDB_ e que retém os dados utilizando pares de **chave/valor**.
+
+Cada personagem que criarmos no banco possuirá quatro atributos/chaves:
+
+- name;
+- specie;
+- house, e;
+- portrayedBy.
+
+Cada uma destas chaves possuirá seu respectivo valor.
+
+Em _MongoDB_, cada conjunto de pares de chave/valor formam um **documento**.
+
+Um conjunto de documentos dá origem a uma **coleção**.
+
+Um conjunto de coleções, forma o **banco de dados**.
+
+Para que possamos manipular nossos documentos utilizando o _mongoose_ precisamos definir um esquema, ou seja, a estrutura de chave/valor.
+
+Esta estrutura não pode ficar dentro do `index.js` por se tratar de algo muito específico em relação ao banco de dados. Para resolver esta questão, vamos criar uma pasta chamada **_models_** e dentro dela o arquivo **_character.js_**
+
+![Aula05_Figura17](imagens/Aula05_Figura17.png)
+
+E iniciar sua configuração, chamando o _mongoose_ e criando um novo esquema:
+
+```javascript
+const mongoose =  require('mongoose');
+
+const characterSchema = new mongoose.Schema({ });
+```
+
+Como estamos usando a mesma estrutura de um _JSON_, não podemos esquecer das **{ }** para criar o esquema. :wink:
+
+```javascript
+  name: {
+    type: string,
+    require: true
+  },
+  specie: {
+    type: string,
+    require: true
+  },
+  house: {
+    type: string,
+    require: true
+  },
+  portrayedBy: {
+    type: string,
+    require: true
+  },
+```
+
+Dentro das chaves, inserimos o nome das nossas chaves: name, specie, house e portrayedBy.
+
+Cada uma dessas chaves possui:
+
+- **type**, dizendo quando o tipo de dado será inserido naquele campo, e;
+- **require**, dizendo que é obrigatório o preenchimento daquele campo na requisição.
+
+Para que a configuração deste modelo fique disponível em todo o nosso projeto, precisamos exportá-la:
+
+```javascript
+module.exports = mongoose.model('Character', characterSchema);
+```
+
+Onde:
+
+- `module.exports` é uma das funções em _JavaScript_ para exportação;
+- `mongoose.model` é uma função para exportar o módulo que criamos e demos à ela apelido de **Character** para ficar mais fácil de chamá-la, ao invés de todo o seu nome `characterSchema`.
+
+Ao final, seu arquivo `character.js` deverá estar assim:
+
+```javascript
+const mongoose = require('mongoose');
+
+const characterSchema = new mongoose.Schema({
+  name: {
+    type: string,
+    require: true,
+  },
+  specie: {
+    type: string,
+    require: true,
+  },
+  house: {
+    type: string,
+    require: true,
+  },
+  portrayedBy: {
+    type: string,
+    require: true,
+  },
+});
+
+module.exports = mongoose.model('Character', characterSchema);
+
+```
+
+Agora, vamos importar estas configurações no `index.js`:
+
+```javascript
+const Character = require("./models/character");
+```
+
+Ao final, o começo do seu `index.js` deverá estar assim:
+
+```javascript
+const express = require("express");
+const app = express();
+const mongoose = require("mongoose");
+const Character = require("./models/character");
+```
+
