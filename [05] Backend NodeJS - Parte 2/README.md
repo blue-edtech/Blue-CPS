@@ -234,20 +234,20 @@ Como estamos usando a mesma estrutura de um _JSON_, não podemos esquecer das **
 
 ```javascript
   name: {
-    type: string,
-    require: true
+    type: String,
+    require: true,
   },
   specie: {
-    type: string,
-    require: true
+    type: String,
+    require: true,
   },
   house: {
-    type: string,
-    require: true
+    type: String,
+    require: true,
   },
   portrayedBy: {
-    type: string,
-    require: true
+    type: String,
+    require: true,
   },
 ```
 
@@ -276,19 +276,19 @@ const mongoose = require('mongoose');
 
 const characterSchema = new mongoose.Schema({
   name: {
-    type: string,
+    type: String,
     require: true,
   },
   specie: {
-    type: string,
+    type: String,
     require: true,
   },
   house: {
-    type: string,
+    type: String,
     require: true,
   },
   portrayedBy: {
-    type: string,
+    type: String,
     require: true,
   },
 });
@@ -314,3 +314,140 @@ const Character = require("./models/character");
 
 <!-- 34:00 -->
 
+Como estamos utilizando um banco de dados, podemos agora remover a nossa lista de personagens do `index.js`:
+
+```javascript
+// Array contendo os personagens
+
+const characters = [
+  {
+    id: 1,
+    name: "Harry Potter",
+    specie: "Human",
+    house: "Gryffindor",
+    portrayedBy: "Daniel Radcliffe",
+  },
+  {
+    id: 2,
+    name: "Hermione Granger",
+    specie: "Human",
+    house: "Gryffindor",
+    portrayedBy: "Emma Watson",
+  },
+];
+
+```
+
+E dar início à configuração dos nosso **_endpoints_**, nossas rotas. Começaremos pelo _POST_:
+
+```javascript
+const { name, specie, house, portrayedBy } = req.body;
+```
+
+Como fizemos anteriormente, começamos por desestruturar os dados que chegam na requisição e validamos se cada um  deles está realmente preenchido:
+
+```javascript
+if (!name || !specie || !house || !portrayedBy) {
+    res.status(400).send({ message: 'All fields must be filled'});
+    return;
+}
+```
+
+Ou seja, nenhum campo deve estar vazio e caso esteja, esta é a mensagem que devolvemos.
+
+Feita a checagem, podes realizar a criação deste novo personagem no banco:
+
+````javascript
+const character = new Character({
+    name, 
+    specie, 
+    house, 
+    portrayedBy,
+});
+````
+
+Para que possamos criar um novo personagem em nosso documento, estamos utilizando a função `new Character()` que é executada em um módulo separado do `index.js`.
+
+Essa execução não é feita de forma procedural, ou seja, linha por linha, pois quando chega nesta parte do código, a criação do personagem acontece fora dele e precisamos esperar sua finalização para dar continuidade no `index.js`.
+
+Para isto, o _JavaScript_ se utiliza de uma operação chamada **_Promise_**, onde aquele pedaço de código é executado de forma assíncrona, gerando um resultado que é processado, e a sequência do código no arquivo de origem pode continuar após a sua finalização.
+
+Todas as vezes que vamos criar um novo personagem, o código no `index.js` precisa parar, esperar a execução do `character.js` e retornar. Para isso, damos o nome de **função assíncrona**.
+
+>  ***_Importante :mega: :_*** _Promise_ é um conceito essencial em _JavaScript_. Você pode ler mais sobre isso clicando <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank">aqui</a>.
+
+Dizer ao código para esperar a conclusão de uma função assíncrona, utilizamos as palavras-chave **async/await**.
+
+A `app.post()` passa a se tornar uma função assíncrona onde esperará a execução de `new Character()` para finalizar:
+
+```javascript
+// 2 - Método HTTP POST - Operação Create
+
+app.post('/create', async (req, res) => { // Criando a função assíncrona
+  const { name, specie, house, portrayedBy } = req.body;
+
+  if (!name || !specie || !house || !portrayedBy) {
+    res.status(400).send({ message: 'All fields must be filled'});
+    return;
+  }
+
+  const character = await new Character({ // Esperando a execução
+    name, 
+    specie, 
+    house, 
+    portrayedBy,
+  });
+
+  res.send({ message: 'Character successfully created!' });
+});
+
+```
+
+Após a _promise_ de criação do personagem, precisamos de uma segunda, para salvar as informações no banco:
+
+```javasc
+await character.save();
+```
+
+Ao final, seu método _POST_ deverá estar assim:
+
+```javascript
+// 2 - Método HTTP POST - Operação Create
+
+app.post('/create', async (req, res) => {
+  const { name, specie, house, portrayedBy } = req.body;
+
+  if (!name || !specie || !house || !portrayedBy) {
+    res.status(400).send({ message: 'All fields must be filled'});
+    return;
+  }
+
+  const character = await new Character({
+    name, 
+    specie, 
+    house, 
+    portrayedBy,
+  });
+
+  await character.save();
+
+  res.send({ message: 'Character successfully created!' });
+});
+
+```
+
+Com a função concluída, podemos já executar um teste no _Thunder_:
+
+![Aula05_Figura18](imagens/Aula05_Figura18.png)
+
+Feita a requisição, podemos checar a criação do dado no próprio _MongoDB Atlas_, clicando em **_Browse Collections_**:
+
+![Aula05_Figura19](imagens/Aula05_Figura19.png)
+
+Onde vemos que nossa coleção **_characters_** possui um **documento** com os dados que acabamos de criar:
+
+![Aula05_Figura20](imagens/Aula05_Figura20.png)
+
+Agora que temos nosso _endpoint_ para o _POST_ funcionando, precisamos configurar o _GET_ para retornar as informações que estão salvas no banco.
+
+<!-- 47:40 -->
