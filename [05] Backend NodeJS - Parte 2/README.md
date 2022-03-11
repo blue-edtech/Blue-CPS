@@ -678,3 +678,85 @@ Legal, nenhum personagem foi encontrado! :stuck_out_tongue_winking_eye:
 <!-- 01:12:40 -->
 
 Se você chegou até aqui e tudo está funcionando, adicione, remova e altere mais personagens. E não esqueça de fazer o _commit_ de suas alterações para o _GItHub_. :wink:
+
+## Escondendo Nossas Variáveis de Ambiente com o Dotenv
+
+Quando realizamos a configuração da conexão do _MongDB_ e da _API_ no `index.js`, deixamos algumas informações, como _login_, _senha_ e porta expostas e isso não é uma boa prática de segurança.
+
+O _Node.js_ conta com uma biblioteca chamada **_Dontenv_** que nos auxilia a esconder estas informações em um arquivo chamado _**.env**_
+
+Neste arquivo configuramos as variáveis com as informações que desejamos esconder, disponibilizando-as  por toda a aplicação, podendo chamá-las a qualquer momento.
+
+Vamos instalá-lo... No terminal, digite: 
+
+```bash
+npm install dotenv
+```
+
+![Aula05_Figura27](imagens/Aula05_Figura27.png)
+
+Vamos configurá-lo na primeira linha do `index.js`:
+
+```javascript
+require('dotenv').config();
+```
+
+E criar o arquivo `.env`:
+
+![Aula05_Figura28](imagens/Aula05_Figura28.png)
+
+E nele, faremos as seguintes configurações:
+
+```javascript
+DATABASE_URI = "mongodb+srv://root:admin@cluster0.cjdgb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+```
+
+Onde a _URI_ é a mesma do arquivo `index.js`, e nele, chamamos `DATABASE_URI` do _dotenv_:
+
+```javascript
+try {
+  mongoose.connect(
+    process.env.DATABASE_URI,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    }
+  );
+  console.log('Database successfully connected!');
+} catch (err) {
+  console.log(`Connection failed with error: ${err}`);
+}
+
+```
+
+Não se preocupe em entender `process.env.` pois é algo que roda por trás dos panos. :wink: Apenas atente-se, neste momento, que para chamarmos uma variável do _dotenv_, fazemos desta forma.
+
+> **_NOTA:_** Não esqueça de colocar o seu arquivo `.env` no `.gitignore` para que ele não seja versionado. Justamente por conter informações sensíveis, não o enviamos para o repositório e assim, escondemos no código o que é necessário. :wink:
+
+Agora, vamos fazer o mesmo com a porta, adicionando no `index.js`:
+
+```javascript
+const port = 3000 || process.env.PORT;
+```
+
+Onde adicionamos em uma variável a porta que será utilizada localmente **ou** a porta configurada no servidor que faremos o _deploy_.
+
+No final do arquivo, fazemos as modificações pertinentes:
+
+```javascript
+app.listen(port, () => {
+  console.log(`Servidor rodando em ${port}`);
+});
+
+```
+
+Vamos executar nosso servidor para ver se está tudo funcionando:
+
+![Aula05_Figura29](imagens/Aula05_Figura29.png)
+
+Feito isto, estamos prontes para realizar o _deploy_.
+
+<!-- 01:20:40 -->
+
+## Realizando _deploy_ no _Heroku_
+
