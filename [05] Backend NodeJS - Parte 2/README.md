@@ -640,3 +640,41 @@ Vamos testar:
 ![Aula05_Figura24](imagens/Aula05_Figura24.png)
 
 <!-- 01:04:40 -->
+
+Por fim, precisamos configurar o método _DELETE_.
+
+```javascript
+// 4 - Método HTTP DELETE - Operação Delete
+
+app.delete('/character/:id', async (req, res) => {
+  const { id } = req.params;
+
+  if(!mongoose.Types.ObjectId.isValid(id)){
+    res.status(400).send({message: 'ID not valid!'})
+  }
+
+  const character = await Character.findById(id);
+    
+  if(!character){
+    return res.status(404).send({message: 'Character not found!'});
+  }
+
+  await character.remove();
+
+  res.status(200).send({ message: 'Character sucessfully removed!' });
+});
+```
+
+Fizemos a validação do _id_ que chega na requisição, buscando-o no banco se for válido e removendo-o, por fim.
+
+![Aula05_Figura25](imagens/Aula05_Figura25.png)
+
+Vamos realizar um _GET_ para validar:
+
+![Aula05_Figura26](imagens/Aula05_Figura26.png)
+
+Legal, nenhum personagem foi encontrado! :stuck_out_tongue_winking_eye:
+
+<!-- 01:12:40 -->
+
+Se você chegou até aqui e tudo está funcionando, adicione, remova e altere mais personagens. E não esqueça de fazer o _commit_ de suas alterações para o _GItHub_. :wink:
