@@ -451,3 +451,192 @@ Onde vemos que nossa coleção **_characters_** possui um **documento** com os d
 Agora que temos nosso _endpoint_ para o _POST_ funcionando, precisamos configurar o _GET_ para retornar as informações que estão salvas no banco.
 
 <!-- 47:40 -->
+
+Novamente, no `index.js`:
+
+```javascript
+// 1 - Método HTTP GET - Operação Read
+
+app.get('/', async (req, res) => {
+  const characters = await Character.find();
+```
+
+Configuramos nossa chamada assíncrona e armazenamos a resposta na variável `characters`. 
+
+```javascript
+  if(characters.length === 0){
+    return res.status(404).send({message: 'No Character was found here!'})
+  }
+```
+
+Adicionando neste método _GET_ uma verificação que nos diz se nenhum personagem foi encontrado no banco.
+
+Ao final, seu método deverá estar assim:
+
+```javascript
+// 1 - Método HTTP GET - Operação Read
+
+app.get('/', async (req, res) => {
+  const characters = await Character.find();
+
+  if(characters.length === 0){
+    return res.status(404).send({message: 'No Character was found here!'})
+  }
+
+  res.send(characters.filter(Boolean));
+});
+```
+
+E, ao realizarmos o teste pelo Thunder:
+
+![Aula05_Figura21](imagens/Aula05_Figura21.png)
+
+Perfeito, os dados estão sendo retornados do banco e não teremos mais problemas em perder os dados ao parar nosso terminal, caso necessário.
+
+Vamos agora realizar a mesma mudança para nosso _GET by ID_:
+
+```javascript
+// 1.1 - Método HTTP GET - Operação Read or ID
+
+app.get('/character/:id', async (req, res) => {
+  const { id } = req.params;
+
+  if(!mongoose.Types.ObjectId.isValid(id)){
+    res.status(400).send({message: 'ID not valid!'})
+  }
+```
+
+Armazenamos numa variável o _id_ recebido na _URI_ e verificamos se ele existe, e caso não exista, devolvemos uma mensagem dizendo que este _id_ é inválido.
+
+```javascript
+const character = await Character.findById(id);
+
+if(!character){
+    return res.status(404).send({message: 'Character not found!'})
+}
+
+res.send(character);
+```
+
+Na variável de personagem armazenamos a busca realizada pela função `findById()` do próprio _mongoose_ para devolver o resultado ao final.
+
+Entretanto, antes da devolução, fazemos uma checagem para saber se aquele personagem existe ou não no banco.
+
+Ao final, seu método deverá estar como segue>
+
+```javascript
+// 1.1 - Método HTTP GET - Operação Read or ID
+
+app.get('/character/:id', async (req, res) => {
+  const { id } = req.params;
+
+  if(!mongoose.Types.ObjectId.isValid(id)){
+    res.status(400).send({message: 'ID not valid!'})
+  }
+
+  const character = await Character.findById(id);
+
+  if(!character){
+    return res.status(404).send({message: 'Character not found!'})
+  }
+
+  res.send(character);
+});
+```
+
+Ao realizar um teste busca por um _id_ inexistente, o _Thunder_ nos retorna:
+
+![Aula05_Figura22](imagens/Aula05_Figura22.png)
+
+Vamos testar com o _id_ `621f53fcbfc9ac1c393ce859`que é válido:
+
+![Aula05_Figura23](imagens/Aula05_Figura23.png)
+
+> **_NOTA:_** Ao realizar seu teste, substitua pelo _id_ que foi retornado ao utilizar o método _GET_ anteriormente.
+
+Agora que sabemos como encontrar nosso personagem, vamos configurar nosso método _PUT_ para realizar modificações:
+
+```javascript
+// 3 - Método HTTP PUT - Operação Update
+
+app.put('/character/:id', async (req, res) => {
+  const { id } = req.params;
+
+  if(!mongoose.Types.ObjectId.isValid(id)){
+    res.status(400).send({message: 'ID not valid!'})
+  }
+
+  const character = await Character.findById(id);
+
+  if(!character){
+    return res.status(404).send({message: 'Character not found!'})
+  }
+```
+
+Primeiro, procuramos se o _id_ buscado existe e é válido.
+
+```javascript
+const { name, specie, house, portrayedBy } = req.body;
+
+if (!name || !specie || !house || !portrayedBy) {
+    res.status(400).send({ message: 'All fields must be filled'});
+    return;
+}
+```
+
+Desestruturamos o que chega na requisição, aplicando a mesma verificação que fizemos no _POST_.
+
+```javascript
+character.name = name;
+character.specie = specie;
+character.house = house;
+character.portrayedBy = portrayedBy;
+
+await character.save();
+
+res.status(200).send({message: `Character sucessfully updated: ${character}`});
+```
+
+E, por fim, enviamos as modificações para o banco, a salvamos e as devolvemos na tela. 
+
+Ao final, seu método deverá estar assim:
+
+```javascript
+// 3 - Método HTTP PUT - Operação Update
+
+app.put('/character/:id', async (req, res) => {
+  const { id } = req.params;
+
+  if(!mongoose.Types.ObjectId.isValid(id)){
+    res.status(400).send({message: 'ID not valid!'})
+  }
+
+  const character = await Character.findById(id);
+
+  if(!character){
+    return res.status(404).send({message: 'Character not found!'})
+  }
+
+  const { name, specie, house, portrayedBy } = req.body;
+
+  if (!name || !specie || !house || !portrayedBy) {
+    res.status(400).send({ message: 'All fields must be filled'});
+    return;
+  }
+
+  character.name = name;
+  character.specie = specie;
+  character.house = house;
+  character.portrayedBy = portrayedBy;
+
+  await character.save();
+
+  res.status(200).send({message: `Character sucessfully updated: ${character}`});
+});
+```
+
+Vamos testar:
+
+![Aula05_Figura24](imagens/Aula05_Figura24.png)
+
+<!-- 01:04:40 -->
