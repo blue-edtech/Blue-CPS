@@ -736,7 +736,7 @@ Não se preocupe em entender `process.env.` pois é algo que roda por trás dos 
 Agora, vamos fazer o mesmo com a porta, adicionando no `index.js`:
 
 ```javascript
-const port = 3000 || process.env.PORT;
+const port = process.env.PORT || 3000;
 ```
 
 Onde adicionamos em uma variável a porta que será utilizada localmente **ou** a porta configurada no servidor que faremos o _deploy_.
@@ -759,4 +759,54 @@ Feito isto, estamos prontes para realizar o _deploy_.
 <!-- 01:20:40 -->
 
 ## Realizando _deploy_ no _Heroku_
+
+Acesse o site do <a href="https://blog.geekhunter.com.br/sql-nosql-newsql-qual-banco-de-dados-usar/" target="_blank">_Heroku_</a> e crie sua conta, caso ela não exista.
+
+![Aula05_Figura30](imagens/Aula05_Figura30.png)
+
+Em _New_ escolha a opção **_Create New App_**:
+
+![Aula05_Figura31](imagens/Aula05_Figura31.png)
+
+Escolha um nome para a sua _app_ e clique em **_create app_**:
+
+![Aula05_Figura32](imagens/Aula05_Figura32.png)
+
+Agora, conecte seu _app_ ao repositório da _API_ que criamos no _GitHub_:
+
+![Aula05_Figura33](imagens/Aula05_Figura33.png)
+
+Habilite a opção de executar um _deploy_ automaticamente todas as vezes que fizer um _push_ para seu repositóri.
+
+Cique em _**Deploy Branch**_ para iniciar o processo de _deploy_:
+
+![Aula05_Figura34](imagens/Aula05_Figura34.png)
+
+Ao finalizar, o _Heroku_ nos devolverá a seguinte mensagem e assim, disponibilizando uma _URL_ pública para o projeto. Para saber qual a sua, clique em **_View_**.
+
+![Aula05_Figura35](imagens/Aula05_Figura35.png)
+
+Agora, precisamos habilitar nossas variáveis de ambiente no _Heroku_, para que ele se conecte ao banco e à porta.
+
+Clique em **_Settings_** e em seguida **_Reveal Config Vars_**:
+
+![Aula05_Figura36](imagens/Aula05_Figura36.png)
+
+Nos campos de chave e valor, adicionamos o conteúdo do `.env` sem as aspas:
+
+![Aula05_Figura37](imagens/Aula05_Figura37.png)
+
+Perfeito! Clique em **_Open app_** para vermos se está tudo funcionando:
+
+![Aula05_Figura38](imagens/Aula05_Figura38.png)
+
+Legal! Vamos colar essa _URL_ no _Thunder_ para testar o _CRUD_:
+
+![Aula05_Figura39](imagens/Aula05_Figura39.png)
+
+Que bacana! :stuck_out_tongue_winking_eye:
+
+Ao realizar o _deploy_ temos nossa _API_ disponível na _internet_ podendo ser utilizada por qualquer pessoa e em qualquer lugar no mundo, tendo ou não o seu terminal rodando localmente. :heart:
+
+Obrigada por ter vindo até aqui e até a volta! :blue_heart:
 
